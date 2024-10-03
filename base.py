@@ -1,6 +1,6 @@
 import time, os
 from funcoes import(
-voltar,
+inserirINT, voltar,
 DecimalParaBase,
 BaseParaDecimal,
 BaseParaBase,
@@ -24,21 +24,21 @@ while True:
 
     if escolha == "1":
         os.system("cls")
-        DecPBase = DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"))
+        DecPBase = DecimalParaBase(inserirINT("Número na Base Decimal:"), inserirINT("Base Final:"))
         print(GREEN + "Número na Base Final:",DecPBase + RESET)
         print("")
         input(voltar())
     
     elif escolha == "2":
         os.system("cls")
-        BasePDec = BaseParaDecimal(input("Número:"), input("Base:"))
+        BasePDec = BaseParaDecimal(inserirINT("Número:"), inserirINT("Base:"))
         print(GREEN + "Número na Base Decimal:",BasePDec + RESET)
         print("")
         input(voltar())
     
     elif escolha == "3":
         os.system("cls")
-        BasePBase = BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"))
+        BasePBase = BaseParaBase(inserirINT("Número Inicial:"), inserirINT("Base Inicial:"), inserirINT("Base Final:"))
         print(GREEN + "Número na Base Final:",BasePBase + RESET)
         print("")
         input(voltar())

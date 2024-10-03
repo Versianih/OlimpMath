@@ -1,6 +1,6 @@
 import time, os  
 from funcoes import(
-inserir, voltar,
+inserirFLOAT, voltar,
 areaCírculo,
 areaQuadrado,
 areaTrapezio,
@@ -28,7 +28,7 @@ while True:
     # Círculo
     if escolha == "1":
         os.system("cls")
-        circulo = areaCírculo(inserir("Raio do Círculo em Metros:"))
+        circulo = areaCírculo(inserirFLOAT("Raio do Círculo em Metros:"))
         print(GREEN + "Área:",circulo,"m²" + RESET)
         print("")
         input(voltar())
@@ -36,7 +36,7 @@ while True:
     # Quadrado
     elif escolha == "2":
         os.system("cls")
-        quadrado = areaQuadrado(inserir("Lado do Quadrado em Metros:"))
+        quadrado = areaQuadrado(inserirFLOAT("Lado do Quadrado em Metros:"))
         print(GREEN + "Área:",quadrado,"m²" + RESET)
         print("")
         input(voltar())
@@ -53,13 +53,13 @@ while True:
 
         if escolhaTriangulo == "1": #Base e Altura
             os.system("cls")
-            triangulo = areaTriangulo(inserir("Base do triagulo em Metros:"), inserir("Altura do triagulo em Metros:"))
+            triangulo = areaTriangulo(inserirFLOAT("Base do triagulo em Metros:"), inserirFLOAT("Altura do triagulo em Metros:"))
             print(GREEN + "Área:",triangulo,"m²" + RESET)
             print("")
             input(voltar())
         elif escolhaTriangulo == "2": #Fórmula de Heron
             os.system("cls")
-            trianguloHeron = areaTrianguloHeron(inserir("Lado 1 do Triângulo:"), inserir("Lado 2 do Triângulo:"), inserir("Lado 3 do Triângulo:"))
+            trianguloHeron = areaTrianguloHeron(inserirFLOAT("Lado 1 do Triângulo:"), inserirFLOAT("Lado 2 do Triângulo:"), inserirFLOAT("Lado 3 do Triângulo:"))
             print(GREEN + "Área:", trianguloHeron,"m²" + RESET)
             print("")
             input(voltar())
@@ -69,7 +69,7 @@ while True:
     # Trapézio
     elif escolha == "4":
         os.system("cls")
-        trapezio = areaTrapezio(inserir("Base1 do Trapézio em Metros:"), inserir("Base2 do Trapézio em Metros"), inserir("Altura do Trapézio em Metros:"))
+        trapezio = areaTrapezio(inserirFLOAT("Base1 do Trapézio em Metros:"), inserirFLOAT("Base2 do Trapézio em Metros"), inserirFLOAT("Altura do Trapézio em Metros:"))
         print(GREEN + "Área:",trapezio,"m²" + RESET)
         print("")
         input(voltar())

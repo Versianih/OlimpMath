@@ -1,10 +1,14 @@
-import math
+import math, cmath
 
 # Funções de Código{
+
 pi = math.pi
 
-def inserir(mensagem):
+def inserirFLOAT(mensagem):
     return float(input(mensagem))
+
+def inserirINT(mensagem):
+    return int(input(mensagem))
 
 def voltar():
     x = RED + "Voltar(Enter)" + RESET
@@ -20,28 +24,28 @@ YELLOW = '\033[33m'
 # Funções de Áreas{
 def areaCírculo(raio):
     calculo = (raio*raio)* pi
-    return calculo
+    return str(calculo)
 
 
 def areaQuadrado(lado):
     calculo = (lado*lado)
-    return calculo
+    return str(calculo)
 
 
 def areaTriangulo(base, altura):
     calculo = (base*altura)/2
-    return calculo
+    return str(calculo)
 
 
 def areaTrianguloHeron(a, b, c):
     p = (a + b + c)/2
     calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
-    return calculo 
+    return str(calculo) 
 
 
 def areaTrapezio(BASE, base, altura):
     calculo = ((BASE+base)*altura)/2
-    return calculo
+    return str(calculo)
 # }
 
 
@@ -86,15 +90,22 @@ def BaseParaBase(num_original,base_original,base_final):
 
 def raizQuadrada(a):
     calculo = math.sqrt(a)
-    return calculo
+    return str(calculo)
 
 def Resto(a, b):
     calculo = math.remainder(a,b)
-    return calculo
+    return str(calculo)
 
 def MDC(a,b):
     calculo = math.gcd(a,b)
-    return calculo
+    return str(calculo)
+
+def equação2Grau(a,b,c):
+    delta = b**2 -(4*a*c)
+    x1 = (b - math.sqrt(delta))/2*a
+    x2 = (b + math.sqrt(delta))/2*a
+    return (x1, x2)
+
 
 # }
 
@@ -147,4 +158,20 @@ def AnguloComCAH(a,b): #a=CA b=H
     ang_rad = math.acos(a/b)
     angulo = math.degrees(ang_rad)
     return angulo
+# }
+
+
+# Combinatória{
+
+def PermutaçãoDeNemK(n,k):
+    calculo = math.perm(n, k)
+    return str(calculo)
+
+def PermutaçãoCircular(n):
+    calculo = math.factorial(n)/n
+    return str(calculo)
+
+def Combinação(n,k):
+    calculo = math.comb(n,k)
+    return str(calculo)
 # }
