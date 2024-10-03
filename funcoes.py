@@ -101,29 +101,35 @@ def MDC(a,b):
 # Funções de Trigonometria {
 
 def HipotenusaComOposto(a,b):
-    hipotenusa = a/(math.sin(b))
+    ang = math.radians(b)
+    hipotenusa = a/(math.sin(ang))
     return hipotenusa
 
 def HipotenusaComAdjacente(a,b):
-    hipotenusa = a/(math.cos(b))
+    ang = math.radians(b)
+    hipotenusa = a/(math.cos(ang))
     return hipotenusa
 
 
 def OpostoComHipotenusa(a,b):
-    oposto = a*(math.sin(b))
+    ang = math.radians(b)
+    oposto = a*(math.sin(ang))
     return oposto
 
 def OpostoComAdjacente(a,b):
-    oposto = a*(math.tan(b))
+    ang = math.radians(b)
+    oposto = a*(math.tan(ang))
     return oposto
 
 
 def AdjacenteComHipotenusa(a,b):
-    adjacente = a*(math.cos(b))
+    ang = math.radians(b)
+    adjacente = a*(math.cos(ang))
     return adjacente
 
 def AdjacenteComOposto(a,b):
-    adjacente = a/(math.tan(b))
+    ang = math.radians(b)
+    adjacente = a/(math.tan(ang))
     return adjacente
 
 

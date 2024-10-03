@@ -9,7 +9,7 @@ AdjacenteComHipotenusa,
 AdjacenteComOposto,
 AnguloComCOCA,
 AnguloComCOH,
-AnguloComCAH
+AnguloComCAH,
 )
 
 from funcoes import(
