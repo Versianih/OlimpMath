@@ -14,6 +14,9 @@ GREEN,
 YELLOW,
 )
 
+def algebra():
+    pass
+
 
 while True:
     os.system("cls")
