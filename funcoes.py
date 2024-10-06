@@ -1,4 +1,5 @@
-import math, cmath
+import time, math, cmath
+
 
 # Funções de Código{
 
@@ -14,6 +15,11 @@ def voltar():
     x = RED + "Voltar(Enter)" + RESET
     return x
 
+def acaoInvalida():
+    print(RED + "Favor selecionar uma ação válida." + RESET)
+    time.sleep(1)
+    return None
+
 RED = '\033[31m'
 RESET = '\033[0m'
 GREEN = '\033[32m'
@@ -21,6 +27,8 @@ YELLOW = '\033[33m'
 
 
 # }
+
+
 # Funções de Áreas{
 def areaCírculo(raio):
     calculo = (raio*raio)* pi
@@ -86,6 +94,7 @@ def BaseParaBase(num_original,base_original,base_final):
 
 # }
 
+
 # Funções de Álgebra {
 
 def raizQuadrada(a):
@@ -101,13 +110,19 @@ def MDC(a,b):
     return str(calculo)
 
 def equação2Grau(a,b,c):
-    delta = b**2 -(4*a*c)
-    x1 = (b - math.sqrt(delta))/(2*a)
-    x2 = (b + math.sqrt(delta))/(2*a)
-    return (x1, x2)
-
+    if a != 0:    
+        delta = b**2 -(4*a*c)
+        if delta >= 0:
+            x1 = (-b + math.sqrt(delta))/(2*a)
+            x2 = (-b - math.sqrt(delta))/(2*a)
+            return "As Raizes da Equação são: " + str(((x1), (x2)))
+        else:
+            return "Essa equação não admite solução real"
+    else:
+        return "'a' tem que ser diferente de 0"
 
 # }
+
 
 # Funções de Trigonometria {
 
@@ -173,5 +188,9 @@ def PermutaçãoCircular(n):
 
 def Combinação(n,k):
     calculo = math.comb(n,k)
+    return str(calculo)
+
+def Fatorial(n):
+    calculo = math.factorial(n)
     return str(calculo)
 # }
