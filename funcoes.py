@@ -165,7 +165,10 @@ def AnguloComCOCA(a,b): #a=CO b=CA
     return angulo
 
 def AnguloComCOH(a,b): #a=CO b=H
-    ang_rad = math.asin(a/b)
+    print(a,b)
+    apb = (a/b)
+    ang_rad = math.asin(apb)
+    print(ang_rad)
     angulo = math.degrees(ang_rad)
     return angulo 
 
