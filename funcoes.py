@@ -195,5 +195,5 @@ def Combinação(n,k):
 
 def Fatorial(n):
     calculo = math.factorial(n)
-    return str(calculo)
+    return "Fatorial desse Número é:" + str(calculo)
 # }
