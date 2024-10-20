@@ -9,7 +9,7 @@ from funcoes import(
     acaoInvalida,
 )
 
-
+os.sys.set_int_max_str_digits(999999999)
 
 
 while True:

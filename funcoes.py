@@ -117,7 +117,9 @@ def equação2Grau(a,b,c):
             x2 = (-b - math.sqrt(delta))/(2*a)
             return "As Raizes da Equação são: " + str(((x1), (x2)))
         else:
-            return "Essa equação não admite solução real"
+            cx1 = (-b + cmath.sqrt(delta))/(2*a)
+            cx2 = (-b - cmath.sqrt(delta))/(2*a)
+            return "As Raizes Complexas da Equação são: " + str(((cx1), (cx2)))
     else:
         return "'a' tem que ser diferente de 0"
 
