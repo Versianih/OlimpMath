@@ -1,5 +1,5 @@
 import os
-# from geometria import geometria
+from geo import geometria
 from base import base
 from algebra import algebra
 from ac import ac
@@ -25,7 +25,7 @@ def main():
 
         if escolha == "1":
             pass
-            # geometria()
+            geometria()
 
         elif escolha == "2":
             base()

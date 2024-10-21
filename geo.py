@@ -1,6 +1,6 @@
 import os
 from funcoes import (
-    inserirFLOAT, inserirINT, voltar, acaoInvalida, resultado,
+    inserirFLOAT, inserirINT, voltar, acaoInvalida, resultado, ERROR,
     areaPoliRegular,
     areaCírculo,
     areaQuadrado,
@@ -55,7 +55,10 @@ def geometriaPlana():
         if escolha == "1":
             os.system("cls")
             poligono = areaPoliRegular(inserirINT("Quantidade de Lados do Polígono:"), inserirFLOAT("Medida do Lado do Polígono:"))
-            resultado(poligono)
+            if poligono == "erro":
+                ERROR("Verifique se a quantidade de lados permite um Polígono")
+            else:
+                resultado(poligono)
             voltar()
 
         # Círculo

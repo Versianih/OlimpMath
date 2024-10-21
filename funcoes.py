@@ -17,26 +17,28 @@ def voltar():
 def acaoInvalida():
     print(RED + "Favor selecionar uma ação válida." + RESET)
     time.sleep(1)
-    return None
 
 def resultado(resultado):
     print(GREEN + resultado + RESET)
     print("")
-    return None
     
+def ERROR(mensagem):
+    print(RED + str("(ERROR)" + str(mensagem)) + RESET)
+    print("")
 
 RED = '\033[31m'
 RESET = '\033[0m'
 GREEN = '\033[32m'
 YELLOW = '\033[33m'
-
 # }
 
 
 # Funções de Geometria{
 # Plana
 def areaPoliRegular(qntLados, lado):
-    if qntLados == 3:
+    if qntLados < 3:
+        return "erro"
+    elif qntLados == 3:
         Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
         return "Área: " + str(Tricalculo)
     elif qntLados == 4:
