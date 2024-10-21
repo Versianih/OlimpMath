@@ -24,7 +24,6 @@ def main():
         escolha = input("Qual ação deseja fazer?:")
 
         if escolha == "1":
-            pass
             geometria()
 
         elif escolha == "2":
