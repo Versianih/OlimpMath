@@ -1,16 +1,15 @@
-import time, os
+import os
 from funcoes import(
-inserirINT, voltar,
-DecimalParaBase,
-BaseParaDecimal,
-BaseParaBase,
+    inserirINT, voltar, acaoInvalida, resultado,
+    DecimalParaBase,
+    BaseParaDecimal,
+    BaseParaBase,
 )
 
 from funcoes import(
-RESET,
-RED,
-GREEN,
-YELLOW,
+    RESET,
+    RED,
+    YELLOW,
 )
 
 def base():
@@ -25,27 +24,23 @@ def base():
         if escolha == "1":
             os.system("cls")
             DecPBase = DecimalParaBase(inserirINT("Número na Base Decimal:"), inserirINT("Base Final:"))
-            print(GREEN + "Número na Base Final:",DecPBase + RESET)
-            print("")
-            input(voltar())
+            resultado(DecPBase)
+            voltar()
         
         elif escolha == "2":
             os.system("cls")
             BasePDec = BaseParaDecimal(inserirINT("Número:"), inserirINT("Base:"))
-            print(GREEN + "Número na Base Decimal:",BasePDec + RESET)
-            print("")
-            input(voltar())
+            resultado(BasePDec)
+            voltar()
         
         elif escolha == "3":
             os.system("cls")
             BasePBase = BaseParaBase(inserirINT("Número Inicial:"), inserirINT("Base Inicial:"), inserirINT("Base Final:"))
-            print(GREEN + "Número na Base Final:",BasePBase + RESET)
-            print("")
-            input(voltar())
+            resultado(BasePBase)
+            voltar()
         
         elif escolha == "0":
             os.system("cls")
             break
         else:
-            print(RED + "Favor selecionar uma ação válida." + RESET)
-            time.sleep(1)
+            acaoInvalida()

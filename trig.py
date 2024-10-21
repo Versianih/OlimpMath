@@ -1,22 +1,21 @@
-import time, os  
+import os  
 from funcoes import(
-inserirFLOAT, voltar,
-HipotenusaComOposto,
-HipotenusaComAdjacente,
-OpostoComHipotenusa,
-OpostoComAdjacente,
-AdjacenteComHipotenusa,
-AdjacenteComOposto,
-AnguloComCOCA,
-AnguloComCOH,
-AnguloComCAH,
+    inserirFLOAT, voltar,acaoInvalida, resultado,
+    HipotenusaComOposto,
+    HipotenusaComAdjacente,
+    OpostoComHipotenusa,
+    OpostoComAdjacente,
+    AdjacenteComHipotenusa,
+    AdjacenteComOposto,
+    AnguloComCOCA,
+    AnguloComCOH,
+    AnguloComCAH,
 )
 
 from funcoes import(
-RESET,
-RED,
-GREEN,
-YELLOW,
+    RESET,
+    RED,
+    YELLOW,
 )
 
 def trig():
@@ -35,22 +34,20 @@ def trig():
             print(YELLOW + "1)Calcular Hipotenusa com Cateto Oposto")
             print("2)Calcular Hipotensa com Cateto Adjacente" + RESET)
             print("")
-            print(voltar())
+            print(RED + "Voltar(Enter)" + RESET)
             escolhaHipotensa = input("Qual ação deseja fazer?:")
         
             if escolhaHipotensa == "1":
                 os.system("cls")
                 HipotenusaOposto = HipotenusaComOposto(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Hipotenusa:",HipotenusaOposto,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(HipotenusaOposto)
+                voltar()
 
             if escolhaHipotensa == "2":
                 os.system("cls")
                 HipotenusaAdjacente = HipotenusaComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Hipotenusa:",HipotenusaAdjacente,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(HipotenusaAdjacente)
+                voltar()
                 
             else:
                 pass
@@ -61,22 +58,20 @@ def trig():
             print(YELLOW + "1)Calcular Cateto Oposto com Hipotenusa")
             print("2)Calcular Cateto Oposto com Cateto Adjacente" + RESET)
             print("")
-            print(voltar())
+            print(RED + "Voltar(Enter)" + RESET)
             escolhaOposto = input("Qual ação deseja fazer?:")
             
             if escolhaOposto == "1":
                 os.system("cls")
                 OpostoHipotenusa = OpostoComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Cateto Oposto:",OpostoHipotenusa,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(OpostoHipotenusa)
+                voltar()
 
             if escolhaOposto == "2":
                 os.system("cls")
                 OpostoAdjacente = OpostoComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Cateto Oposto:",OpostoAdjacente,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(OpostoAdjacente)
+                voltar()
             else:
                 pass
 
@@ -86,22 +81,20 @@ def trig():
             print(YELLOW + "1)Calcular Cateto Adjacente com Hipotenusa")
             print("2)Calcular Cateto Adjacente com Cateto Oposto" + RESET)
             print("")
-            print(voltar())
+            print(RED + "Voltar(Enter)" + RESET)
             escolhaAdjacente = input("Qual ação deseja fazer?:")
             
             if escolhaAdjacente == "1":
                 os.system("cls")
                 AdjacenteHipotenusa = AdjacenteComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Cateto Oposto:",AdjacenteHipotenusa,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(AdjacenteHipotenusa)
+                voltar()
 
             if escolhaAdjacente == "2":
                 os.system("cls")
                 AdjacenteOposto = AdjacenteComOposto(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-                print(GREEN + "Cateto Oposto:",AdjacenteOposto,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(AdjacenteOposto)
+                voltar()
 
             else:
                 pass
@@ -113,29 +106,26 @@ def trig():
             print("2)Calcular Ângulo com Cateto Oposto e Hipotenusa")
             print("3)Calcular Ângulo com Cateto Adjacente e Hipotenusa" + RESET)
             print("")
-            print(voltar())
+            print(RED + "Voltar(Enter)" + RESET)
             escolhaAngulo = input("Qual ação deseja fazer?:")
 
             if escolhaAngulo == "1":
                 os.system("cls")
                 AnguloCOCA = AnguloComCOCA(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Cateto Adjacente:"))
-                print(GREEN + "Ângulo:",AnguloCOCA,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(AnguloCOCA)
+                voltar()
 
             elif escolhaAngulo == "2":
                 os.system("cls")
                 AnguloCOH = AnguloComCOH(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Hipotenusa:"))
-                print (GREEN + "Ângulo",AnguloCOH,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(AnguloCOH)
+                voltar()
 
             elif escolhaAngulo == "3":
                 os.system("cls")
                 AnguloCAH = AnguloComCAH(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Hipotenusa"))
-                print(GREEN + "Ângulo",AnguloCAH,"" + RESET)
-                print("")
-                input(voltar())
+                resultado(AnguloCAH)
+                voltar()
             else:
                 pass
         
@@ -145,5 +135,4 @@ def trig():
             break
 
         else:
-            print(RED + "Favor selecionar uma ação válida." + RESET)
-            time.sleep(1)
+            acaoInvalida()
