@@ -45,7 +45,7 @@ def trig():
             angulo()
 
         elif escolha == "0":
-            os.system("cls")
+            clean()
             break
 
         else:
@@ -61,13 +61,13 @@ def hipotenusa():
     escolhaHipotensa = get_keypress()
 
     if escolhaHipotensa == "1":
-        os.system("cls")
+        clean()
         HipotenusaOposto = HipotenusaComOposto(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Ângulo:"))
         resultado(HipotenusaOposto)
         voltar()
 
     elif escolhaHipotensa == "2":
-        os.system("cls")
+        clean()
         HipotenusaAdjacente = HipotenusaComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
         resultado(HipotenusaAdjacente)
         voltar()
@@ -90,13 +90,13 @@ def oposto():
     escolhaOposto = get_keypress()
     
     if escolhaOposto == "1":
-        os.system("cls")
+        clean()
         OpostoHipotenusa = OpostoComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
         resultado(OpostoHipotenusa)
         voltar()
 
     elif escolhaOposto == "2":
-        os.system("cls")
+        clean()
         OpostoAdjacente = OpostoComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
         resultado(OpostoAdjacente)
         voltar()
@@ -118,13 +118,13 @@ def adjacente():
     escolhaAdjacente = get_keypress()
     
     if escolhaAdjacente == "1":
-        os.system("cls")
+        clean()
         AdjacenteHipotenusa = AdjacenteComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
         resultado(AdjacenteHipotenusa)
         voltar()
 
     elif escolhaAdjacente == "2":
-        os.system("cls")
+        clean()
         AdjacenteOposto = AdjacenteComOposto(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
         resultado(AdjacenteOposto)
         voltar()
@@ -146,19 +146,19 @@ def angulo():
     escolhaAngulo = get_keypress()
 
     if escolhaAngulo == "1":
-        os.system("cls")
+        clean()
         AnguloCOCA = AnguloComCOCA(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Cateto Adjacente:"))
         resultado(AnguloCOCA)
         voltar()
 
     elif escolhaAngulo == "2":
-        os.system("cls")
+        clean()
         AnguloCOH = AnguloComCOH(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Hipotenusa:"))
         resultado(AnguloCOH)
         voltar()
 
     elif escolhaAngulo == "3":
-        os.system("cls")
+        clean()
         AnguloCAH = AnguloComCAH(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Hipotenusa"))
         resultado(AnguloCAH)
         voltar()
