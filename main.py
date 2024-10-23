@@ -40,10 +40,9 @@ def main():
         elif escolha == "5":
             trig()
 
-        elif escolha == "0":
-            os.system("cls")
+        elif escolha == "0": 
+            clean()
             break
-
         else:
             acaoInvalida()
 
