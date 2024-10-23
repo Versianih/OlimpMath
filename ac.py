@@ -1,4 +1,3 @@
-import os  
 from funcoes import(
     clean, get_keypress, inserirINT,voltar, acaoInvalida, resultado,
     Combinação,

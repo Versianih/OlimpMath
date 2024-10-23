@@ -1,4 +1,3 @@
-import os
 from geo import geometria
 from base import base
 from algebra import algebra

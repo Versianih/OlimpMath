@@ -1,4 +1,3 @@
-import os  
 from funcoes import(
     inserirFLOAT, voltar,acaoInvalida, resultado, get_keypress, clean,
     HipotenusaComOposto,
