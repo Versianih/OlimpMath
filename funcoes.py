@@ -1,9 +1,20 @@
-import time, math, cmath
+import msvcrt, os, time, math, cmath
 
 
 # Funções de Código{
 
 pi = math.pi
+
+def clean():
+    # Função para limpar a tela (compatível com Windows e Unix)
+    os.system("cls" if os.name == "nt" else "clear")
+
+def get_keypress():
+    return msvcrt.getch().decode('utf-8')
+
+def max_digits(lengh):
+    return os.sys.set_int_max_str_digits(lengh)
+
 
 def inserirFLOAT(mensagem):
     return float(input(mensagem))

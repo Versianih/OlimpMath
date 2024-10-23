@@ -5,15 +5,15 @@ from algebra import algebra
 from ac import ac
 from trig import trig
 from funcoes import (
-    YELLOW, RED, RESET,
-    acaoInvalida,
+    YELLOW, RED, RESET, GREEN,
+    clean, get_keypress, max_digits, acaoInvalida,
 )
 
-os.sys.set_int_max_str_digits(999999999)
-
 def main():
+    max_digits(999999999)
     while True:
-        os.system("cls")
+        clean()
+        print(GREEN + "OLIMP - TELA INICIAL")
         print(YELLOW + "1) Geometria")
         print("2) Bases")
         print("3) Álgebra")
@@ -21,7 +21,9 @@ def main():
         print("5) Trigonometria Plana")
         print(RED + "0) Sair" + RESET)
         print("")
-        escolha = input("Qual ação deseja fazer?:")
+        print("Qual ação deseja fazer?:")
+        
+        escolha = get_keypress()
 
         if escolha == "1":
             geometria()
