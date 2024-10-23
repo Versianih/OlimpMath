@@ -17,10 +17,23 @@ def max_digits(lengh):
 
 
 def inserirFLOAT(mensagem):
-    return float(input(mensagem))
+    ipt = input(mensagem)
+    try:
+        numeroF = float(ipt)
+        return numeroF
+    except ValueError:
+        return ERROR("Verifique se os valores inseridos estão na forma correta")
+        
+    
 
 def inserirINT(mensagem):
-    return int(input(mensagem))
+    ipt = input(mensagem)
+    try:
+        numeroI = int(ipt)
+        return numeroI
+    except ValueError:
+        return ERROR("Verifique se os valores inseridos estão na forma correta")
+
 
 def voltar():
     input(RED + "Voltar(Enter)" + RESET)
