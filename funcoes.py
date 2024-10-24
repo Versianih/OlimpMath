@@ -15,24 +15,41 @@ def get_keypress():
 def max_digits(lengh):
     return os.sys.set_int_max_str_digits(lengh)
 
+def tratErro(type, parametros):
+    if type == float:
+        try:
+            for x in parametros:
+                float(x)
+            return True 
+        except ValueError:
+            ERROR("Verifique se os valores inseridos estão na forma correta")
+            return False
+    elif type == int:
+        try:
+            for y in parametros:
+                int(y)
+            return True
+        except ValueError:
+            ERROR("Verifique se os valores inseridos estão na forma correta")
+            return False
 
-def inserirFLOAT(mensagem):
-    ipt = input(mensagem)
-    try:
-        numeroF = float(ipt)
-        return numeroF
-    except ValueError:
-        return ERROR("Verifique se os valores inseridos estão na forma correta")
-        
+
+# def inserirFLOAT(mensagem):
+#     ipt = input(mensagem)
+#     try:
+#         numeroF = float(ipt)
+#         return numeroF
+#     except ValueError:
+#         ERROR("Verifique se os valores inseridos estão na forma correta")
     
 
-def inserirINT(mensagem):
-    ipt = input(mensagem)
-    try:
-        numeroI = int(ipt)
-        return numeroI
-    except ValueError:
-        return ERROR("Verifique se os valores inseridos estão na forma correta")
+# def inserirINT(mensagem):
+#     ipt = input(mensagem)
+#     try:
+#         numeroI = int(ipt)
+#         return numeroI
+#     except ValueError:
+#         return ERROR("Verifique se os valores inseridos estão na forma correta")
 
 
 def voltar():
@@ -60,135 +77,194 @@ YELLOW = '\033[33m'
 # Funções de Geometria{
 # Plana
 def areaPoliRegular(qntLados, lado):
-    if qntLados < 3:
-        return "erro"
-    elif qntLados == 3:
-        Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
-        return "Área: " + str(Tricalculo)
-    elif qntLados == 4:
-        Quacalculo = lado**2
-        return "Área: " + str(Quacalculo)
-    else:
-        calculo = ((qntLados * ((lado**2)*math.sqrt(3))) / 4)
-        return "Área: " + str(calculo)        
+    e1 = tratErro(int, qntLados)
+    e2 = tratErro(float, lado)
+
+    if e1 & e2 == True:    
+        qntLados = int(qntLados)
+        lado = float(lado)
+        if qntLados < 3:
+            return ERROR("Verifique se a quantidade de lados permite um Polígono")
+        elif qntLados == 3:
+            Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
+            return resultado("Área: " + str(Tricalculo))
+        elif qntLados == 4:
+            Quacalculo = lado**2
+            return resultado("Área: " + str(Quacalculo))
+        else:
+            calculo = ((qntLados * ((lado**2)*math.sqrt(3))) / 4)
+            return resultado("Área: " + str(calculo))        
+
 
 def areaCírculo(raio):
-    calculo = (raio*raio)* pi
-    return "Área: " + str(calculo)
-
+    if tratErro(float, raio) == True:
+        raio = float(raio)
+        calculo = (raio*raio)* pi
+        return resultado("Área: " + str(calculo))
 
 def areaQuadrado(lado):
-    calculo = (lado*lado)
-    return "Área: " + str(calculo)
+    if tratErro(float, lado) == True:
+        lado = float(lado)
+        calculo = (lado*lado)
+        return resultado("Área: " + str(calculo))
 
 
 def areaTriangulo(base, altura):
-    calculo = (base*altura)/2
-    return "Área: " + str(calculo)
-
+    if tratErro(float, base) & tratErro(float, altura) == True:    
+        base = float(base)
+        altura = float(altura)
+        calculo = (base*altura)/2
+        return resultado("Área: " + str(calculo))
 
 def areaTrianguloHeron(a, b, c):
-    p = (a + b + c)/2
-    calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
-    return "Área: " + str(calculo) 
-
+    if tratErro(float, a) & tratErro(float, b) & tratErro(float, c) == True:    
+        a = float(a)
+        b = float(b)
+        c = float(c)
+        p = (a + b + c)/2
+        calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
+        return resultado("Área: " + str(calculo)) 
 
 def areaTrapezio(BASE, base, altura):
-    calculo = ((BASE+base)*altura)/2
-    return "Área: " + str(calculo)
+    if tratErro(float, BASE) & tratErro(float, base) & tratErro(float, altura) == True:    
+        BASE = float(BASE)
+        base = float(base)
+        altura = float(altura)
+        calculo = ((BASE+base)*altura)/2
+        return resultado("Área: " + str(calculo))
 
 # Espacial
 def areaCubo(lado):
-    calculo = lado**3
-    return "Área: " + str(calculo)
+    if tratErro(float, lado) == True:
+        lado = float(lado)
+        calculo = lado**3
+        return resultado("Área: " + str(calculo))
 
 def areaParalelepipedo(a,b,h):
-    calculo = (a*b*h)
-    return "Área: " + str(calculo)
+    if tratErro(float, a) & tratErro(float, b) & tratErro(float, h) == True:
+        a = float(a)
+        b = float(b)
+        h = float(h)
+        calculo = (a*b*h)
+        return resultado("Área: " + str(calculo))
 
 def areaCilindro(raio, h):
-    calculo = (pi*(raio**2))*h
-    return "Área: " + str(calculo)
+    if tratErro(float, raio) & tratErro(float, h) == True:    
+        raio = float(raio)
+        h = float(h)
+        calculo = (pi*(raio**2))*h
+        return resultado("Área: " + str(calculo))
 
 def areaEsfera(raio):
-    calculo = (4/3)*pi*raio
-    return "Área: " + str(calculo)
+    if tratErro(float, raio) == True:
+        raio = float(raio)    
+        calculo = (4/3)*pi*raio
+        return resultado("Área: " + str(calculo))
 
 # Analítica
 def distPontos(xa, ya, xb, yb):
-    calculo = (((xb - xa)**2) + ((yb - ya)**2))**(1/2)
-    return "A Distância entre os Pontos é: " + str(calculo)
+    if tratErro(float,  xa) & tratErro(float, ya) & tratErro(float, xb) & tratErro(float, yb) == True:
+        xa = float(xa)
+        ya = float(ya)
+        xb = float(xb)
+        yb = float(yb)
+        calculo = (((xb - xa)**2) + ((yb - ya)**2))**(1/2)
+        return resultado("A Distância entre os Pontos é: " + str(calculo))
 # }
 
 
 # Funções de Bases{
 def BaseParaDecimal(num_original,base_original):
-    num_original = str(num_original)
-    base_original = int(base_original)
-    dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    decimal = 0
-    decimal_temp = list(num_original)
-    decimal_temp.reverse()
-    for x,i in enumerate(decimal_temp):
-        decimal += dic.index(i) * base_original**(x)
-    return "Número na Base Decimal:" + str(decimal)
+    if tratErro(int, num_original) & tratErro(int, base_original) == True:
+        num_original = str(num_original)
+        base_original = int(base_original)
+        
+        dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        decimal = 0
+        decimal_temp = list(num_original)
+        decimal_temp.reverse()
+        for x,i in enumerate(decimal_temp):
+            decimal += dic.index(i) * base_original**(x)
+        return resultado("Número na Base Decimal:" + str(decimal))
  
  
 def DecimalParaBase(decimal,base_final):
-    base_final = int(base_final)
-    decimal = int(decimal)
-    dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    numero_final_temp = []
-    numero_final = ''
-    while True:
-        temp_numero_final = decimal%base_final
-        numero_final_temp.append(temp_numero_final)
-        if int(decimal/base_final) == 0:
-            break
-        decimal = int(decimal/base_final)
-    numero_final_temp.reverse()
-    for i in numero_final_temp:
-        numero_final += dic[i]     
-    return "Número na Base Final:" + str(numero_final)
+    if tratErro(int, base_final) & tratErro(int, decimal) == True:
+        base_final = int(base_final)
+        decimal = int(decimal)
+        
+        dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+        numero_final_temp = []
+        numero_final = ''
+        while True:
+            temp_numero_final = decimal%base_final
+            numero_final_temp.append(temp_numero_final)
+            if int(decimal/base_final) == 0:
+                break
+            decimal = int(decimal/base_final)
+        numero_final_temp.reverse()
+        for i in numero_final_temp:
+            numero_final += dic[i]     
+        return resultado("Número na Base Final:" + str(numero_final))
 
 def BaseParaBase(num_original,base_original,base_final):
-    num_decimal = BaseParaDecimal(num_original,base_original)
-    num_final = DecimalParaBase(num_decimal,base_final)
-    return "Número na Base Final:" + str(num_final)
+    if tratErro(int, num_decimal) & tratErro(int, base_original) & tratErro(int, base_final) == True:
+        num_decimal = int(num_decimal)
+        base_final = int(base_final)
+        base_original = int(base_original)
+
+        num_decimal = BaseParaDecimal(num_original,base_original)
+        num_final = DecimalParaBase(num_decimal,base_final)
+        return resultado("Número na Base Final:" + str(num_final))
 # }
 
 
 # Funções de Álgebra {
 
 def raizQuadrada(a):
-    calculo = math.sqrt(a)
-    return "Raiz: " + str(calculo)
+    if tratErro(float, a) == True:
+        a = float(a)    
+        calculo = (a)**(1/2)
+        return resultado("Raiz: " + str(calculo))
 
 def Resto(a, b):
-    calculo = math.remainder(a,b)
-    return "Resto: " + str(calculo)
+    if tratErro(float, a) & tratErro(float, b) == True:    
+        a = float(a)
+        b = float(b)
+        calculo = math.remainder(a,b)
+        return resultado("Resto: " + str(calculo))
 
 def MDC(a,b):
-    calculo = math.gcd(a,b)
-    return "MDC: " + str(calculo)
+    if tratErro(int, a) & tratErro(int, b) == True:    
+        a = int(a)
+        b = int(b)
+        calculo = math.gcd(a,b)
+        return resultado("MDC: " + str(calculo))
 
 def MMC(a, b):
-    calculo = (abs(a*b))/(math.gcd(a,b))
-    return "MMC: " + str(calculo)
+    if tratErro(int, a) & tratErro(int, b) == True:    
+        a = int(a)
+        b = int(b)
+        calculo = (abs(a*b))/(math.gcd(a,b))
+        return resultado("MMC: " + str(calculo))
 
 def equação2Grau(a,b,c):
-    if a != 0:    
-        delta = b**2 -(4*a*c)
-        if delta >= 0:
-            x1 = (-b + math.sqrt(delta))/(2*a)
-            x2 = (-b - math.sqrt(delta))/(2*a)
-            return "As Raizes da Equação são: " + str(((x1), (x2)))
+    if tratErro(float, a) & tratErro(float, b) & tratErro(float, c) == True:
+        a = float(a)
+        b = float(b)
+        c = float(c)
+        if a != 0:    
+            delta = b**2 -(4*a*c)
+            if delta >= 0:
+                x1 = (-b + math.sqrt(delta))/(2*a)
+                x2 = (-b - math.sqrt(delta))/(2*a)
+                return resultado("As Raizes da Equação são: " + str(((x1), (x2))))
+            else:
+                cx1 = (-b + cmath.sqrt(delta))/(2*a)
+                cx2 = (-b - cmath.sqrt(delta))/(2*a)
+                return resultado("As Raizes Complexas da Equação são: " + str(((cx1), (cx2))))
         else:
-            cx1 = (-b + cmath.sqrt(delta))/(2*a)
-            cx2 = (-b - cmath.sqrt(delta))/(2*a)
-            return "As Raizes Complexas da Equação são: " + str(((cx1), (cx2)))
-    else:
-        return "'a' tem que ser diferente de 0"
+            return ERROR("'a' tem que ser diferente de 0")
 
 # }
 
@@ -196,73 +272,107 @@ def equação2Grau(a,b,c):
 # Funções de Trigonometria {
 
 def HipotenusaComOposto(a,b):
-    ang = math.radians(b)
-    hipotenusa = a/(math.sin(ang))
-    return "Hipotenusa: " + str(hipotenusa)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)    
+        ang = math.radians(b)
+        hipotenusa = a/(math.sin(ang))
+        return resultado("Hipotenusa: " + str(hipotenusa))
 
 def HipotenusaComAdjacente(a,b):
-    ang = math.radians(b)
-    hipotenusa = a/(math.cos(ang))
-    return "Hipotenusa: " + str(hipotenusa)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang = math.radians(b)
+        hipotenusa = a/(math.cos(ang))
+        return resultado("Hipotenusa: " + str(hipotenusa))
 
 
 def OpostoComHipotenusa(a,b):
-    ang = math.radians(b)
-    oposto = a*(math.sin(ang))
-    return "Cateto Oposto: " + str(oposto)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang = math.radians(b)
+        oposto = a*(math.sin(ang))
+        return resultado("Cateto Oposto: " + str(oposto))
 
 def OpostoComAdjacente(a,b):
-    ang = math.radians(b)
-    oposto = a*(math.tan(ang))
-    return "Cateto Oposto: " + str(oposto)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang = math.radians(b)
+        oposto = a*(math.tan(ang))
+        return resultado("Cateto Oposto: " + str(oposto))
 
 
 def AdjacenteComHipotenusa(a,b):
-    ang = math.radians(b)
-    adjacente = a*(math.cos(ang))
-    return "Cateto Adjacente: " + str(adjacente)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang = math.radians(b)
+        adjacente = a*(math.cos(ang))
+        return resultado("Cateto Adjacente: " + str(adjacente))
 
 def AdjacenteComOposto(a,b):
-    ang = math.radians(b)
-    adjacente = a/(math.tan(ang))
-    return "Cateto Adjacente: " + str(adjacente)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang = math.radians(b)
+        adjacente = a/(math.tan(ang))
+        return resultado("Cateto Adjacente: " + str(adjacente))
 
 
 def AnguloComCOCA(a,b): #a=CO b=CA
-    ang_rad = math.atan(a/b)
-    angulo = math.degrees(ang_rad)
-    return "Ângulo: " + str(angulo)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang_rad = math.atan(a/b)
+        angulo = math.degrees(ang_rad)
+        return resultado("Ângulo: " + str(angulo))
 
 def AnguloComCOH(a,b): #a=CO b=H
-    print(a,b)
-    apb = (a/b)
-    ang_rad = math.asin(apb)
-    print(ang_rad)
-    angulo = math.degrees(ang_rad)
-    return "Ângulo: " + str(angulo) 
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang_rad = math.asin(a/b)
+        angulo = math.degrees(ang_rad)
+        return resultado("Ângulo: " + str(angulo)) 
 
 def AnguloComCAH(a,b): #a=CA b=H
-    ang_rad = math.acos(a/b)
-    angulo = math.degrees(ang_rad)
-    return "Ângulo: " + str(angulo)
+    if tratErro(float, a) & tratErro(float, b) == True:
+        a = float(a)
+        b = float(b)
+        ang_rad = math.acos(a/b)
+        angulo = math.degrees(ang_rad)
+        return resultado("Ângulo: " + str(angulo))
 # }
 
 
 # Combinatória{
 
 def PermutaçãoDeNemK(n,k):
-    calculo = math.perm(n, k)
-    return "Resultado: " + str(calculo)
+    if tratErro(int, n) & tratErro(int, k) == True:
+        n = int(n)
+        k = int(k)    
+        calculo = math.perm(n, k)
+        return resultado("Resultado: " + str(calculo))
 
 def PermutaçãoCircular(n):
-    calculo = math.factorial((n-1))
-    return "Resultado: " + str(calculo)
+    if tratErro(int, n) == True:
+        n = int(n)
+        calculo = math.factorial((n-1))
+        return resultado("Resultado: " + str(calculo))
 
 def Combinação(n,k):
-    calculo = math.comb(n,k)
-    return "Resultado: " + str(calculo)
+    if tratErro(int, n) & tratErro(int, k) == True:
+        n = int(n)
+        k = int(k)
+        calculo = math.comb(n,k)
+        return resultado("Resultado: " + str(calculo))
 
 def Fatorial(n):
-    calculo = math.factorial(n)
-    return "Fatorial desse Número é: " + str(calculo)
+    if tratErro(int, n) == True:
+        n = int(n)
+        calculo = math.factorial(n)
+        return resultado("Fatorial desse Número é: " + str(calculo))
 # }

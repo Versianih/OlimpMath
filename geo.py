@@ -1,5 +1,5 @@
 from funcoes import (
-    clean, get_keypress, inserirFLOAT, inserirINT, voltar, acaoInvalida, resultado, ERROR,
+    clean, get_keypress, voltar, acaoInvalida,
     areaPoliRegular,
     areaCírculo,
     areaQuadrado,
@@ -58,27 +58,22 @@ def geometriaPlana():
         print("Qual ação deseja fazer?")
         escolha = get_keypress() 
 
+        # Polígono Regular Qualquer
         if escolha == "1":
             clean()
-            poligono = areaPoliRegular(inserirINT("Quantidade de Lados do Polígono:"), inserirFLOAT("Medida do Lado do Polígono:"))
-            if poligono == "erro":
-                ERROR("Verifique se a quantidade de lados permite um Polígono")
-            else:
-                resultado(poligono)
+            areaPoliRegular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"))
             voltar()
 
         # Círculo
         elif escolha == "2":
             clean()
-            circulo = areaCírculo(inserirFLOAT("Raio do Círculo em Metros:"))
-            resultado(circulo)
+            areaCírculo(input("Raio do Círculo em Metros:"))
             voltar()
 
         # Quadrado
         elif escolha == "3":
             clean()
-            quadrado = areaQuadrado(inserirFLOAT("Lado do Quadrado em Metros:"))
-            resultado(quadrado)
+            areaQuadrado(input("Lado do Quadrado em Metros:"))
             voltar()
 
         # Triângulo
@@ -93,21 +88,16 @@ def geometriaPlana():
 
             if escolhaTriangulo == "1":  # Base e Altura
                 clean()
-
-                triangulo = areaTriangulo(inserirFLOAT("Base do triagulo em Metros:"), inserirFLOAT("Altura do triagulo em Metros:"))
-                resultado(triangulo)
+                areaTriangulo(input("Base do triagulo em Metros:"), input("Altura do triagulo em Metros:"))
                 voltar()
 
             elif escolhaTriangulo == "2":  # Fórmula de Heron
                 clean()
-
-                trianguloHeron = areaTrianguloHeron(inserirFLOAT("Lado 1 do Triângulo:"), inserirFLOAT("Lado 2 do Triângulo:"), inserirFLOAT("Lado 3 do Triângulo:"))
-                resultado(trianguloHeron)
+                areaTrianguloHeron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"))
                 voltar()
 
             elif escolhaTriangulo == "0":
                 clean()
-
                 break
             else:
                 acaoInvalida()
@@ -115,10 +105,8 @@ def geometriaPlana():
         # Trapézio
         elif escolha == "5":
             clean()
-            trapezio = areaTrapezio(inserirFLOAT("Base1 do Trapézio em Metros:"), inserirFLOAT("Base2 do Trapézio em Metros"), inserirFLOAT("Altura do Trapézio em Metros:"))
-            resultado(trapezio)
+            areaTrapezio(input("Base1 do Trapézio em Metros:"), input("Base2 do Trapézio em Metros"), input("Altura do Trapézio em Metros:"))
             voltar()
-
         # Sair
         elif escolha == "0":
             clean()

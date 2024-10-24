@@ -1,5 +1,5 @@
 from funcoes import(
-    clean, get_keypress, inserirFLOAT, inserirINT, voltar, acaoInvalida, resultado,
+    clean, get_keypress, voltar, acaoInvalida,
     raizQuadrada,
     MDC,
     MMC,
@@ -30,32 +30,27 @@ def algebra():
         
         if escolha == "1":
             clean()
-            raiz = raizQuadrada(inserirFLOAT("Número que se deseja calcular a Raiz Quadrada:"))
-            resultado(raiz)
+            raizQuadrada(input("Número que se deseja calcular a Raiz Quadrada:"))
             voltar()
 
         elif escolha == "2":
             clean()
-            mdc = MDC(inserirINT("N₁:"), inserirINT("N₂:"))
-            resultado(mdc)
+            MDC(input("N₁:"), input("N₂:"))
             voltar()
 
         elif escolha == "3":
             clean()
-            mmc = MMC(inserirINT("N₁:"), inserirINT("N₂:"))
-            resultado(mmc)
+            MMC(input("N₁:"), input("N₂:"))
             voltar()
 
         elif escolha == "4":
             clean()
-            rest = Resto(inserirFLOAT("Dividendo:"), inserirFLOAT("Divisor:"))
-            resultado(rest)
+            Resto(input("Dividendo:"), input("Divisor:"))
             voltar()
 
         elif escolha == "5":
             clean()
-            solucao2grau = equação2Grau(inserirFLOAT("a:"), inserirFLOAT("b:"), inserirFLOAT("c:"))
-            resultado(solucao2grau)
+            equação2Grau(input("a:"), input("b:"), input("c:"))
             voltar()
 
         elif escolha == "0":

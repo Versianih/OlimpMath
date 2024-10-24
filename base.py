@@ -1,5 +1,5 @@
 from funcoes import(
-    clean, get_keypress, inserirINT, voltar, acaoInvalida, resultado,
+    clean, get_keypress, voltar, acaoInvalida,
     DecimalParaBase,
     BaseParaDecimal,
     BaseParaBase,
@@ -26,20 +26,17 @@ def base():
 
         if escolha == "1":
             clean()
-            DecPBase = DecimalParaBase(inserirINT("Número na Base Decimal:"), inserirINT("Base Final:"))
-            resultado(DecPBase)
+            DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"))
             voltar()
         
         elif escolha == "2":
             clean()
-            BasePDec = BaseParaDecimal(inserirINT("Número:"), inserirINT("Base:"))
-            resultado(BasePDec)
+            BaseParaDecimal(input("Número:"), input("Base:"))
             voltar()
         
         elif escolha == "3":
             clean()
-            BasePBase = BaseParaBase(inserirINT("Número Inicial:"), inserirINT("Base Inicial:"), inserirINT("Base Final:"))
-            resultado(BasePBase)
+            BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"))
             voltar()
         
         elif escolha == "0":

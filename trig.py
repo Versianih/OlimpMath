@@ -1,5 +1,5 @@
 from funcoes import(
-    inserirFLOAT, voltar,acaoInvalida, resultado, get_keypress, clean,
+    voltar, acaoInvalida, resultado, get_keypress, clean,
     HipotenusaComOposto,
     HipotenusaComAdjacente,
     OpostoComHipotenusa,
@@ -61,14 +61,12 @@ def hipotenusa():
 
     if escolhaHipotensa == "1":
         clean()
-        HipotenusaOposto = HipotenusaComOposto(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Ângulo:"))
-        resultado(HipotenusaOposto)
+        HipotenusaComOposto(input("Cateto Oposto:"), input("Ângulo:"))
         voltar()
 
     elif escolhaHipotensa == "2":
         clean()
-        HipotenusaAdjacente = HipotenusaComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-        resultado(HipotenusaAdjacente)
+        HipotenusaComAdjacente(input("Cateto Adjacente:"), input("Ângulo:"))
         voltar()
         
     elif escolhaHipotensa == "0":
@@ -90,14 +88,12 @@ def oposto():
     
     if escolhaOposto == "1":
         clean()
-        OpostoHipotenusa = OpostoComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
-        resultado(OpostoHipotenusa)
+        OpostoComHipotenusa(input("Hipotenusa:"), input("Ângulo:"))
         voltar()
 
     elif escolhaOposto == "2":
         clean()
-        OpostoAdjacente = OpostoComAdjacente(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-        resultado(OpostoAdjacente)
+        OpostoComAdjacente(input("Cateto Adjacente:"), input("Ângulo:"))
         voltar()
     
     elif escolhaOposto == "0":
@@ -118,14 +114,12 @@ def adjacente():
     
     if escolhaAdjacente == "1":
         clean()
-        AdjacenteHipotenusa = AdjacenteComHipotenusa(inserirFLOAT("Hipotenusa:"), inserirFLOAT("Ângulo:"))
-        resultado(AdjacenteHipotenusa)
+        AdjacenteComHipotenusa(input("Hipotenusa:"), input("Ângulo:"))
         voltar()
 
     elif escolhaAdjacente == "2":
         clean()
-        AdjacenteOposto = AdjacenteComOposto(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Ângulo:"))
-        resultado(AdjacenteOposto)
+        AdjacenteComOposto(input("Cateto Adjacente:"), input("Ângulo:"))
         voltar()
 
     elif escolhaAdjacente == "0":
@@ -146,20 +140,17 @@ def angulo():
 
     if escolhaAngulo == "1":
         clean()
-        AnguloCOCA = AnguloComCOCA(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Cateto Adjacente:"))
-        resultado(AnguloCOCA)
+        AnguloComCOCA(input("Cateto Oposto:"), input("Cateto Adjacente:"))
         voltar()
 
     elif escolhaAngulo == "2":
         clean()
-        AnguloCOH = AnguloComCOH(inserirFLOAT("Cateto Oposto:"), inserirFLOAT("Hipotenusa:"))
-        resultado(AnguloCOH)
+        AnguloComCOH(input("Cateto Oposto:"), input("Hipotenusa:"))
         voltar()
 
     elif escolhaAngulo == "3":
         clean()
-        AnguloCAH = AnguloComCAH(inserirFLOAT("Cateto Adjacente:"), inserirFLOAT("Hipotenusa"))
-        resultado(AnguloCAH)
+        AnguloComCAH(input("Cateto Adjacente:"), input("Hipotenusa"))
         voltar()
     
     elif escolhaAngulo == "0":

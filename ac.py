@@ -1,5 +1,5 @@
 from funcoes import(
-    clean, get_keypress, inserirINT,voltar, acaoInvalida, resultado,
+    clean, get_keypress,voltar, acaoInvalida,
     Combinação,
     PermutaçãoDeNemK,
     PermutaçãoCircular,
@@ -28,26 +28,22 @@ def ac():
 
         if escolha == "1":
             clean()
-            CombinacaoNP = Combinação(inserirINT("Insira N:"), inserirINT("Insira P:"))
-            resultado(CombinacaoNP)
+            Combinação(input("Insira N:"), input("Insira P:"))
             voltar()
         
         elif escolha == "2":
             clean()
-            PermutacaoNK = PermutaçãoDeNemK(inserirINT("Insira N:"), inserirINT("Insira K:"))
-            resultado(PermutacaoNK)
+            PermutaçãoDeNemK(input("Insira N:"), input("Insira K:"))
             voltar()
         
         elif escolha == "3":
             clean()
-            PermutacaoCirc = PermutaçãoCircular(inserirINT("Número de Elementos: "))
-            resultado(PermutacaoCirc)
+            PermutaçãoCircular(input("Número de Elementos: "))
             voltar()
         
         elif escolha == "4":
             clean()
-            fact = Fatorial(inserirINT("Número:"))
-            resultado(fact)
+            Fatorial(input("Número:"))
             voltar()
 
         elif escolha == "0":
