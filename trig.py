@@ -22,10 +22,10 @@ def trig():
     while True:
         clean()
         print(GREEN + "TRIGONOMETRIA PLANA")
-        print(YELLOW + "1) Calcular Hipotenusa")
-        print("2) Calcular Cateto Oposto")
-        print("3) Calcular Cateto Adjacente")
-        print("4) Calcular Ângulo")
+        print(YELLOW + "1) Calcular Hipotenusa +")
+        print("2) Calcular Cateto Oposto +")
+        print("3) Calcular Cateto Adjacente +")
+        print("4) Calcular Ângulo +")
         print(RED +"0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?:")
@@ -52,6 +52,7 @@ def trig():
 
 def hipotenusa():
     clean()
+    print(GREEN + "HIPOTENUSA")
     print(YELLOW + "1)Calcular Hipotenusa com Cateto Oposto")
     print("2)Calcular Hipotensa com Cateto Adjacente" + RESET)
     print(RED + "0) Sair" + RESET)
@@ -79,6 +80,7 @@ def hipotenusa():
 
 def oposto():
     clean()
+    print(GREEN + "CATETO OPOSTO")
     print(YELLOW + "1)Calcular Cateto Oposto com Hipotenusa")
     print("2)Calcular Cateto Oposto com Cateto Adjacente" + RESET)
     print(RED + "0) Sair" + RESET)
@@ -105,6 +107,7 @@ def oposto():
 
 def adjacente():
     clean()
+    print(GREEN + "CATETO ADJACENTE")
     print(YELLOW + "1)Calcular Cateto Adjacente com Hipotenusa")
     print("2)Calcular Cateto Adjacente com Cateto Oposto" + RESET)
     print(RED + "0) Sair" + RESET)
@@ -130,6 +133,7 @@ def adjacente():
 
 def angulo():
     clean()
+    print(GREEN + "ÂNGULO")
     print(YELLOW + "1)Calcular Ângulo com os Catetos")
     print("2)Calcular Ângulo com Cateto Oposto e Hipotenusa")
     print("3)Calcular Ângulo com Cateto Adjacente e Hipotenusa" + RESET)

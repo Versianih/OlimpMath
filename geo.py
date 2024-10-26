@@ -51,7 +51,7 @@ def geometriaPlana():
         print(YELLOW + "1) Área de um Polígono Regular")
         print("2) Área do Cículo")
         print("3) Área do Quadrado")
-        print("4) Área do Triângulo")
+        print("4) Área do Triângulo +")
         print("5) Área do Trapézio")
         print(RED + "0) Voltar" + RESET)
         print("")
@@ -79,6 +79,7 @@ def geometriaPlana():
         # Triângulo
         elif escolha == "4":
             clean()
+            print(GREEN + "Área Triângulo")
             print(YELLOW + "1)Base e Altura")
             print("2)Fórmula de Heron")
             print(RED + "0) Voltar" + RESET)
