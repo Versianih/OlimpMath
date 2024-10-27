@@ -1,7 +1,7 @@
 import msvcrt, os, time, math
 
 # Funções de Código{
-pi = math.pi
+pi = float("{:,.2f}".format(math.pi))
 
 def clean():
     # Função para limpar a tela (compatível com Windows e Unix)
