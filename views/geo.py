@@ -1,11 +1,18 @@
 from funcoes import (
     clean, get_keypress, voltar, acaoInvalida,
+    # Geometria Plana
     areaPoliRegular,
     areaCírculo,
     areaQuadrado,
     areaTrapezio,
     areaTriangulo,
     areaTrianguloHeron,
+
+    # Geometria Espacial
+    volumeEsfera,
+    volumeCubo,
+    volumeParalelepipedo,
+    volumeCilindro,
 )
 
 from funcoes import (

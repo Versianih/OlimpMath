@@ -22,6 +22,7 @@ def trig():
     while True:
         clean()
         print(GREEN + "TRIGONOMETRIA PLANA")
+        print("(resultados são aproximações)")
         print(YELLOW + "1) Calcular Hipotenusa +")
         print("2) Calcular Cateto Oposto +")
         print("3) Calcular Cateto Adjacente +")

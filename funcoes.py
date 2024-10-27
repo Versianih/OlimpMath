@@ -18,39 +18,18 @@ def max_digits(lengh):
 def tratErro(type, parametros):
     if type == float:
         try:
-            for x in parametros:
-                float(x)
+            float(parametros)
             return True 
         except ValueError:
             ERROR("Verifique se os valores inseridos estão na forma correta")
             return False
     elif type == int:
         try:
-            for y in parametros:
-                int(y)
+            int(parametros)
             return True
         except ValueError:
             ERROR("Verifique se os valores inseridos estão na forma correta")
             return False
-
-
-# def inserirFLOAT(mensagem):
-#     ipt = input(mensagem)
-#     try:
-#         numeroF = float(ipt)
-#         return numeroF
-#     except ValueError:
-#         ERROR("Verifique se os valores inseridos estão na forma correta")
-    
-
-# def inserirINT(mensagem):
-#     ipt = input(mensagem)
-#     try:
-#         numeroI = int(ipt)
-#         return numeroI
-#     except ValueError:
-#         return ERROR("Verifique se os valores inseridos estão na forma correta")
-
 
 def voltar():
     input(RED + "Voltar(Enter)" + RESET)
@@ -134,13 +113,13 @@ def areaTrapezio(BASE, base, altura):
         return resultado("Área: " + str(calculo))
 
 # Espacial
-def areaCubo(lado):
+def volumeCubo(lado):
     if tratErro(float, lado) == True:
         lado = float(lado)
         calculo = lado**3
         return resultado("Área: " + str(calculo))
 
-def areaParalelepipedo(a,b,h):
+def volumeParalelepipedo(a,b,h):
     if tratErro(float, a) & tratErro(float, b) & tratErro(float, h) == True:
         a = float(a)
         b = float(b)
@@ -148,14 +127,14 @@ def areaParalelepipedo(a,b,h):
         calculo = (a*b*h)
         return resultado("Área: " + str(calculo))
 
-def areaCilindro(raio, h):
+def volumeCilindro(raio, h):
     if tratErro(float, raio) & tratErro(float, h) == True:    
         raio = float(raio)
         h = float(h)
         calculo = (pi*(raio**2))*h
         return resultado("Área: " + str(calculo))
 
-def areaEsfera(raio):
+def volumeEsfera(raio):
     if tratErro(float, raio) == True:
         raio = float(raio)    
         calculo = (4/3)*pi*raio
@@ -254,14 +233,14 @@ def equação2Grau(a,b,c):
         b = float(b)
         c = float(c)
         if a != 0:    
-            delta = b**2 -(4*a*c)
+            delta = b**2 - (4*a*c)
             if delta >= 0:
-                x1 = (-b + math.sqrt(delta))/(2*a)
-                x2 = (-b - math.sqrt(delta))/(2*a)
+                x1 = (-b + (delta**(1/2)))/(2*a)
+                x2 = (-b - (delta**(1/2)))/(2*a)
                 return resultado("As Raizes da Equação são: " + str(((x1), (x2))))
             else:
-                cx1 = (-b + cmath.sqrt(delta))/(2*a)
-                cx2 = (-b - cmath.sqrt(delta))/(2*a)
+                cx1 = (-b + (delta**(1/2)))/(2*a)
+                cx2 = (-b - (delta**(1/2)))/(2*a)
                 return resultado("As Raizes Complexas da Equação são: " + str(((cx1), (cx2))))
         else:
             return ERROR("'a' tem que ser diferente de 0")
