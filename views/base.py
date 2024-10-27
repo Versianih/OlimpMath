@@ -1,5 +1,6 @@
 from funcoes import(
     clean, get_keypress, voltar, acaoInvalida,
+
     DecimalParaBase,
     BaseParaDecimal,
     BaseParaBase,
@@ -24,16 +25,19 @@ def base():
         print("Qual ação deseja fazer?")
         escolha = get_keypress()
 
+        # Transformar Base Decimal em Base n
         if escolha == "1":
             clean()
             DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"))
             voltar()
         
+        # Transformar Base n para Base Decimal
         elif escolha == "2":
             clean()
             BaseParaDecimal(input("Número:"), input("Base:"))
             voltar()
         
+        # Transformar Base n para Base m
         elif escolha == "3":
             clean()
             BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"))

@@ -1,8 +1,6 @@
-import msvcrt, os, time, math, cmath
-
+import msvcrt, os, time, math
 
 # Funções de Código{
-
 pi = math.pi
 
 def clean():
@@ -43,7 +41,7 @@ def resultado(resultado):
     print("")
     
 def ERROR(mensagem):
-    print(RED + str("(ERROR)" + str(mensagem)) + RESET)
+    print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
 
 RED = '\033[31m'
@@ -56,10 +54,7 @@ YELLOW = '\033[33m'
 # Funções de Geometria{
 # Plana
 def areaPoliRegular(qntLados, lado):
-    e1 = tratErro(int, qntLados)
-    e2 = tratErro(float, lado)
-
-    if e1 & e2 == True:    
+    if tratErro(int, qntLados) & tratErro(float, lado) == True:    
         qntLados = int(qntLados)
         lado = float(lado)
         if qntLados < 3:
@@ -112,12 +107,29 @@ def areaTrapezio(BASE, base, altura):
         calculo = ((BASE+base)*altura)/2
         return resultado("Área: " + str(calculo))
 
+
 # Espacial
+def volumePrisma(qntlados, lado, altura):
+    if tratErro(float, qntlados) & tratErro(float, lado) & tratErro(float, altura) == True:
+        qntlados = float(qntlados)
+        lado = float(lado)        
+        altura = float(altura)
+        if qntlados < 3:
+            return ERROR("Verifique se a quantidade de lados permite a base")
+        elif qntlados == 3:
+            base = ((1 *((lado**2)*math.sqrt(3))) / 4)
+        elif qntlados == 4:
+            base = lado**2
+        else:
+            base = ((qntlados * ((lado**2)*math.sqrt(3))) / 4)
+        calculo = base*altura
+        return resultado("Volume: " + str(calculo))
+
 def volumeCubo(lado):
     if tratErro(float, lado) == True:
         lado = float(lado)
         calculo = lado**3
-        return resultado("Área: " + str(calculo))
+        return resultado("Volume: " + str(calculo))
 
 def volumeParalelepipedo(a,b,h):
     if tratErro(float, a) & tratErro(float, b) & tratErro(float, h) == True:
@@ -125,20 +137,36 @@ def volumeParalelepipedo(a,b,h):
         b = float(b)
         h = float(h)
         calculo = (a*b*h)
-        return resultado("Área: " + str(calculo))
+        return resultado("Volume: " + str(calculo))
 
 def volumeCilindro(raio, h):
     if tratErro(float, raio) & tratErro(float, h) == True:    
         raio = float(raio)
         h = float(h)
         calculo = (pi*(raio**2))*h
-        return resultado("Área: " + str(calculo))
+        return resultado("Volume: " + str(calculo))
 
 def volumeEsfera(raio):
     if tratErro(float, raio) == True:
         raio = float(raio)    
         calculo = (4/3)*pi*raio
-        return resultado("Área: " + str(calculo))
+        return resultado("Volume: " + str(calculo))
+
+def volumeCone(raio, h):
+    if tratErro(float, raio) & tratErro(float, h) == True:
+        raio = float(raio)
+        h = float(h)
+        calculo = (pi*(raio**2)*h)/3
+        return resultado("Volume: " + str(calculo))
+
+def volumeTroncoCone(R, r, h):
+    if tratErro(float, R) & tratErro(float, r) & tratErro(float, h) == True:
+        R = float(R)
+        r = float(r)
+        h = float(h)
+        calculo = (pi*h*((R**2)+(r**2)+(R*r)))/3
+        return resultado("Volume: " + str(calculo))
+
 
 # Analítica
 def distPontos(xa, ya, xb, yb):

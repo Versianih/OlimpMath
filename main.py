@@ -1,8 +1,10 @@
+# Telas
 from views.geo import geometria
 from views.base import base
 from views.algebra import algebra
 from views.ac import ac
 from views.trig import trig
+# Funções
 from funcoes import (
     YELLOW, RED, RESET, GREEN,
     clean, get_keypress, max_digits, acaoInvalida,

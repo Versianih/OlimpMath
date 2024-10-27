@@ -1,11 +1,15 @@
 from funcoes import(
-    voltar, acaoInvalida, resultado, get_keypress, clean,
+    voltar, acaoInvalida, get_keypress, clean,
+    # Hipotenusa
     HipotenusaComOposto,
     HipotenusaComAdjacente,
+    # Oposto
     OpostoComHipotenusa,
     OpostoComAdjacente,
+    # Adjacente
     AdjacenteComHipotenusa,
     AdjacenteComOposto,
+    # Ângulo
     AnguloComCOCA,
     AnguloComCOH,
     AnguloComCAH,
@@ -51,6 +55,7 @@ def trig():
         else:
             acaoInvalida()
 
+
 def hipotenusa():
     clean()
     print(GREEN + "HIPOTENUSA")
@@ -76,7 +81,6 @@ def hipotenusa():
         pass
     else:
         acaoInvalida()
-
 
 
 def oposto():
@@ -106,6 +110,7 @@ def oposto():
     else:
         acaoInvalida()
 
+
 def adjacente():
     clean()
     print(GREEN + "CATETO ADJACENTE")
@@ -131,6 +136,7 @@ def adjacente():
         pass
     else:
         acaoInvalida()
+
 
 def angulo():
     clean()
