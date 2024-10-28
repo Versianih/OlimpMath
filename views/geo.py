@@ -17,6 +17,9 @@ from funcoes import (
     volumeCilindro,
     volumeCone,
     volumeTroncoCone,
+
+    # Geometria Analítica
+    distPontos,
 )
 
 from funcoes import (
@@ -33,7 +36,7 @@ def geometria():
         print(GREEN + "GEOMETRIA")
         print(YELLOW + "1) Geometria Plana")
         print("2) Geometria Espacial")
-        print("3) Geometria Analítica(Não Funcional)")
+        print("3) Geometria Analítica")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
@@ -199,12 +202,18 @@ def geometriaAnalítica():
     while True:
         clean()
         print(GREEN + "GEOMETRIA ANALÍTICA")
+        print(YELLOW + "1) Distância entre dois pontos")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
         escolha = get_keypress()
 
-        if escolha == "0":
+        if escolha == "1":
+            clean()
+            distPontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"))
+            voltar()
+
+        elif escolha == "0":
             clean()
             break
         else:
