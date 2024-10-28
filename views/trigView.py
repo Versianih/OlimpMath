@@ -1,5 +1,8 @@
-from funcoes import(
+from functions.functions import(
     voltar, acaoInvalida, get_keypress, clean,
+    RESET, RED, YELLOW, GREEN,
+)
+from functions.trigF import(
     # Hipotenusa
     HipotenusaComOposto,
     HipotenusaComAdjacente,
@@ -15,12 +18,6 @@ from funcoes import(
     AnguloComCAH,
 )
 
-from funcoes import(
-    RESET,
-    RED,
-    YELLOW,
-    GREEN,
-)
 
 def trig():
     while True:

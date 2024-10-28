@@ -1,11 +1,11 @@
 # Telas
-from views.geo import geometria
-from views.base import base
-from views.algebra import algebra
-from views.ac import ac
-from views.trig import trig
+from views.geoView import geometria
+from views.baseView import base
+from views.algebraView import algebra
+from views.combinatoriaView import combinatoria
+from views.trigView import trig
 # Funções
-from funcoes import (
+from functions.functions import (
     YELLOW, RED, RESET, GREEN,
     clean, get_keypress, max_digits, acaoInvalida,
 )
@@ -36,7 +36,7 @@ def main():
             algebra()
 
         elif escolha == "4":
-            ac()
+            combinatoria()
 
         elif escolha == "5":
             trig()

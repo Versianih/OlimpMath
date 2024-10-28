@@ -1,6 +1,8 @@
-from funcoes import (
+from functions.functions import (
     clean, get_keypress, voltar, acaoInvalida,
-    
+    RESET, RED, YELLOW, GREEN,    
+)
+from functions.geoF import (
     # Geometria Plana
     areaPoliRegular,
     areaCírculo,
@@ -20,13 +22,6 @@ from funcoes import (
 
     # Geometria Analítica
     distPontos,
-)
-
-from funcoes import (
-    RESET,
-    RED,
-    YELLOW,
-    GREEN,
 )
 
 

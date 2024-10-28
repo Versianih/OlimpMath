@@ -1,6 +1,8 @@
-from funcoes import(
+from functions.functions import(
     clean, get_keypress, voltar, acaoInvalida,
-
+    RESET, RED, YELLOW, GREEN,
+)
+from functions.algebraF import(
     raizQuadrada,
     MDC,
     MMC,
@@ -8,12 +10,6 @@ from funcoes import(
     equação2Grau,
 )
 
-from funcoes import(
-    RESET,
-    RED,
-    YELLOW,
-    GREEN,
-)
 
 def algebra():
     while True:

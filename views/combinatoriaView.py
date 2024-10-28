@@ -1,20 +1,16 @@
-from funcoes import(
+from functions.functions import(
     clean, get_keypress, voltar, acaoInvalida,
-    
+    RESET, RED, YELLOW, GREEN,
+)
+from functions.combinatoriaF import(
     Combinação,
     PermutaçãoDeNemK,
     PermutaçãoCircular,
     Fatorial,
 )
 
-from funcoes import(
-    RESET,
-    RED,
-    YELLOW,
-    GREEN,
-)
 
-def ac():
+def combinatoria():
     while True:
         clean()
         print(GREEN + "COMBINATÓRIA")

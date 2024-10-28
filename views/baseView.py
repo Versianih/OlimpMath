@@ -1,17 +1,13 @@
-from funcoes import(
+from functions.functions import(
     clean, get_keypress, voltar, acaoInvalida,
-
+    RESET, RED, YELLOW, GREEN,
+)
+from functions.baseF import(
     DecimalParaBase,
     BaseParaDecimal,
     BaseParaBase,
 )
 
-from funcoes import(
-    RESET,
-    RED,
-    YELLOW,
-    GREEN,
-)
 
 def base():
     while True:
