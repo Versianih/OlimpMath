@@ -84,6 +84,22 @@ def areaTrapezio(BASE, base, altura):
             return ERROR("Área não pode ser negativa")
 
 
+def pitagorasHipotenusa(a,b):
+    if tratErro(float, [a,b]) == True:
+        a = float(a)
+        b = float(b)
+        calculo = ((a**2) + (b**2))**(1/2)
+        return resultado("A medida da Hipotenusa é: " + str(calculo))
+
+
+def pitagorasCateto(a,h):
+    if tratErro(float, [a,h]) == True:
+        a = float(a)
+        h = float(h)
+        calculo = ((h**2) - (a**2))**(1/2)
+        return resultado("A medida do Cateto é: " + str(calculo))
+
+
 # Espacial
 def volumePrisma(qntlados, lado, altura):
     if tratErro(int, qntlados) & tratErro(float, [lado, altura]) == True:
