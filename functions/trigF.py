@@ -7,7 +7,8 @@ def HipotenusaComOposto(a,b):
         b = float(b)    
         ang = math.radians(b)
         hipotenusa = a/(math.sin(ang))
-        return resultado("Hipotenusa: " + str(hipotenusa))
+        resultado("Hipotenusa: " + str(hipotenusa))
+        return hipotenusa
 
 
 def HipotenusaComAdjacente(a,b):
@@ -16,7 +17,8 @@ def HipotenusaComAdjacente(a,b):
         b = float(b)
         ang = math.radians(b)
         hipotenusa = a/(math.cos(ang))
-        return resultado("Hipotenusa: " + str(hipotenusa))
+        resultado("Hipotenusa: " + str(hipotenusa))
+        return hipotenusa
 
 
 
@@ -26,7 +28,8 @@ def OpostoComHipotenusa(a,b):
         b = float(b)
         ang = math.radians(b)
         oposto = a*(math.sin(ang))
-        return resultado("Cateto Oposto: " + str(oposto))
+        resultado("Cateto Oposto: " + str(oposto))
+        return oposto
 
 
 def OpostoComAdjacente(a,b):
@@ -35,7 +38,8 @@ def OpostoComAdjacente(a,b):
         b = float(b)
         ang = math.radians(b)
         oposto = a*(math.tan(ang))
-        return resultado("Cateto Oposto: " + str(oposto))
+        resultado("Cateto Oposto: " + str(oposto))
+        return oposto
 
 
 
@@ -45,7 +49,8 @@ def AdjacenteComHipotenusa(a,b):
         b = float(b)
         ang = math.radians(b)
         adjacente = a*(math.cos(ang))
-        return resultado("Cateto Adjacente: " + str(adjacente))
+        resultado("Cateto Adjacente: " + str(adjacente))
+        return adjacente
 
 
 def AdjacenteComOposto(a,b):
@@ -54,7 +59,8 @@ def AdjacenteComOposto(a,b):
         b = float(b)
         ang = math.radians(b)
         adjacente = a/(math.tan(ang))
-        return resultado("Cateto Adjacente: " + str(adjacente))
+        resultado("Cateto Adjacente: " + str(adjacente))
+        return adjacente
 
 
 
@@ -64,7 +70,8 @@ def AnguloComCOCA(a,b): #a=CO b=CA
         b = float(b)
         ang_rad = math.atan(a/b)
         angulo = math.degrees(ang_rad)
-        return resultado("Ângulo: " + str(angulo))
+        resultado("Ângulo: " + str(angulo))
+        return angulo
 
 
 def AnguloComCOH(a,b): #a=CO b=H
@@ -73,7 +80,8 @@ def AnguloComCOH(a,b): #a=CO b=H
         b = float(b)
         ang_rad = math.asin(a/b)
         angulo = math.degrees(ang_rad)
-        return resultado("Ângulo: " + str(angulo)) 
+        resultado("Ângulo: " + str(angulo)) 
+        return angulo
 
 
 def AnguloComCAH(a,b): #a=CA b=H
@@ -82,4 +90,5 @@ def AnguloComCAH(a,b): #a=CA b=H
         b = float(b)
         ang_rad = math.acos(a/b)
         angulo = math.degrees(ang_rad)
-        return resultado("Ângulo: " + str(angulo))
+        resultado("Ângulo: " + str(angulo))
+        return angulo

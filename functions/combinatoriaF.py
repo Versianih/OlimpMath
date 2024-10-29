@@ -6,26 +6,30 @@ def PermutaçãoDeNemK(n,k):
         n = int(n)
         k = int(k)    
         calculo = math.perm(n, k)
-        return resultado("Resultado: " + str(calculo))
+        resultado("Resultado: " + str(calculo))
+        return calculo
 
 
 def PermutaçãoCircular(n):
     if tratErro(int, [n]) == True:
         n = int(n)
         calculo = math.factorial((n-1))
-        return resultado("Resultado: " + str(calculo))
+        resultado("Resultado: " + str(calculo))
+        return calculo
 
 
 def Combinação(n,k):
     if tratErro(int, [n, k]) == True:
         n = int(n)
         k = int(k)
-        calculo = math.comb(n,k)
-        return resultado("Resultado: " + str(calculo))
+        calculo = math.factorial(n)/(math.factorial(k) * math.factorial(n-k))
+        resultado("Resultado: " + str(calculo))
+        return calculo
 
 
 def Fatorial(n):
     if tratErro(int, [n]) == True:
         n = int(n)
         calculo = math.factorial(n)
-        return resultado("Fatorial desse Número é: " + str(calculo))
+        resultado("Fatorial desse Número é: " + str(calculo))
+        return calculo

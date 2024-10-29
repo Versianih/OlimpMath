@@ -11,19 +11,23 @@ def areaPoliRegular(qntLados, lado):
         elif qntLados == 3:
             Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
             if Tricalculo >= 0:
-                return resultado("Área: " + str(Tricalculo))
+                resultado("Área: " + str(Tricalculo))
+                return Tricalculo
             else:
                 return ERROR("Área não pode ser negativa")
         elif qntLados == 4:
             Quacalculo = lado**2
             if Quacalculo >= 0:
-                return resultado("Área: " + str(Quacalculo))
+                resultado("Área: " + str(Quacalculo))
+                return Quacalculo
             else:
                 return ERROR("Área não pode ser negativa")
+
         else:
             calculo = ((qntLados * ((lado**2)*math.sqrt(3))) / 4)
             if calculo >= 0:    
-                return resultado("Área: " + str(calculo))        
+                resultado("Área: " + str(calculo))        
+                return calculo
             else:
                 return ERROR("Área não pode ser negativa")
 
@@ -33,7 +37,8 @@ def areaCírculo(raio):
         raio = float(raio)
         calculo = (raio*raio)* pi
         if calculo >= 0:
-            return resultado("Área: " + str(calculo))
+            resultado("Área: " + str(calculo))
+            return calculo
         else:
             return ERROR("Área não pode ser negativa")
 
@@ -43,7 +48,8 @@ def areaQuadrado(lado):
         lado = float(lado)
         calculo = (lado*lado)
         if calculo >= 0:
-            return resultado("Área: " + str(calculo))
+            resultado("Área: " + str(calculo))
+            return calculo
         else:
             return ERROR("Área não pode ser negativa")
 
@@ -54,7 +60,8 @@ def areaTriangulo(base, altura):
         altura = float(altura)
         calculo = (base*altura)/2   
         if calculo >= 0:    
-            return resultado("Área: " + str(calculo))
+            resultado("Área: " + str(calculo))
+            return calculo
         else:    
             return ERROR("Área não pode ser negativa")
 
@@ -67,7 +74,8 @@ def areaTrianguloHeron(a, b, c):
         p = (a + b + c)/2
         calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
         if calculo >= 0:
-            return resultado("Área: " + str(calculo)) 
+            resultado("Área: " + str(calculo)) 
+            return calculo
         else:
             return ERROR("Área não pode ser negativa")
 
@@ -79,7 +87,8 @@ def areaTrapezio(BASE, base, altura):
         altura = float(altura)
         calculo = ((BASE+base)*altura)/2
         if calculo >= 0:
-            return resultado("Área: " + str(calculo))
+            resultado("Área: " + str(calculo))
+            return calculo
         else:
             return ERROR("Área não pode ser negativa")
 
@@ -89,7 +98,8 @@ def pitagorasHipotenusa(a,b):
         a = float(a)
         b = float(b)
         calculo = ((a**2) + (b**2))**(1/2)
-        return resultado("A medida da Hipotenusa é: " + str(calculo))
+        resultado("A medida da Hipotenusa é: " + str(calculo))
+        return calculo
 
 
 def pitagorasCateto(a,h):
@@ -97,7 +107,8 @@ def pitagorasCateto(a,h):
         a = float(a)
         h = float(h)
         calculo = ((h**2) - (a**2))**(1/2)
-        return resultado("A medida do Cateto é: " + str(calculo))
+        resultado("A medida do Cateto é: " + str(calculo))
+        return calculo
 
 
 # Espacial
@@ -116,7 +127,8 @@ def volumePrisma(qntlados, lado, altura):
             base = ((qntlados * ((lado**2)*math.sqrt(3))) / 4)
         calculo = base*altura
         if calculo >= 0:
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -126,7 +138,8 @@ def volumeCubo(lado):
         lado = float(lado)
         calculo = lado**3
         if calculo >= 0:
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -138,7 +151,8 @@ def volumeParalelepipedo(a,b,h):
         h = float(h)
         calculo = (a*b*h)
         if calculo >= 0:
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -149,7 +163,8 @@ def volumeCilindro(raio, h):
         h = float(h)
         calculo = (pi*(raio**2))*h
         if calculo >= 0:
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -159,7 +174,8 @@ def volumeEsfera(raio):
         raio = float(raio)    
         calculo = (4/3)*pi*raio
         if calculo >= 0:    
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -170,7 +186,8 @@ def volumeCone(raio, h):
         h = float(h)
         calculo = (pi*(raio**2)*h)/3
         if calculo >= 0:
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
 
@@ -182,7 +199,8 @@ def volumeTroncoCone(R, r, h):
         h = float(h)
         calculo = (pi*h*((R**2)+(r**2)+(R*r)))/3
         if calculo >= 0:    
-            return resultado("Volume: " + str(calculo))
+            resultado("Volume: " + str(calculo))
+            return calculo
         else:
             return ERROR("Volume não pode ser negativo")
         
@@ -196,6 +214,7 @@ def distPontos(xa, ya, xb, yb):
         yb = float(yb)
         calculo = (((xb - xa)**2) + ((yb - ya)**2))**(1/2)
         if calculo >= 0:    
-            return resultado("A Distância entre os Pontos é: " + str(calculo))
+            resultado("A Distância entre os Pontos é: " + str(calculo))
+            return calculo
         else:
             return ERROR("Distância não pode ser negativa")

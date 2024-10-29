@@ -12,8 +12,9 @@ def BaseParaDecimal(num_original,base_original):
         decimal_temp.reverse()
         for x,i in enumerate(decimal_temp):
             decimal += dic.index(i) * base_original**(x)
-        return resultado("Número na Base Decimal:" + str(decimal))
- 
+        resultado("Número na Base Decimal:" + str(decimal))
+        return decimal
+
  
 def DecimalParaBase(decimal,base_final):
     if tratErro(int, [base_final, decimal]) == True:
@@ -32,7 +33,8 @@ def DecimalParaBase(decimal,base_final):
         numero_final_temp.reverse()
         for i in numero_final_temp:
             numero_final += dic[i]     
-        return resultado("Número na Base Final:" + str(numero_final))
+        resultado("Número na Base Final:" + str(numero_final))
+        return numero_final
 
 
 def BaseParaBase(num_original,base_original,base_final):
@@ -43,4 +45,5 @@ def BaseParaBase(num_original,base_original,base_final):
 
         num_decimal = BaseParaDecimal(num_original,base_original)
         num_final = DecimalParaBase(num_decimal,base_final)
-        return resultado("Número na Base Final:" + str(num_final))
+        resultado("Número na Base Final:" + str(num_final))
+        return num_final
