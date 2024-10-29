@@ -11,6 +11,9 @@ from functions.geoF import (
     areaTriangulo,
     areaTrianguloHeron,
 
+    pitagorasHipotenusa,
+    pitagorasCateto,
+
     # Geometria Espacial
     volumePrisma,
     volumeCubo,
@@ -60,6 +63,33 @@ def geometriaPlana():
     while True:
         clean()
         print(GREEN + "GEOMETRIA PLANA")
+        print(YELLOW + "1) Áreas")
+        print("2) Teorema de Pitágoras")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress() 
+
+        # Áreas
+        if escolha == "1":
+            geoPlanaAreas()
+        
+        # Pitágoras
+        elif escolha == "2":
+            geoPlanaPitágoras()
+        
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def geoPlanaAreas():
+    while True:
+        clean()
+        print(GREEN + "ÁREAS")
         print(YELLOW + "1) Área de um Polígono Regular")
         print("2) Área do Cículo")
         print("3) Área do Quadrado")
@@ -111,7 +141,7 @@ def geometriaPlana():
 
             elif escolhaTriangulo == "0":
                 clean()
-                break
+                pass
             else:
                 acaoInvalida()
 
@@ -120,13 +150,44 @@ def geometriaPlana():
             clean()
             areaTrapezio(input("Base1 do Trapézio em Metros:"), input("Base2 do Trapézio em Metros"), input("Altura do Trapézio em Metros:"))
             voltar()
-
+        
+        # Sair
         elif escolha == "0":
             clean()
             break
         else:
             acaoInvalida()
 
+
+def geoPlanaPitágoras():
+    while True:
+        clean()
+        print(GREEN + "TEOREMA DE PITÁGORAS")
+        print(YELLOW + "1) Calcular Hipotenusa")
+        print("2) Calcular Cateto")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress()
+
+        # Teorema de Pitágoras para descobrir a Hipotenusa
+        if escolha == "1":
+            clean()
+            pitagorasHipotenusa(input("Cateto:"), input("Cateto:"))
+            voltar()
+
+        # Teorema de Pitágoras para descobrir o Cateto
+        elif escolha == "2":
+            clean()
+            pitagorasCateto(input("Cateto:"), input("Hipotenusa:"))
+            voltar()
+
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
 
 def geometriaEspacial():
     while True:
