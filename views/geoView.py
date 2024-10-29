@@ -31,7 +31,7 @@ from functions.geoF import (
 def geometria():
     while True:
         clean()
-        print(GREEN + "GEOMETRIA")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA")
         print(YELLOW + "1) Geometria Plana")
         print("2) Geometria Espacial")
         print("3) Geometria Analítica")
@@ -62,7 +62,7 @@ def geometria():
 def geometriaPlana():
     while True:
         clean()
-        print(GREEN + "GEOMETRIA PLANA")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA")
         print(YELLOW + "1) Áreas")
         print("2) Teorema de Pitágoras")
         print(RED + "0) Voltar" + RESET)
@@ -89,7 +89,7 @@ def geometriaPlana():
 def geoPlanaAreas():
     while True:
         clean()
-        print(GREEN + "ÁREAS")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS")
         print(YELLOW + "1) Área de um Polígono Regular")
         print("2) Área do Cículo")
         print("3) Área do Quadrado")
@@ -121,7 +121,7 @@ def geoPlanaAreas():
         # Triângulo
         elif escolha == "4":
             clean()
-            print(GREEN + "Área Triângulo")
+            print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS -> ÁREA TRIÂNGULO")
             print(YELLOW + "1)Base e Altura")
             print("2)Fórmula de Heron")
             print(RED + "0) Voltar" + RESET)
@@ -162,7 +162,7 @@ def geoPlanaAreas():
 def geoPlanaPitágoras():
     while True:
         clean()
-        print(GREEN + "TEOREMA DE PITÁGORAS")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> TEOREMA DE PITÁGORAS")
         print(YELLOW + "1) Calcular Hipotenusa")
         print("2) Calcular Cateto")
         print(RED + "0) Voltar" + RESET)
@@ -192,7 +192,7 @@ def geoPlanaPitágoras():
 def geometriaEspacial():
     while True:
         clean()
-        print(GREEN + "GEOMETRIA ESPACIAL")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL")
         print(YELLOW + "1) Volume de um Prisma de Base 'n' lados")
         print("2) Volume do Cubo")
         print("3) Volume do Paralelepípedo")
@@ -257,7 +257,7 @@ def geometriaEspacial():
 def geometriaAnalítica():
     while True:
         clean()
-        print(GREEN + "GEOMETRIA ANALÍTICA")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ANALÍTICA")
         print(YELLOW + "1) Distância entre dois pontos")
         print(RED + "0) Voltar" + RESET)
         print("")

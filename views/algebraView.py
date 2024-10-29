@@ -14,7 +14,7 @@ from functions.algebraF import(
 def algebra():
     while True:
         clean()
-        print(GREEN + "ÁLGEBRA")
+        print(GREEN + "TELA INICIAL -> ÁLGEBRA")
         print(YELLOW + "1) Raiz Quadrada")
         print("2) MDC de Dois Números")
         print("3) MMC de Dois Números")

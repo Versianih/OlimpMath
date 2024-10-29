@@ -4,6 +4,7 @@ from views.baseView import base
 from views.algebraView import algebra
 from views.combinatoriaView import combinatoria
 from views.trigView import trig
+from views.settings import settings
 # Funções
 from functions.functions import (
     YELLOW, RED, RESET, GREEN,
@@ -41,9 +42,18 @@ def main():
         elif escolha == "5":
             trig()
 
+        elif escolha == "s":
+            settings()
+
         elif escolha == "0": 
-            clean()
-            break
+            print("")
+            print(RED + "Tem certeza que deseja Sair? (Y/n)" + RESET)
+            saida = get_keypress()
+            if saida == "y" or saida == "Y":
+                clean()
+                break
+            else:
+                main()
         else:
             acaoInvalida()
 

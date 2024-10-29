@@ -13,7 +13,7 @@ from functions.combinatoriaF import(
 def combinatoria():
     while True:
         clean()
-        print(GREEN + "COMBINATÓRIA")
+        print(GREEN + "TELA INICIAL -> COMBINATÓRIA")
         print(YELLOW + "1) Combinação de N escolhe P")
         print("2) Permutação de N em K")
         print("3) Permutação Circular")

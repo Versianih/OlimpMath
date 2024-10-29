@@ -3,6 +3,11 @@ import msvcrt, os, time, math
 
 pi = float("{:,.2f}".format(math.pi))
 
+RED = '\033[31m'
+RESET = '\033[0m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+CYAN = '\033[36m'
 
 def clean():
     # Função para limpar a tela (compatível com Windows e Unix)
@@ -10,7 +15,14 @@ def clean():
 
 
 def get_keypress():
-    return msvcrt.getch().decode('utf-8')
+    try:
+        # Captura a tecla pressionada e tenta decodificar como UTF-8
+        key = msvcrt.getch()
+        decoded_key = key.decode('utf-8') if key else ''
+    except UnicodeDecodeError:
+        # Caso não consiga decodificar como UTF-8, usa ISO-8859-1 como alternativa
+        decoded_key = key.decode('ISO-8859-1') if key else ''
+    return decoded_key
 
 
 def max_digits(lengh):
@@ -51,9 +63,3 @@ def resultado(resultado):
 def ERROR(mensagem):
     print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
-
-
-RED = '\033[31m'
-RESET = '\033[0m'
-GREEN = '\033[32m'
-YELLOW = '\033[33m'

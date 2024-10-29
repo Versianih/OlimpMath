@@ -38,12 +38,11 @@ def DecimalParaBase(decimal,base_final):
 
 
 def BaseParaBase(num_original,base_original,base_final):
-    if tratErro(int, [num_decimal, base_original, base_final]) == True:
-        num_decimal = int(num_decimal)
+    if tratErro(int, [num_original, base_original, base_final]) == True:
+        num_original = int(num_original)
         base_final = int(base_final)
         base_original = int(base_original)
 
         num_decimal = BaseParaDecimal(num_original,base_original)
         num_final = DecimalParaBase(num_decimal,base_final)
-        resultado("Número na Base Final:" + str(num_final))
         return num_final

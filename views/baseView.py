@@ -12,7 +12,7 @@ from functions.baseF import(
 def base():
     while True:
         clean()
-        print(GREEN + "BASE")
+        print(GREEN + "TELA INICIAL -> BASE")
         print(YELLOW + "1) Base Decimal para Base n")
         print("2) Base n Para Base Decimal")
         print("3) Base n Para Base m")
