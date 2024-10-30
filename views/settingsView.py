@@ -29,7 +29,7 @@ def settings():
             print("")
             preTratDecimais = input(CYAN + "Casas decimais atual: " + GREEN +  str(functions.functions.casas_decimais) + CYAN +  " Saída Nova:" + RESET)
             if tratErro(int, [preTratDecimais]) == True:
-                functions.functions.casas_decimais  = preTratDecimais
+                functions.functions.casas_decimais = int(preTratDecimais)
                 # print(GREEN + "Sucesso! " + CYAN + "A saída de casas decimais agora é de: " + GREEN +  str(functions.functions.casas_decimais), "casas decimais" + RESET)
             else:
                 voltar()

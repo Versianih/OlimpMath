@@ -24,19 +24,19 @@ def base():
         # Transformar Base Decimal em Base n
         if escolha == "1":
             clean()
-            DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"))
+            DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"), True)
             voltar()
         
         # Transformar Base n para Base Decimal
         elif escolha == "2":
             clean()
-            BaseParaDecimal(input("Número:"), input("Base:"))
+            BaseParaDecimal(input("Número:"), input("Base:"), True)
             voltar()
         
         # Transformar Base n para Base m
         elif escolha == "3":
             clean()
-            BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"))
+            BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
             voltar()
         
         elif escolha == "0":

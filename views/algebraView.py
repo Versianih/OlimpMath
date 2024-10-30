@@ -28,31 +28,31 @@ def algebra():
         # Raiz Quadrada
         if escolha == "1":
             clean()
-            raizQuadrada(input("Número que se deseja calcular a Raiz Quadrada:"))
+            raizQuadrada(input("Número que se deseja calcular a Raiz Quadrada:"), True)
             voltar()
 
         # MDC
         elif escolha == "2":
             clean()
-            MDC(input("N₁:"), input("N₂:"))
+            MDC(input("N₁:"), input("N₂:"), True)
             voltar()
 
         # MMC
         elif escolha == "3":
             clean()
-            MMC(input("N₁:"), input("N₂:"))
+            MMC(input("N₁:"), input("N₂:"), True)
             voltar()
 
         # Resto
         elif escolha == "4":
             clean()
-            Resto(input("Dividendo:"), input("Divisor:"))
+            Resto(input("Dividendo:"), input("Divisor:"), True)
             voltar()
 
         # Equação de Grau 2
         elif escolha == "5":
             clean()
-            equação2Grau(input("a:"), input("b:"), input("c:"))
+            equação2Grau(input("a:"), input("b:"), input("c:"), True)
             voltar()
 
         elif escolha == "0":

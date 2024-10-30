@@ -17,7 +17,7 @@ from functions.trigF import(
     AnguloComCOH,
     AnguloComCAH,
 )
-
+import functions.functions
 
 def trig():
     while True:
@@ -65,12 +65,12 @@ def hipotenusa():
 
         if escolhaHipotensa == "1":
             clean()
-            HipotenusaComOposto(input("Cateto Oposto:"), input("Ângulo:"))
+            HipotenusaComOposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolhaHipotensa == "2":
             clean()
-            HipotenusaComAdjacente(input("Cateto Adjacente:"), input("Ângulo:"))
+            HipotenusaComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
             
         elif escolhaHipotensa == "0":
@@ -93,12 +93,12 @@ def oposto():
         
         if escolhaOposto == "1":
             clean()
-            OpostoComHipotenusa(input("Hipotenusa:"), input("Ângulo:"))
+            OpostoComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolhaOposto == "2":
             clean()
-            OpostoComAdjacente(input("Cateto Adjacente:"), input("Ângulo:"))
+            OpostoComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
         
         elif escolhaOposto == "0":
@@ -121,12 +121,12 @@ def adjacente():
         
         if escolhaAdjacente == "1":
             clean()
-            AdjacenteComHipotenusa(input("Hipotenusa:"), input("Ângulo:"))
+            AdjacenteComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolhaAdjacente == "2":
             clean()
-            AdjacenteComOposto(input("Cateto Adjacente:"), input("Ângulo:"))
+            AdjacenteComOposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolhaAdjacente == "0":
@@ -150,17 +150,17 @@ def angulo():
 
         if escolhaAngulo == "1":
             clean()
-            AnguloComCOCA(input("Cateto Oposto:"), input("Cateto Adjacente:"))
+            AnguloComCOCA(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
             voltar()
 
         elif escolhaAngulo == "2":
             clean()
-            AnguloComCOH(input("Cateto Oposto:"), input("Hipotenusa:"))
+            AnguloComCOH(input("Cateto Oposto:"), input("Hipotenusa:"), True)
             voltar()
 
         elif escolhaAngulo == "3":
             clean()
-            AnguloComCAH(input("Cateto Adjacente:"), input("Hipotenusa"))
+            AnguloComCAH(input("Cateto Adjacente:"), input("Hipotenusa"), True)
             voltar()
         
         elif escolhaAngulo == "0":

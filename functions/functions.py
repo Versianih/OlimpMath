@@ -1,7 +1,17 @@
 import msvcrt, os, time, math
 
+# Settings
 
-pi = float("{:,.2f}".format(math.pi))
+casas_decimais = 2 
+saida_angulo = "graus"
+entrada_angulo = "graus"
+
+# Funções
+
+pi = math.pi
+euler = math.e
+# round(calculo, casas_decimais)
+# pi = float("{:,.2f}".format(math.pi))
 
 RED = '\033[31m'
 RESET = '\033[0m'
@@ -56,17 +66,13 @@ def acaoInvalida():
     time.sleep(1)
 
 
-def resultado(resultado):
-    print(GREEN + resultado + RESET)
+def resultado(texto, resultado, aproximar=None):
+    if aproximar == True:
+        resultado = round(resultado, casas_decimais)
+    print(GREEN + texto, str(resultado) + RESET)
     print("")
-    
+
 
 def ERROR(mensagem):
     print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
-
-# Settings
-
-casas_decimais = 2 
-saida_angulo = "graus"
-entrada_angulo = "graus"

@@ -103,19 +103,19 @@ def geoPlanaAreas():
         # Polígono Regular Qualquer
         if escolha == "1":
             clean()
-            areaPoliRegular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"))
+            areaPoliRegular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
             voltar()
 
         # Círculo
         elif escolha == "2":
             clean()
-            areaCírculo(input("Raio do Círculo em Metros:"))
+            areaCírculo(input("Raio do Círculo em Metros:"), True)
             voltar()
 
         # Quadrado
         elif escolha == "3":
             clean()
-            areaQuadrado(input("Lado do Quadrado em Metros:"))
+            areaQuadrado(input("Lado do Quadrado em Metros:"), True)
             voltar()
 
         # Triângulo
@@ -131,12 +131,12 @@ def geoPlanaAreas():
 
             if escolhaTriangulo == "1":  # Base e Altura
                 clean()
-                areaTriangulo(input("Base do triagulo em Metros:"), input("Altura do triagulo em Metros:"))
+                areaTriangulo(input("Base do triagulo em Metros:"), input("Altura do triagulo em Metros:"), True)
                 voltar()
 
             elif escolhaTriangulo == "2":  # Fórmula de Heron
                 clean()
-                areaTrianguloHeron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"))
+                areaTrianguloHeron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
                 voltar()
 
             elif escolhaTriangulo == "0":
@@ -148,7 +148,7 @@ def geoPlanaAreas():
         # Trapézio
         elif escolha == "5":
             clean()
-            areaTrapezio(input("Base1 do Trapézio em Metros:"), input("Base2 do Trapézio em Metros"), input("Altura do Trapézio em Metros:"))
+            areaTrapezio(input("Base1 do Trapézio em Metros:"), input("Base2 do Trapézio em Metros"), input("Altura do Trapézio em Metros:"), True)
             voltar()
         
         # Sair
@@ -173,13 +173,13 @@ def geoPlanaPitágoras():
         # Teorema de Pitágoras para descobrir a Hipotenusa
         if escolha == "1":
             clean()
-            pitagorasHipotenusa(input("Cateto:"), input("Cateto:"))
+            pitagorasHipotenusa(input("Cateto:"), input("Cateto:"), True)
             voltar()
 
         # Teorema de Pitágoras para descobrir o Cateto
         elif escolha == "2":
             clean()
-            pitagorasCateto(input("Cateto:"), input("Hipotenusa:"))
+            pitagorasCateto(input("Cateto:"), input("Hipotenusa:"), True)
             voltar()
 
         # Sair
@@ -208,43 +208,43 @@ def geometriaEspacial():
         # Prisma
         if escolha == "1":
             clean()
-            volumePrisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base;"), input("Altura do Prisma:"))
+            volumePrisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base;"), input("Altura do Prisma:"), True)
             voltar()
 
         # Cubo 
         elif escolha == "2":
             clean()
-            volumeCubo(input("Medida da Aresta do Cubo:"))
+            volumeCubo(input("Medida da Aresta do Cubo:"), True)
             voltar()
 
         # Paralelepípedo 
         elif escolha == "3":
             clean()
-            volumeParalelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"))
+            volumeParalelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
             voltar()
 
         # Esfera
         elif escolha == "4":
             clean()
-            volumeEsfera(input("Raio:"))
+            volumeEsfera(input("Raio:"), True)
             voltar()
 
         # Cilindro
         elif escolha == "5":
             clean()
-            volumeCilindro(input("Raio da Base:"), input("Altura:"))
+            volumeCilindro(input("Raio da Base:"), input("Altura:"), True)
             voltar()
 
         # Cone
         elif escolha == "6":
             clean()
-            volumeCone(input("Raio da Base:"), input("Altura:"))
+            volumeCone(input("Raio da Base:"), input("Altura:"), True)
             voltar()
 
         # Tronco do Cone
         elif escolha == "7":
             clean()
-            volumeTroncoCone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"))
+            volumeTroncoCone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
             voltar()
         
         elif escolha == "0":
@@ -266,7 +266,7 @@ def geometriaAnalítica():
 
         if escolha == "1":
             clean()
-            distPontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"))
+            distPontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"), True)
             voltar()
 
         elif escolha == "0":

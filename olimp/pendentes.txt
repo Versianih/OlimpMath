@@ -6,3 +6,4 @@
 *Formação de Triângulos
 *Somatórios e Produtórios 
 *Menu confi(casas dec)
+*round(para aproximação)

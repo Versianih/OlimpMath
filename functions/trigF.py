@@ -1,94 +1,130 @@
 from functions.functions import math, tratErro, resultado, ERROR
+import functions.functions
 
-
-def HipotenusaComOposto(a,b):
+def HipotenusaComOposto(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
-        b = float(b)    
-        ang = math.radians(b)
-        hipotenusa = a/(math.sin(ang))
-        resultado("Hipotenusa: " + str(hipotenusa))
+        b = float(b)
+        
+        if functions.functions.entrada_angulo == "graus":
+            b = math.radians(b)
+        hipotenusa = a/(math.sin(b))
+        
+        if print == True:
+            resultado("Hipotenusa:", hipotenusa, True)
         return hipotenusa
 
 
-def HipotenusaComAdjacente(a,b):
+def HipotenusaComAdjacente(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang = math.radians(b)
-        hipotenusa = a/(math.cos(ang))
-        resultado("Hipotenusa: " + str(hipotenusa))
+        
+        if functions.functions.entrada_angulo == "graus":
+            b = math.radians(b)
+        hipotenusa = a/(math.cos(b))
+        
+        if print == True:
+            resultado("Hipotenusa:", hipotenusa, True)
         return hipotenusa
 
 
 
-def OpostoComHipotenusa(a,b):
+def OpostoComHipotenusa(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang = math.radians(b)
-        oposto = a*(math.sin(ang))
-        resultado("Cateto Oposto: " + str(oposto))
+        
+        if functions.functions.entrada_angulo == "graus":
+            b = math.radians(b)
+        oposto = a*(math.sin(b))
+        
+        if print == True:
+            resultado("Cateto Oposto:", oposto, True)
         return oposto
 
 
-def OpostoComAdjacente(a,b):
+def OpostoComAdjacente(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang = math.radians(b)
-        oposto = a*(math.tan(ang))
-        resultado("Cateto Oposto: " + str(oposto))
+
+        if functions.functions.entrada_angulo == "graus":
+            b = math.radians(b)
+        oposto = a*(math.tan(b))
+        
+        if print == True:
+            resultado("Cateto Oposto:", oposto, True)
         return oposto
 
 
 
-def AdjacenteComHipotenusa(a,b):
+def AdjacenteComHipotenusa(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang = math.radians(b)
-        adjacente = a*(math.cos(ang))
-        resultado("Cateto Adjacente: " + str(adjacente))
+        
+        if functions.functions.entrada_angulo == "graus":        
+            b = math.radians(b)
+        adjacente = a*(math.cos(b))
+        
+        if print == True:
+            resultado("Cateto Adjacente:", adjacente, True)
         return adjacente
 
 
-def AdjacenteComOposto(a,b):
+def AdjacenteComOposto(a,b, print=None):
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang = math.radians(b)
-        adjacente = a/(math.tan(ang))
-        resultado("Cateto Adjacente: " + str(adjacente))
+        
+        if functions.functions.entrada_angulo == "graus":
+            b = math.radians(b)
+        adjacente = a/(math.tan(b))
+        
+        if print == True:
+            resultado("Cateto Adjacente:", adjacente, True)
         return adjacente
 
 
 
-def AnguloComCOCA(a,b): #a=CO b=CA
+def AnguloComCOCA(a,b, print=None): #a=CO b=CA
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang_rad = math.atan(a/b)
-        angulo = math.degrees(ang_rad)
-        resultado("Ângulo: " + str(angulo))
+        angulo = math.atan(a/b)
+        
+        if functions.functions.saida_angulo == "graus":
+            angulo = math.degrees(angulo)
+
+        if print == True:
+            resultado("Ângulo em " + str(functions.functions.saida_angulo) + ":", angulo, True)
         return angulo
 
 
-def AnguloComCOH(a,b): #a=CO b=H
+def AnguloComCOH(a,b, print=None): #a=CO b=H
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang_rad = math.asin(a/b)
-        angulo = math.degrees(ang_rad)
-        resultado("Ângulo: " + str(angulo)) 
+        angulo = math.asin(a/b)
+        
+        if functions.functions.saida_angulo == "graus":
+            angulo = math.degrees(angulo)
+        
+        if print == True:
+            resultado("Ângulo em " + str(functions.functions.saida_angulo) + ":", angulo, True) 
         return angulo
 
 
-def AnguloComCAH(a,b): #a=CA b=H
+def AnguloComCAH(a,b, print=None): #a=CA b=H
     if tratErro(float, [a, b]) == True:
         a = float(a)
         b = float(b)
-        ang_rad = math.acos(a/b)
-        angulo = math.degrees(ang_rad)
-        resultado("Ângulo: " + str(angulo))
+        angulo = math.acos(a/b)
+        
+        if functions.functions.saida_angulo == "graus":
+            angulo = math.degrees(angulo)
+        
+        if print == True:
+            resultado("Ângulo em " + str(functions.functions.saida_angulo) + ":", angulo, True)
         return angulo
