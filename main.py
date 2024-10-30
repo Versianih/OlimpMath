@@ -4,7 +4,8 @@ from views.baseView import base
 from views.algebraView import algebra
 from views.combinatoriaView import combinatoria
 from views.trigView import trig
-from views.settings import settings
+from views.settingsView import settings
+import functions.settings
 # Funções
 from functions.functions import (
     YELLOW, RED, RESET, GREEN,
@@ -42,7 +43,7 @@ def main():
         elif escolha == "5":
             trig()
 
-        elif escolha == "s":
+        elif escolha == "s" or escolha == "S":
             settings()
 
         elif escolha == "0": 

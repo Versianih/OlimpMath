@@ -8,6 +8,7 @@ RESET = '\033[0m'
 GREEN = '\033[32m'
 YELLOW = '\033[33m'
 CYAN = '\033[36m'
+GRENN_BACKGROUND = '\033[42m'
 
 def clean():
     # Função para limpar a tela (compatível com Windows e Unix)
