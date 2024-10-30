@@ -1,9 +1,6 @@
-*Pitágoras
 *Aumentos percentuais
 *Razões
 *PA e PG
 *Probabilidade
 *Formação de Triângulos
 *Somatórios e Produtórios 
-*Menu confi(casas dec)
-*round(para aproximação)
