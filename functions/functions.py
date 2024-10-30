@@ -64,3 +64,9 @@ def resultado(resultado):
 def ERROR(mensagem):
     print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
+
+# Settings
+
+casas_decimais = 2 
+saida_angulo = "graus"
+entrada_angulo = "graus"

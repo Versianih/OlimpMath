@@ -1,18 +1,19 @@
 from functions.functions import(
     acaoInvalida, voltar, get_keypress, clean, tratErro,
-    GREEN, RED, CYAN, GRENN_BACKGROUND, RESET
+    GREEN, RED, CYAN, GRENN_BACKGROUND, RESET,
+    casas_decimais, saida_angulo, entrada_angulo
 )
 
-import functions.settings
+import functions.functions
 
 def settings():
     while True:
         clean()
         print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
         print("")
-        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.settings.casas_decimais), "casas decimais" + RESET)
-        print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.saida_angulo) + RESET)
-        print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.entrada_angulo) + RESET)
+        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
+        print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
+        print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?:")
@@ -22,14 +23,14 @@ def settings():
             clean()
             print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
             print("")
-            print(GRENN_BACKGROUND + CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.settings.casas_decimais), "casas decimais" + RESET)
-            print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.saida_angulo) + RESET)
-            print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.entrada_angulo) + RESET)
+            print(GRENN_BACKGROUND + CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
+            print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
+            print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
             print("")
-            preTratDecimais = input(CYAN + "Casas decimais atual: " + GREEN +  str(functions.settings.casas_decimais) + CYAN +  " Saída Nova:" + RESET)
+            preTratDecimais = input(CYAN + "Casas decimais atual: " + GREEN +  str(functions.functions.casas_decimais) + CYAN +  " Saída Nova:" + RESET)
             if tratErro(int, [preTratDecimais]) == True:
-                functions.settings.casas_decimais  = preTratDecimais
-                # print(GREEN + "Sucesso! " + CYAN + "A saída de casas decimais agora é de: " + GREEN +  str(functions.settings.casas_decimais), "casas decimais" + RESET)
+                functions.functions.casas_decimais  = preTratDecimais
+                # print(GREEN + "Sucesso! " + CYAN + "A saída de casas decimais agora é de: " + GREEN +  str(functions.functions.casas_decimais), "casas decimais" + RESET)
             else:
                 voltar()
 
@@ -51,22 +52,22 @@ def saidaÂngulo():
         clean()
         print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
         print("")
-        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.settings.casas_decimais), "casas decimais" + RESET)
-        print(GRENN_BACKGROUND + CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.saida_angulo) + RESET)
+        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
+        print(GRENN_BACKGROUND + CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
         print(GREEN + "   1) Graus" + RESET)
         print(GREEN + "   2) Radianos" + RESET)
-        print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.entrada_angulo) + RESET)
+        print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?:")
         escolha = get_keypress()
 
         if escolha == "1":
-            functions.settings.saida_angulo = "graus"
+            functions.functions.saida_angulo = "graus"
             break
         
         elif escolha == "2":
-            functions.settings.saida_angulo = "rad"
+            functions.functions.saida_angulo = "rad"
             break
 
         elif escolha == "0":
@@ -81,9 +82,9 @@ def entradaAngulo():
         clean()
         print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
         print("")
-        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.settings.casas_decimais), "casas decimais" + RESET)
-        print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.saida_angulo) + RESET)
-        print(GRENN_BACKGROUND + CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.settings.entrada_angulo) + RESET)
+        print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
+        print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
+        print(GRENN_BACKGROUND + CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
         print(GREEN + "   1) Graus" + RESET)
         print(GREEN + "   2) Radianos" + RESET)
         print(RED + "0) Voltar" + RESET)
@@ -92,11 +93,11 @@ def entradaAngulo():
         escolha = get_keypress()
 
         if escolha == "1":
-            functions.settings.entrada_angulo = "graus"
+            functions.functions.entrada_angulo = "graus"
             break
 
         elif escolha == "2":
-            functions.settings.entrada_angulo = "rad"
+            functions.functions.entrada_angulo = "rad"
             break
 
         elif escolha == "0":

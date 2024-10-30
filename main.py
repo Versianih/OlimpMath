@@ -5,7 +5,6 @@ from views.algebraView import algebra
 from views.combinatoriaView import combinatoria
 from views.trigView import trig
 from views.settingsView import settings
-import functions.settings
 # Funções
 from functions.functions import (
     YELLOW, RED, RESET, GREEN,
