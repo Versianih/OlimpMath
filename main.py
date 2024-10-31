@@ -1,5 +1,5 @@
 # Telas
-from views.geoView import geometria
+from views.geoView.geoView import geometria
 from views.baseView import base
 from views.algebraView import algebra
 from views.combinatoriaView import combinatoria
