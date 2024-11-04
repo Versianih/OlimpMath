@@ -6,19 +6,20 @@ casas_decimais = 2
 saida_angulo = "graus"
 entrada_angulo = "graus"
 
-# Funções
-
 pi = math.pi
 euler = math.e
-# round(calculo, casas_decimais)
-# pi = float("{:,.2f}".format(math.pi))
 
-RED = '\033[31m'
+# Funções
+
 RESET = '\033[0m'
+WHITE = '\033[37m'
+RED = '\033[31m'
 GREEN = '\033[32m'
 YELLOW = '\033[33m'
 CYAN = '\033[36m'
 GRENN_BACKGROUND = '\033[42m'
+RED_BACKGROUND = '\033[41m'
+
 
 def clean():
     # Função para limpar a tela (compatível com Windows e Unix)

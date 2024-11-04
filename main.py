@@ -7,7 +7,7 @@ from views.trigView import trig
 from views.settingsView import settings
 # Funções
 from functions.functions import (
-    YELLOW, RED, RESET, GREEN,
+    YELLOW, RED, RESET, GREEN, WHITE, RED_BACKGROUND,
     clean, get_keypress, max_digits, acaoInvalida,
 )
 
@@ -46,14 +46,23 @@ def main():
             settings()
 
         elif escolha == "0": 
+            clean()
+            print(GREEN + "OLIMP - TELA INICIAL")
+            print(YELLOW + "1) Geometria")
+            print("2) Bases")
+            print("3) Álgebra")
+            print("4) Combinatória")
+            print("5) Trigonometria Plana")
+            print(RED_BACKGROUND + WHITE + "0) Sair" + RESET)
+            print("")
+            print("Qual ação deseja fazer?:")
+        
             print("")
             print(RED + "Tem certeza que deseja Sair? (Y/n)" + RESET)
             saida = get_keypress()
             if saida == "y" or saida == "Y":
                 clean()
                 break
-            else:
-                main()
         else:
             acaoInvalida()
 

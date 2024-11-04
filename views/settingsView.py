@@ -1,7 +1,6 @@
 from functions.functions import(
     acaoInvalida, voltar, get_keypress, clean, tratErro,
-    GREEN, RED, CYAN, GRENN_BACKGROUND, RESET,
-    casas_decimais, saida_angulo, entrada_angulo
+    GREEN, RED, CYAN, GRENN_BACKGROUND, RESET, WHITE
 )
 
 import functions.functions
@@ -23,14 +22,13 @@ def settings():
             clean()
             print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
             print("")
-            print(GRENN_BACKGROUND + CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
+            print(GRENN_BACKGROUND + WHITE + "1) Saída de Casas Decimais: " + str(functions.functions.casas_decimais), "casas decimais" + RESET)
             print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
             print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
             print("")
             preTratDecimais = input(CYAN + "Casas decimais atual: " + GREEN +  str(functions.functions.casas_decimais) + CYAN +  " Saída Nova:" + RESET)
             if tratErro(int, [preTratDecimais]) == True:
                 functions.functions.casas_decimais = int(preTratDecimais)
-                # print(GREEN + "Sucesso! " + CYAN + "A saída de casas decimais agora é de: " + GREEN +  str(functions.functions.casas_decimais), "casas decimais" + RESET)
             else:
                 voltar()
 
@@ -53,7 +51,7 @@ def saidaÂngulo():
         print(GREEN + "TELA INICIAL -> CONFIGURAÇÔES:" + RESET)
         print("")
         print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
-        print(GRENN_BACKGROUND + CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
+        print(GRENN_BACKGROUND + WHITE + "2) Saída - Unidade de Medida de Ângulos: " +  str(functions.functions.saida_angulo) + RESET)
         print(GREEN + "   1) Graus" + RESET)
         print(GREEN + "   2) Radianos" + RESET)
         print(CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
@@ -84,7 +82,7 @@ def entradaAngulo():
         print("")
         print(CYAN + "1) Saída de Casas Decimais: " + GREEN  + str(functions.functions.casas_decimais), "casas decimais" + RESET)
         print(CYAN + "2) Saída - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.saida_angulo) + RESET)
-        print(GRENN_BACKGROUND + CYAN + "3) Entrada - Unidade de Medida de Ângulos: " + GREEN +  str(functions.functions.entrada_angulo) + RESET)
+        print(GRENN_BACKGROUND + WHITE + "3) Entrada - Unidade de Medida de Ângulos: " +  str(functions.functions.entrada_angulo) + RESET)
         print(GREEN + "   1) Graus" + RESET)
         print(GREEN + "   2) Radianos" + RESET)
         print(RED + "0) Voltar" + RESET)
