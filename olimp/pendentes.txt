@@ -3,4 +3,3 @@
 *PA e PG
 *Probabilidade
 *Formação de Triângulos
-*Somatórios e Produtórios 

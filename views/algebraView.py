@@ -8,6 +8,8 @@ from functions.algebraF import(
     MMC,
     Resto,
     equação2Grau,
+    Somatório,
+    Produtório,
 )
 
 
@@ -20,6 +22,8 @@ def algebra():
         print("3) MMC de Dois Números")
         print("4) Resto de uma Divisão de dois Números")
         print("5) Equações de 2º Grau")
+        print("6) Somatório")
+        print("7) Produtório")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
@@ -53,6 +57,16 @@ def algebra():
         elif escolha == "5":
             clean()
             equação2Grau(input("a:"), input("b:"), input("c:"), True)
+            voltar()
+
+        elif escolha == "6":
+            clean()
+            Somatório(input("n:"), input("k:"), input("Expressão:"), True)
+            voltar()
+
+        elif escolha == "7":
+            clean()
+            Produtório(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
         elif escolha == "0":

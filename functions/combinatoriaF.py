@@ -1,4 +1,4 @@
-from functions.functions import math, tratErro, resultado
+from functions.functions import math, tratErro, resultado, ERROR
 
 
 def PermutaçãoDeNemK(n,k, print=None):
@@ -33,7 +33,12 @@ def Combinação(n,k, print=None):
 def Fatorial(n, print=None):
     if tratErro(int, [n]) == True:
         n = int(n)
-        calculo = math.factorial(n)
-        if print == True:
-            resultado("Fatorial desse Número é:", calculo)
-        return calculo
+        if n >= 0:    
+            calculo = math.factorial(n)
+            if print == True:
+                resultado("Fatorial desse Número é:", calculo)
+            return calculo
+        else:
+            if print == True:
+                ERROR("O número não pode ser negativo")
+            return None

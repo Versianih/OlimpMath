@@ -1,5 +1,5 @@
 from functions.functions import(
-    acaoInvalida, voltar, get_keypress, clean, tratErro,
+    acaoInvalida, voltar, get_keypress, clean, tratErro, inserir,
     GREEN, RED, CYAN, GRENN_BACKGROUND, RESET, WHITE
 )
 

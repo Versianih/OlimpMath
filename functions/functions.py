@@ -68,7 +68,7 @@ def acaoInvalida():
 
 
 def resultado(texto, resultado, aproximar=None):
-    if aproximar == True:
+    if aproximar:
         resultado = round(resultado, casas_decimais)
     print(GREEN + texto, str(resultado) + RESET)
     print("")
@@ -77,3 +77,18 @@ def resultado(texto, resultado, aproximar=None):
 def ERROR(mensagem):
     print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
+
+def inserir(mensagem, tipo=None):
+    if tipo == None:
+        input(mensagem)
+    else:
+        try:
+            if tipo == int:
+                int(input(mensagem))
+            elif tipo == float:
+                float(input(mensagem))
+            else:
+                raise ValueError("Tipo não suportado")
+        except ValueError:
+            ERROR("Verifique se o valor inserido está na forma correta")
+    
