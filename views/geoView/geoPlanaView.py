@@ -2,7 +2,7 @@ from functions.functions import (
     clean, get_keypress, voltar, acaoInvalida,
     RESET, RED, YELLOW, GREEN,    
 )
-from functions.geoF import (
+from functions.geoFunctions.geoPlanaF import (
     areaPoliRegular,
     areaCírculo,
     areaQuadrado,
@@ -13,14 +13,15 @@ from functions.geoF import (
     pitagorasHipotenusa,
     pitagorasCateto,
 
+    formaçãoTriângulo,
 )
 
 def geometriaPlana():
     while True:
         clean()
         print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA")
-        print(YELLOW + "1) Áreas")
-        print("2) Teorema de Pitágoras")
+        print(YELLOW + "1) Polígonos")
+        print("2) Áreas")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
@@ -28,11 +29,11 @@ def geometriaPlana():
 
         # Áreas
         if escolha == "1":
-            geoPlanaAreas()
+            geoPlanaPoligonos()
         
         # Pitágoras
         elif escolha == "2":
-            geoPlanaPitágoras()
+            geoPlanaAreas()
         
         # Sair
         elif escolha == "0":
@@ -65,13 +66,13 @@ def geoPlanaAreas():
         # Círculo
         elif escolha == "2":
             clean()
-            areaCírculo(input("Raio do Círculo em Metros:"), True)
+            areaCírculo(input("Raio do Círculo:"), True)
             voltar()
 
         # Quadrado
         elif escolha == "3":
             clean()
-            areaQuadrado(input("Lado do Quadrado em Metros:"), True)
+            areaQuadrado(input("Lado do Quadrado:"), True)
             voltar()
 
         # Triângulo
@@ -87,7 +88,7 @@ def geoPlanaAreas():
 
             if escolhaTriangulo == "1":  # Base e Altura
                 clean()
-                areaTriangulo(input("Base do triagulo em Metros:"), input("Altura do triagulo em Metros:"), True)
+                areaTriangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
                 voltar()
 
             elif escolhaTriangulo == "2":  # Fórmula de Heron
@@ -104,7 +105,7 @@ def geoPlanaAreas():
         # Trapézio
         elif escolha == "5":
             clean()
-            areaTrapezio(input("Base1 do Trapézio em Metros:"), input("Base2 do Trapézio em Metros"), input("Altura do Trapézio em Metros:"), True)
+            areaTrapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
             voltar()
         
         # Sair
@@ -114,11 +115,63 @@ def geoPlanaAreas():
         else:
             acaoInvalida()
 
-
-def geoPlanaPitágoras():
+def geoPlanaPoligonos():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> TEOREMA DE PITÁGORAS")
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS")
+        print(YELLOW + "1) Triângulo+")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress()
+
+        # Triângulos
+        if escolha == "1":
+            clean()
+            geoPlanaPoligonosTriangulo()
+
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def geoPlanaPoligonosTriangulo():
+    while True:
+        clean()
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO")
+        print(YELLOW + "1) Teorema de Pitágoras+")
+        print("2) Formação de Triângulos")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress()
+
+        # Teorema de Pitágoras
+        if escolha == "1": 
+            clean()
+            geoPlanaPoligonosTrianguloPitágoras()
+
+        # Formação de Triângulos
+        elif escolha == "2":
+            clean()
+            formaçãoTriângulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+            voltar()
+
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def geoPlanaPoligonosTrianguloPitágoras():
+    while True:
+        clean()
+        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO -> TEOREMA DE PITÁGORAS")
         print(YELLOW + "1) Calcular Hipotenusa")
         print("2) Calcular Cateto")
         print(RED + "0) Voltar" + RESET)

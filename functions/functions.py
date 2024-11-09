@@ -67,10 +67,13 @@ def acaoInvalida():
     time.sleep(1)
 
 
-def resultado(texto, resultado, aproximar=None):
-    if aproximar:
-        resultado = round(resultado, casas_decimais)
-    print(GREEN + texto, str(resultado) + RESET)
+def resultado(texto, resultado=None, aproximar=None):
+    if resultado:
+        if aproximar:
+            resultado = round(resultado, casas_decimais)
+        print(GREEN + texto, str(resultado) + RESET)
+    else:
+        print(GREEN + texto + RESET)
     print("")
 
 

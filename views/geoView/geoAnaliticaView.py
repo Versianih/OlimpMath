@@ -2,7 +2,7 @@ from functions.functions import (
     clean, get_keypress, voltar, acaoInvalida,
     RESET, RED, YELLOW, GREEN,    
 )
-from functions.geoF import (
+from functions.geoFunctions.geoAnalitica import (
     distPontos,
 )
 

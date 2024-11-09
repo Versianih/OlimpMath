@@ -2,4 +2,5 @@
 *Razões
 *PA e PG
 *Probabilidade
-*Formação de Triângulos
+
+*settings-> retornar π (poder setar isso nas configurações) 
