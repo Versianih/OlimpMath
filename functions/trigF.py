@@ -1,10 +1,10 @@
-from functions.functions import math, tratErro, resultado, ERROR
+from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 import functions.functions
 
 def HipotenusaComOposto(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         
         if functions.functions.entrada_angulo == "graus":
             b = math.radians(b)
@@ -17,8 +17,8 @@ def HipotenusaComOposto(a,b, print=None):
 
 def HipotenusaComAdjacente(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         
         if functions.functions.entrada_angulo == "graus":
             b = math.radians(b)
@@ -32,8 +32,8 @@ def HipotenusaComAdjacente(a,b, print=None):
 
 def OpostoComHipotenusa(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         
         if functions.functions.entrada_angulo == "graus":
             b = math.radians(b)
@@ -46,8 +46,8 @@ def OpostoComHipotenusa(a,b, print=None):
 
 def OpostoComAdjacente(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
 
         if functions.functions.entrada_angulo == "graus":
             b = math.radians(b)
@@ -61,8 +61,8 @@ def OpostoComAdjacente(a,b, print=None):
 
 def AdjacenteComHipotenusa(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         
         if functions.functions.entrada_angulo == "graus":        
             b = math.radians(b)
@@ -75,8 +75,8 @@ def AdjacenteComHipotenusa(a,b, print=None):
 
 def AdjacenteComOposto(a,b, print=None):
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         
         if functions.functions.entrada_angulo == "graus":
             b = math.radians(b)
@@ -90,8 +90,8 @@ def AdjacenteComOposto(a,b, print=None):
 
 def AnguloComCOCA(a,b, print=None): #a=CO b=CA
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         angulo = math.atan(a/b)
         
         if functions.functions.saida_angulo == "graus":
@@ -104,8 +104,8 @@ def AnguloComCOCA(a,b, print=None): #a=CO b=CA
 
 def AnguloComCOH(a,b, print=None): #a=CO b=H
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         angulo = math.asin(a/b)
         
         if functions.functions.saida_angulo == "graus":
@@ -118,8 +118,8 @@ def AnguloComCOH(a,b, print=None): #a=CO b=H
 
 def AnguloComCAH(a,b, print=None): #a=CA b=H
     if tratErro(float, [a, b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         angulo = math.acos(a/b)
         
         if functions.functions.saida_angulo == "graus":

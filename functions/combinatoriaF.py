@@ -1,10 +1,10 @@
-from functions.functions import math, tratErro, resultado, ERROR
+from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 
 
 def PermutaçãoDeNemK(n,k, print=None):
     if tratErro(int, [n, k]) == True:
-        n = int(n)
-        k = int(k)    
+        n = calcExpression(n, int)
+        k = calcExpression(k, int)
         calculo = math.perm(n, k)
         if print == True:
             resultado("Resultado:", calculo)
@@ -13,7 +13,7 @@ def PermutaçãoDeNemK(n,k, print=None):
 
 def PermutaçãoCircular(n, print=None):
     if tratErro(int, [n]) == True:
-        n = int(n)
+        n = calcExpression(n, int)
         calculo = math.factorial((n-1))
         if print == True:
             resultado("Resultado:", calculo)
@@ -22,8 +22,8 @@ def PermutaçãoCircular(n, print=None):
 
 def Combinação(n,k, print=None):
     if tratErro(int, [n, k]) == True:
-        n = int(n)
-        k = int(k)
+        n = calcExpression(n, int)
+        k = calcExpression(k, int)
         calculo = math.factorial(n)/(math.factorial(k) * math.factorial(n-k))
         if print == True:
             resultado("Resultado:", calculo)
@@ -32,7 +32,7 @@ def Combinação(n,k, print=None):
 
 def Fatorial(n, print=None):
     if tratErro(int, [n]) == True:
-        n = int(n)
+        n = calcExpression(n, int)
         if n >= 0:    
             calculo = math.factorial(n)
             if print == True:

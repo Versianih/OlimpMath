@@ -1,9 +1,9 @@
-from functions.functions import math, tratErro, resultado, ERROR
+from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 
 
 def raizQuadrada(a, print=None):
     if tratErro(float, [a]) == True:
-        a = float(a)    
+        a = calcExpression(a, float)    
         calculo = (a)**(1/2)
         if print == True:
             resultado("Raiz:", calculo, True)
@@ -11,8 +11,8 @@ def raizQuadrada(a, print=None):
 
 def Resto(a, b, print=None):
     if tratErro(float, [a, b]) == True:    
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         calculo = math.remainder(a,b)
         if print == True:
             resultado("Resto:", calculo)
@@ -21,8 +21,8 @@ def Resto(a, b, print=None):
 
 def MDC(a,b, print=None):
     if tratErro(int, [a, b]) == True:    
-        a = int(a)
-        b = int(b)
+        a = calcExpression(a, int)
+        b = calcExpression(b, int)
         calculo = math.gcd(a,b)
         if print == True:
             resultado("MDC:", calculo)
@@ -31,8 +31,8 @@ def MDC(a,b, print=None):
 
 def MMC(a, b, print=None):
     if tratErro(int, [a, b]) == True:    
-        a = int(a)
-        b = int(b)
+        a = calcExpression(a, int)
+        b = calcExpression(b, int)
         calculo = (abs(a*b))/(math.gcd(a,b))
         if print == True:
             resultado("MMC:", calculo)
@@ -41,9 +41,9 @@ def MMC(a, b, print=None):
 
 def equação2Grau(a, b, c, print=None):
     if tratErro(float, [a, b, c]) == True:
-        a = float(a)
-        b = float(b)
-        c = float(c)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
+        c = calcExpression(c, float)
         if a != 0:    
             delta = b**2 - (4*a*c)
             if delta >= 0:
@@ -66,8 +66,8 @@ def equação2Grau(a, b, c, print=None):
 def Somatório(n, k, expressao, print=None):
     if tratErro(int, [n, k]) == True:
         somatorio = 0
-        n = int(n)
-        k = int(k)
+        n = calcExpression(n, int)
+        k = calcExpression(k, int)
         for k in range(k, n + 1):
             somatorio += eval(expressao)
         if print:
@@ -78,8 +78,8 @@ def Somatório(n, k, expressao, print=None):
 def Produtório(n, k, expressao, print=None):
     if tratErro(int, [n, k]) == True:
         produtorio = 1
-        n = int(n)
-        k = int(k)
+        n = calcExpression(n, int)
+        k = calcExpression(k, int)
         for k in range(k, n + 1):
             produtorio *= eval(expressao)
         if print:

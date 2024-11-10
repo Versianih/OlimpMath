@@ -1,11 +1,11 @@
-from functions.functions import math, pi, tratErro, resultado, ERROR
+from functions.functions import math, pi, tratErro, resultado, ERROR, calcExpression
 
 
 def volumePrisma(qntlados, lado, altura, print=None):
     if tratErro(int, qntlados) and tratErro(float, [lado, altura]) == True:
-        qntlados = int(qntlados)
-        lado = float(lado)        
-        altura = float(altura)
+        qntlados = calcExpression(qntlados, int)
+        lado = calcExpression(lado, float)
+        altura = calcExpression(altura, float)
         if qntlados < 3:
             if print:
                 ERROR("Verifique se a quantidade de lados permite a base")
@@ -29,7 +29,7 @@ def volumePrisma(qntlados, lado, altura, print=None):
 
 def volumeCubo(lado, print=None):
     if tratErro(float, [lado]) == True:
-        lado = float(lado)
+        lado = calcExpression(lado, float)
         calculo = lado**3
         if calculo >= 0:
             if print:
@@ -43,9 +43,9 @@ def volumeCubo(lado, print=None):
 
 def volumeParalelepipedo(a, b, h, print=None):
     if tratErro(float, [a, b, h]) == True:
-        a = float(a)
-        b = float(b)
-        h = float(h)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
+        h = calcExpression(h, float)
         calculo = (a*b*h)
         if calculo >= 0:
             if print:
@@ -59,8 +59,8 @@ def volumeParalelepipedo(a, b, h, print=None):
 
 def volumeCilindro(raio, h, print=None):
     if tratErro(float, [raio, h]) == True:    
-        raio = float(raio)
-        h = float(h)
+        raio = calcExpression(raio, float)
+        h = calcExpression(h, float)
         calculo = (pi*(raio**2))*h
         if calculo >= 0:
             if print:
@@ -74,7 +74,7 @@ def volumeCilindro(raio, h, print=None):
 
 def volumeEsfera(raio, print=None):
     if tratErro(float, [raio]) == True:
-        raio = float(raio)    
+        raio = calcExpression(raio, float)
         calculo = (4/3)*pi*raio
         if calculo >= 0:    
             if print:
@@ -88,8 +88,8 @@ def volumeEsfera(raio, print=None):
 
 def volumeCone(raio, h, print=None):
     if tratErro(float, [raio, h]) == True:
-        raio = float(raio)
-        h = float(h)
+        raio = calcExpression(raio, float)
+        h = calcExpression(h, float)
         calculo = (pi*(raio**2)*h)/3
         if calculo >= 0:
             if print:
@@ -103,9 +103,9 @@ def volumeCone(raio, h, print=None):
 
 def volumeTroncoCone(R, r, h, print=None):
     if tratErro(float, [R, r, h]) == True:
-        R = float(R)
-        r = float(r)
-        h = float(h)
+        R = calcExpression(R, float)
+        r = calcExpression(r, float)
+        h = calcExpression(h, float)
         calculo = (pi*h*((R**2)+(r**2)+(R*r)))/3
         if calculo >= 0:    
             if print:

@@ -20,8 +20,8 @@ def geometriaPlana():
     while True:
         clean()
         print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA")
-        print(YELLOW + "1) Polígonos")
-        print("2) Áreas")
+        print(YELLOW + "1) Áreas")
+        print("2) Polígonos")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
@@ -29,11 +29,11 @@ def geometriaPlana():
 
         # Áreas
         if escolha == "1":
-            geoPlanaPoligonos()
+            geoPlanaAreas()
         
         # Pitágoras
         elif escolha == "2":
-            geoPlanaAreas()
+            geoPlanaPoligonos()
         
         # Sair
         elif escolha == "0":

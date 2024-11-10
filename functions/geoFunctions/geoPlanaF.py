@@ -1,10 +1,10 @@
-from functions.functions import math, pi, tratErro, resultado, ERROR
+from functions.functions import math, pi, tratErro, resultado, ERROR, calcExpression
 
 
 def areaPoliRegular(qntLados, lado, print=None):
     if tratErro(int, [qntLados]) and tratErro(float, [lado]) == True:    
-        qntLados = int(qntLados)
-        lado = float(lado)
+        qntLados = calcExpression(qntLados, int)
+        lado = calcExpression(lado, float)
         if qntLados < 3:
             if print:
                 ERROR("Verifique se a quantidade de lados permite um Polígono")
@@ -43,7 +43,7 @@ def areaPoliRegular(qntLados, lado, print=None):
 
 def areaCírculo(raio, print=None):
     if tratErro(float, [raio]) == True:
-        raio = float(raio)
+        raio = calcExpression(raio, float)
         calculo = (raio*raio)* pi
         if calculo >= 0:
             if print:
@@ -57,7 +57,7 @@ def areaCírculo(raio, print=None):
 
 def areaQuadrado(lado, print=None):
     if tratErro(float, [lado]) == True:
-        lado = float(lado)
+        lado = calcExpression(lado, float)
         calculo = (lado*lado)
         if calculo >= 0:
             if print:
@@ -71,8 +71,8 @@ def areaQuadrado(lado, print=None):
 
 def areaTriangulo(base, altura, print=None):
     if tratErro(float, [base, altura]) == True:    
-        base = float(base)
-        altura = float(altura)
+        base = calcExpression(base, float)
+        altura = calcExpression(altura, float)
         calculo = (base*altura)/2   
         if calculo >= 0:    
             if print:
@@ -86,9 +86,9 @@ def areaTriangulo(base, altura, print=None):
 
 def areaTrianguloHeron(a, b, c, print=None):
     if tratErro(float, [a, b, c]) == True:    
-        a = float(a)
-        b = float(b)
-        c = float(c)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
+        c = calcExpression(c, float)
         p = (a + b + c)/2
         calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
         if calculo >= 0:
@@ -103,9 +103,9 @@ def areaTrianguloHeron(a, b, c, print=None):
 
 def areaTrapezio(BASE, base, altura, print=None):
     if tratErro(float, [BASE, base, altura]) == True:    
-        BASE = float(BASE)
-        base = float(base)
-        altura = float(altura)
+        BASE = calcExpression(BASE, float)
+        base = calcExpression(base, float)
+        altura = calcExpression(altura, float)
         calculo = ((BASE+base)*altura)/2
         if calculo >= 0:
             if print:
@@ -119,8 +119,8 @@ def areaTrapezio(BASE, base, altura, print=None):
 
 def pitagorasHipotenusa(a,b, print=None):
     if tratErro(float, [a,b]) == True:
-        a = float(a)
-        b = float(b)
+        a = calcExpression(a, float)
+        b = calcExpression(b, float)
         calculo = ((a**2) + (b**2))**(1/2)
         if print:
             resultado("A medida da Hipotenusa é:", calculo, True)
@@ -129,8 +129,8 @@ def pitagorasHipotenusa(a,b, print=None):
 
 def pitagorasCateto(a,h, print=None):
     if tratErro(float, [a,h]) == True:
-        a = float(a)
-        h = float(h)
+        a = calcExpression(a, float)
+        h = calcExpression(h, float)
         calculo = ((h**2) - (a**2))**(1/2)
         if print:
             resultado("A medida do Cateto é:", calculo, True)
@@ -139,9 +139,9 @@ def pitagorasCateto(a,h, print=None):
 
 def formaçãoTriângulo(a, b, c, print=None):
     if tratErro(float, [a, b, c]):
-        a = int(a)
-        b = int(b)
-        c = int(c)
+        a = calcExpression(a, int)
+        b = calcExpression(b, int)
+        c = calcExpression(c, int)
         if a + b > c and a + c > b and b + c > a:
             if print:
                 resultado(f"Os valores {a}, {b}, {c} formam um triângulo")

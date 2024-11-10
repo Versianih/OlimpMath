@@ -1,10 +1,12 @@
 import msvcrt, os, time, math
+# from sympy import pi
 
 # Settings
 
 casas_decimais = 2 
 saida_angulo = "graus"
 entrada_angulo = "graus"
+saida_pi = False
 
 pi = math.pi
 euler = math.e
@@ -42,8 +44,9 @@ def max_digits(lengh):
 
 
 def tratErro(tipo, parametros):
-    for parametro in parametros:
+    for str_parametro in parametros:
         try:
+            parametro = calcExpression(str_parametro)
             if tipo == float:
                 float(parametro)
             elif tipo == int:
@@ -56,6 +59,21 @@ def tratErro(tipo, parametros):
             ERROR("Verifique se o valor inserido está na forma correta: {}".format(parametro))
             return False
     return True
+
+
+def calcExpression(expressão, type=None):
+    try:
+        if type == float:
+            calculo = float(eval(expressão))
+        elif type == int:
+            calculo = int(eval(expressão))
+        elif type == str:
+            calculo = str(eval(expressão))
+        else:
+            calculo = eval(expressão)
+        return calculo
+    except Exception as e:
+        ERROR(f"Erro ao resolver a expressão: {e}")
 
 
 def voltar():
