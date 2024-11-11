@@ -1,13 +1,25 @@
 from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 
 
-def raizQuadrada(a, print=None):
-    if tratErro(float, [a]) == True:
-        a = calcExpression(a, float)    
-        calculo = (a)**(1/2)
+def Radiciação(a, indice, print=None):
+    if tratErro(float, [a]) and tratErro(int, [indice]):
+        a = calcExpression(a, float)
+        indice = calcExpression(indice, int)    
+        calculo = (a)**(1/indice)
         if print == True:
             resultado("Raiz:", calculo, True)
         return calculo
+
+
+def Exponenciação(a, expoente, print=None):
+    if tratErro(float, [a]) and tratErro(int, [expoente]):
+        a = calcExpression(a, float)
+        expoente = calcExpression(expoente, int)
+        calculo = (a)**(expoente)
+        if print:
+            resultado("Resultado:", calculo, True)
+        return calculo
+    
 
 def Resto(a, b, print=None):
     if tratErro(float, [a, b]) == True:    
@@ -50,13 +62,13 @@ def equação2Grau(a, b, c, print=None):
                 x1 = (-b + (delta**(1/2)))/(2*a)
                 x2 = (-b - (delta**(1/2)))/(2*a)
                 if print == True:
-                    resultado("As Raizes da Equação são:",(x1, x2), True)
+                    resultado("As Raizes da Equação são:",(x1, x2))
                 return [x1, x2]
             else:
                 cx1 = (-b + (delta**(1/2)))/(2*a)
                 cx2 = (-b - (delta**(1/2)))/(2*a)
                 if print == True:
-                    resultado("As Raizes Complexas da Equação são:", (cx1, cx2), True)
+                    resultado("As Raizes Complexas da Equação são:", (cx1, cx2))
                 return [cx1, cx2]
         else:
             if print == True:

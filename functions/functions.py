@@ -54,26 +54,31 @@ def tratErro(tipo, parametros):
             elif tipo == str:
                 str(parametro)
             else:
-                raise ValueError("Tipo não suportado")
-        except ValueError:
-            ERROR("Verifique se o valor inserido está na forma correta: {}".format(parametro))
+                ERROR(f"Erro: Tipo '{tipo}' não suportado para o valor '{parametro}'.")
+                return False
+        except (ValueError, TypeError) as e:
+            ERROR(f"Erro: Verifique se o valor inserido está na forma correta: '{str_parametro}' ({e})")
             return False
     return True
 
 
-def calcExpression(expressão, type=None):
+def calcExpression(expressao, type=None):
     try:
+        calculo = eval(expressao)
         if type == float:
-            calculo = float(eval(expressão))
+            return float(calculo)
         elif type == int:
-            calculo = int(eval(expressão))
+            return int(calculo)
         elif type == str:
-            calculo = str(eval(expressão))
+            return str(calculo)
+        elif type is None:
+            return calculo
         else:
-            calculo = eval(expressão)
-        return calculo
-    except Exception as e:
-        ERROR(f"Erro ao resolver a expressão: {e}")
+            print(f"Erro: Tipo '{type}' não suportado.")
+            return None
+    except (ValueError, TypeError, NameError) as e:
+        ERROR(f"Erro ao resolver a expressão '{expressao}': {e}")
+        return None
 
 
 def voltar():
@@ -99,6 +104,8 @@ def ERROR(mensagem):
     print(RED + str("(ERROR) " + str(mensagem)) + RESET)
     print("")
 
+
+# Não usado
 def inserir(mensagem, tipo=None):
     if tipo == None:
         input(mensagem)
@@ -112,4 +119,3 @@ def inserir(mensagem, tipo=None):
                 raise ValueError("Tipo não suportado")
         except ValueError:
             ERROR("Verifique se o valor inserido está na forma correta")
-    

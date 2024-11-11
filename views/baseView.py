@@ -39,6 +39,7 @@ def base():
             BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
             voltar()
         
+        # Sair
         elif escolha == "0":
             clean()
             break

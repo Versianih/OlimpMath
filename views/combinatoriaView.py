@@ -47,6 +47,7 @@ def combinatoria():
             Fatorial(input("Número:"), True)
             voltar()
 
+        # Sair
         elif escolha == "0":
             clean()
             break
