@@ -1,3 +1,4 @@
+from sympy import symbols, Eq, solve, sympify
 from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 
 
@@ -49,7 +50,33 @@ def MMC(a, b, print=None):
         if print == True:
             resultado("MMC:", calculo)
         return calculo
-    
+
+
+def sistemaEq(equacoesStr, print=None):
+    if not equacoesStr:
+        ERROR("Erro: A lista de equações está vazia!")
+        return
+    equacoes = []
+    for eq in equacoesStr:
+        try:
+            eq_simbolica = Eq(sympify(eq.split('=')[0]), sympify(eq.split('=')[1]))
+            equacoes.append(eq_simbolica)
+        except Exception as e:
+            ERROR(f"Erro ao processar a equação: {eq}. Erro: {str(e)}")
+            return
+    variaveis = sorted({str(simbolo) for eq in equacoes for simbolo in eq.free_symbols})    
+    variaveis = symbols(variaveis)
+    try:
+        solucoes = solve(equacoes, variaveis)
+    except Exception as e:
+        ERROR(f"Erro ao resolver o sistema: {str(e)}")
+        return
+        
+    if print:
+        for variavel, valor in solucoes.items():
+            resultado(f"{variavel} = {valor}")
+    return solucoes
+
 
 def equação2Grau(a, b, c, print=None):
     if tratErro(float, [a, b, c]) == True:

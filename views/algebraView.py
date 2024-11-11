@@ -14,6 +14,7 @@ from functions.algebraF import(
 
 # Polinômios
 from functions.algebraF import(
+    sistemaEq,
     equação2Grau,
 )
 
@@ -121,14 +122,20 @@ def algebraPolinomios():
     while True: 
         clean()
         print(GREEN + "TELA INICIAL -> ÁLGEBRA -> POLINÔMIOS")
-        print(YELLOW + "1) Equações de 2º Grau")
+        print(YELLOW + "1) Sistemas de Equação")
+        print("2) Equações de 2º Grau")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
         escolha = get_keypress()
 
-        # Equação de Segundo Grau
+        # Sistemas de Equação
         if escolha == "1":
+            clean()
+            algebraPolinomiosSistemaEq()
+        
+        # Equação de Segundo Grau
+        elif escolha == "2":
             clean()
             equação2Grau(input("a:"), input("b:"), input("c:"), True)
             voltar()
@@ -136,6 +143,37 @@ def algebraPolinomios():
         # Sair
         elif escolha == "0":
             clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def algebraPolinomiosSistemaEq():
+    equacoes = []
+    while True:
+        clean()
+        print(YELLOW + "Equações:" + RESET)
+        for equacao in equacoes:
+            print(GREEN + str(equacao) + RESET)
+        print("")
+        print(YELLOW + "1) Adicionar Equação")
+        print(GREEN + "ENTER) Resolver o Sistema" + RESET)
+        escolha = get_keypress()
+        
+        if escolha == "1":
+            clean()
+            equacoes.append(input("Equação:"))
+        
+        elif escolha == "\r":
+            clean()
+            print(GREEN + "Equações:" + RESET)
+            for equacao in equacoes:
+                print(YELLOW + str(equacao) + RESET)
+            print("")
+            print(GREEN + "Soluções do sistema de Equações:" + RESET)
+            print("")
+            sistemaEq(equacoes, True)
+            voltar()
             break
         else:
             acaoInvalida()

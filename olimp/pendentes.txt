@@ -1,6 +1,5 @@
 *Aumentos percentuais
 *Razões
-*PA e PG
 *Probabilidade
 
 *settings-> retornar π (poder setar isso nas configurações) 

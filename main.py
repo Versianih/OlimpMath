@@ -52,7 +52,7 @@ def main():
             print("2) Bases")
             print("3) Álgebra")
             print("4) Combinatória")
-            print("5) Trigonometria Plana")
+            print("5) Trigonometria")
             print(RED_BACKGROUND + WHITE + "0) Sair" + RESET)
             print("")
             print("Qual ação deseja fazer?:")

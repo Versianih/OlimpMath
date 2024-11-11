@@ -82,7 +82,11 @@ def calcExpression(expressao, type=None):
 
 
 def voltar():
-    input(RED + "Voltar(Enter)" + RESET)
+    print(RED + "Voltar(Enter)" + RESET)
+    while True:
+        volta = get_keypress()
+        if volta == "\r":
+            break
 
 
 def acaoInvalida():

@@ -16,7 +16,7 @@ def geometriaEspacial():
     while True:
         clean()
         print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL")
-        print(YELLOW + "1) Volumes")
+        print(YELLOW + "1) Volumes +")
         print(RED + "0) Voltar" + RESET)
         print("")
         print("Qual ação deseja fazer?")
