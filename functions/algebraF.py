@@ -97,3 +97,47 @@ def Produtório(n, k, expressao, print=None):
         if print:
             resultado("Resultado do Produtório:", produtorio, True)
         return produtorio
+
+
+def termoGeralPA(a1, n, r, print=None):
+    if tratErro(float, [a1, r]) and tratErro(int, [n]):
+        a1 = calcExpression(a1, float)
+        r = calcExpression(r, float)
+        n = calcExpression(n, int)
+        calculo = a1 + ((n-1) * r)
+        if print:
+            resultado(f"O termo na posição {n} da PA é:", calculo)
+        return calculo
+
+
+def somaPA(a1, an, n, print=None):
+    if tratErro(float, [a1, an]) and tratErro(int, [n]):
+        a1 = calcExpression(a1, float)
+        an = calcExpression(an, float)
+        n = calcExpression(n, int)
+        calculo = ((a1 + an) * n)/2
+        if print:
+            resultado(f"A soma dos primeiros {n} termos da PA é:", calculo)
+        return calculo
+    
+
+def termoGeralPG(a1, n, q, print=None):
+    if tratErro(float, [a1, q]) and tratErro(int, [n]):
+        a1 = calcExpression(a1, float)
+        q = calcExpression(q, float)
+        n = calcExpression(n, int)
+        calculo = a1 * (q**(n-1))
+        if print:
+            resultado(f"O termo na posição {n} da PG é:", calculo)
+        return calculo
+
+
+def somaPG(a1, q, n, print=None):
+    if tratErro(float, [a1, q]) and tratErro(int, [n]):
+        a1 = calcExpression(a1, float)
+        q = calcExpression(q, float)
+        n = calcExpression(n, int)
+        calculo = (a1*((q**n)-1))/(q-1)
+        if print:
+            resultado(f"A soma dos primeiros {n} termos da PG é:", calculo)
+        return calculo

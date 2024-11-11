@@ -20,7 +20,13 @@ from functions.algebraF import(
 # Progressões
 from functions.algebraF import(
     Somatório,
-    Produtório
+    Produtório,
+
+    termoGeralPA,
+    somaPA,
+
+    termoGeralPG, 
+    somaPG,
 )
 
 
@@ -80,7 +86,7 @@ def algebraBásico():
             voltar()
 
         # Exponenciação
-        if escolha == "2":
+        elif escolha == "2":
             clean()
             Exponenciação(input("Base:"), input("Expoente:"), True)
             voltar()
@@ -104,7 +110,7 @@ def algebraBásico():
             voltar()
 
         # Sair
-        if escolha == "0":
+        elif escolha == "0":
             clean()
             break
         else:
@@ -128,7 +134,7 @@ def algebraPolinomios():
             voltar()
 
         # Sair
-        if escolha == "0":
+        elif escolha == "0":
             clean()
             break
         else:
@@ -160,6 +166,77 @@ def algebraProgressões():
             Produtório(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
+        # PA
+        elif escolha == "3":
+            clean()
+            algebraProgressõesPA()
+
+        # PG
+        elif escolha == "4":
+            clean()
+            algebraProgressõesPG()
+
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def algebraProgressõesPA():
+    while True:
+        clean()
+        print(GREEN + "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES -> PA")
+        print(YELLOW + "1) Termo Geral da PA")
+        print("2) Soma dos primeiros n elementos da PA")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress()
+
+        if escolha == "1":
+            clean()
+            termoGeralPA(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
+            voltar()
+        
+
+        elif escolha == "2":
+            clean()
+            somaPA(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
+            voltar()
+
+        # Sair
+        elif escolha == "0":
+            clean()
+            break
+        else:
+            acaoInvalida()
+
+
+def algebraProgressõesPG():
+    while True:
+        clean()
+        print(GREEN + "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES -> PG")
+        print(YELLOW + "1) Termo Geral da PG")
+        print("2) Soma dos primeiros n elementos da PG")
+        print(RED + "0) Voltar" + RESET)
+        print("")
+        print("Qual ação deseja fazer?")
+        escolha = get_keypress()
+
+        if escolha == "1":
+            clean()
+            termoGeralPG(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
+            voltar()
+        
+
+        elif escolha == "2":
+            clean()
+            somaPG(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
+            voltar()
+
+        # Sair
         elif escolha == "0":
             clean()
             break
