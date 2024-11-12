@@ -26,6 +26,26 @@ import msvcrt
 # sistemaEq(equacoes, True)
 
 
+
+# def resultado(texto, resultado=None, aproximar=None, casas_decimais=2):
+#     saida = []
+#     if resultado is not None:
+#         if isinstance(resultado, list) and aproximar is not None:
+#             for res in resultado:
+#                     res = round(res, casas_decimais)
+#                     saida.append(res)
+#             print(GREEN + texto, str(saida) + RESET)
+#         elif isinstance(resultado, list) and aproximar is None:
+#             print(GREEN + texto, str(resultado) + RESET)
+#         else:
+#             if aproximar:
+#                 resultado = round(resultado, casas_decimais)
+#             print(GREEN + texto, str(resultado) + RESET)
+#     else:
+#         print(GREEN + texto + RESET)
+#     print("")
+
+
 def get_keypress():
     try:
         # Captura a tecla pressionada e tenta decodificar como UTF-8

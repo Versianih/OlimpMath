@@ -1,44 +1,44 @@
 from functions.functions import math, tratErro, resultado, ERROR, calcExpression
 
 
-def PermutaçãoDeNemK(n,k, print=None):
+def PermutaçãoDeNemK(n,k, imprimir=None):
     if tratErro(int, [n, k]) == True:
         n = calcExpression(n, int)
         k = calcExpression(k, int)
         calculo = math.perm(n, k)
-        if print == True:
+        if imprimir == True:
             resultado("Resultado:", calculo)
         return calculo
 
 
-def PermutaçãoCircular(n, print=None):
+def PermutaçãoCircular(n, imprimir=None):
     if tratErro(int, [n]) == True:
         n = calcExpression(n, int)
         calculo = math.factorial((n-1))
-        if print == True:
+        if imprimir == True:
             resultado("Resultado:", calculo)
         return calculo
 
 
-def Combinação(n,k, print=None):
+def Combinação(n,k, imprimir=None):
     if tratErro(int, [n, k]) == True:
         n = calcExpression(n, int)
         k = calcExpression(k, int)
         calculo = math.factorial(n)/(math.factorial(k) * math.factorial(n-k))
-        if print == True:
+        if imprimir == True:
             resultado("Resultado:", calculo)
         return calculo
 
 
-def Fatorial(n, print=None):
+def Fatorial(n, imprimir=None):
     if tratErro(int, [n]) == True:
         n = calcExpression(n, int)
         if n >= 0:    
             calculo = math.factorial(n)
-            if print == True:
+            if imprimir == True:
                 resultado("Fatorial desse Número é:", calculo)
             return calculo
         else:
-            if print == True:
+            if imprimir == True:
                 ERROR("O número não pode ser negativo")
             return None

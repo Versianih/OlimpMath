@@ -94,11 +94,20 @@ def acaoInvalida():
     time.sleep(1)
 
 
-def resultado(texto, resultado=None, aproximar=None):
-    if resultado:
-        if aproximar:
-            resultado = round(resultado, casas_decimais)
-        print(GREEN + texto, str(resultado) + RESET)
+def resultado(texto, resultado=None, aproximar=None, casas_decimais=2):
+    saida = []
+    if resultado is not None:
+        if isinstance(resultado, list) and aproximar is not None:
+            for res in resultado:
+                    res = round(res, casas_decimais)
+                    saida.append(res)
+            print(GREEN + texto, str(saida) + RESET)
+        elif isinstance(resultado, list) and aproximar is None:
+            print(GREEN + texto, str(resultado) + RESET)
+        else:
+            if aproximar:
+                resultado = round(resultado, casas_decimais)
+            print(GREEN + texto, str(resultado) + RESET)
     else:
         print(GREEN + texto + RESET)
     print("")

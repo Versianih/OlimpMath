@@ -1,7 +1,7 @@
 from functions.functions import tratErro, resultado, ERROR, calcExpression
 
 
-def BaseParaDecimal(num_original, base_original, print=None):
+def BaseParaDecimal(num_original, base_original, imprimir=None):
     if tratErro(int, [num_original, base_original]):
         num_original = calcExpression(num_original, str)
         base_original = calcExpression(base_original, int)
@@ -12,12 +12,12 @@ def BaseParaDecimal(num_original, base_original, print=None):
         decimal_temp.reverse()
         for x,i in enumerate(decimal_temp):
             decimal += dic.index(i) * base_original**(x)
-        if print == True:
+        if imprimir == True:
             resultado("Número na Base Decimal:", decimal)
         return decimal
 
  
-def DecimalParaBase(decimal, base_final, print=None):
+def DecimalParaBase(decimal, base_final, imprimir=None):
     if tratErro(int, [base_final, decimal]) == True:
         base_final = calcExpression(base_final, int)
         decimal = calcExpression(decimal, int)
@@ -34,12 +34,12 @@ def DecimalParaBase(decimal, base_final, print=None):
         numero_final_temp.reverse()
         for i in numero_final_temp:
             numero_final += dic[i]     
-        if print == True:
+        if imprimir == True:
             resultado("Número na Base Final:", numero_final)
         return numero_final
 
 
-def BaseParaBase(num_original,base_original,base_final, print=None):
+def BaseParaBase(num_original,base_original,base_final, imprimir=None):
     if tratErro(int, [num_original, base_original, base_final]) == True:
         num_original = calcExpression(num_original, int)
         base_final = calcExpression(base_final, int)
@@ -47,6 +47,6 @@ def BaseParaBase(num_original,base_original,base_final, print=None):
 
         num_decimal = BaseParaDecimal(num_original,base_original)
         num_final = DecimalParaBase(num_decimal,base_final)
-        if print == True:
+        if imprimir == True:
             resultado("Número na Base Final:", num_final)
         return num_final
