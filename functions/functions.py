@@ -40,6 +40,7 @@ def get_keypress():
 
 
 def max_digits(lengh):
+    # Função que determina a quantidade máxima de dígitos na saída
     return os.sys.set_int_max_str_digits(lengh)
 
 
