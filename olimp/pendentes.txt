@@ -7,7 +7,5 @@
 *lei dos senos
 *lei dos cossenos
 *trigonometria esférica
-*combinação completa
-*permutações caóticas
 
 *integração

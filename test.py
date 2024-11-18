@@ -88,3 +88,9 @@ import msvcrt
 # print("Pressione uma tecla (não será exibida):")
 # key = get_key()
 # print(f"\nVocê pressionou: {key}")
+
+
+
+from functions.combinatoriaF import PermutaçãoCaótica
+
+print(PermutaçãoCaótica(input()))
