@@ -1,3 +1,4 @@
+from InquirerPy import prompt
 from functions.functions import (
     clean, get_keypress, voltar, acaoInvalida,
     RESET, RED, YELLOW, GREEN,    
@@ -12,21 +13,26 @@ from functions.geoFunctions.geoEspacial import (
     volumeTroncoCone,
 )
 
+
 def geometriaEspacial():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL")
-        print(YELLOW + "1) Volumes +")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL",
+                "choices": ["Volumes", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
-        # Prisma
-        if escolha == "1":
+        # Volumes
+        if escolha == "Volumes":
             geometriaEspacialVolumes()
         
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:
@@ -36,62 +42,60 @@ def geometriaEspacial():
 def geometriaEspacialVolumes():
     while True:
             clean()
-            print(GREEN + "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL -> VOLUMES")
-            print(YELLOW + "1) Volume de um Prisma de Base 'n' lados")
-            print("2) Volume do Cubo")
-            print("3) Volume do Paralelepípedo")
-            print("4) Volume da Esfera")
-            print("5) Volume da Cilindro")
-            print("6) Volume do Cone")
-            print("7) Volume do Tronco de Cone")
-            print(RED + "0) Voltar" + RESET)
-            print("")
-            print("Qual ação deseja fazer?")
-            escolha = get_keypress()
+            campos = [
+                {
+                    "type": "list",
+                    "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL -> VOLUMES",
+                    "choices": ["Prisma Base n", "Cubo", "Paralelepípedo", "Esfera", "Cilindro", "Cone", "Tronco de Cone", "Voltar"],
+                }
+            ]
+            escolha = prompt(campos)
+            escolha = escolha.get(0)
 
             # Prisma
-            if escolha == "1":
+            if escolha == "Prisma Base n":
                 clean()
                 volumePrisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
                 voltar()
 
             # Cubo 
-            elif escolha == "2":
+            elif escolha == "Cubo":
                 clean()
                 volumeCubo(input("Medida da Aresta do Cubo:"), True)
                 voltar()
 
             # Paralelepípedo 
-            elif escolha == "3":
+            elif escolha == "Paralelepípedo":
                 clean()
                 volumeParalelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
                 voltar()
 
             # Esfera
-            elif escolha == "4":
+            elif escolha == "Esfera":
                 clean()
                 volumeEsfera(input("Raio:"), True)
                 voltar()
 
             # Cilindro
-            elif escolha == "5":
+            elif escolha == "Cilindro":
                 clean()
                 volumeCilindro(input("Raio da Base:"), input("Altura:"), True)
                 voltar()
 
             # Cone
-            elif escolha == "6":
+            elif escolha == "Cone":
                 clean()
                 volumeCone(input("Raio da Base:"), input("Altura:"), True)
                 voltar()
 
             # Tronco do Cone
-            elif escolha == "7":
+            elif escolha == "Tronco de Cone":
                 clean()
                 volumeTroncoCone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
                 voltar()
             
-            elif escolha == "0":
+            # Voltar
+            elif escolha == "Voltar":
                 clean()
                 break
             else:

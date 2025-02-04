@@ -5,33 +5,37 @@ from functions.functions import (
 from views.geoView.geoPlanaView import geometriaPlana
 from views.geoView.geoEspacialView import geometriaEspacial
 from views.geoView.geoAnaliticaView import geometriaAnalítica
+from InquirerPy import prompt
 
 
 def geometria():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> GEOMETRIA")
-        print(YELLOW + "1) Geometria Plana")
-        print("2) Geometria Espacial")
-        print("3) Geometria Analítica")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
-        
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> GEOMETRIA",
+                "choices": ["Geometria Plana", "Geometria Espacial", "Geometria Analítica", "Voltar"],
+            }
+        ]
+
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
+
         # Geometria Plana
-        if escolha == "1":
+        if escolha == "Geometria Plana":
             geometriaPlana()
 
         # Geometria Espacial
-        elif escolha == "2":
+        elif escolha == "Geometria Espacial":
             geometriaEspacial()
 
         # Geometria Analítica
-        elif escolha == "3":
+        elif escolha == "Geometria Analítica":
             geometriaAnalítica()
 
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:

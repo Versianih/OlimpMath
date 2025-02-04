@@ -1,3 +1,4 @@
+from InquirerPy import prompt
 from functions.functions import(
     clean, get_keypress, voltar, acaoInvalida,
     RESET, RED, YELLOW, GREEN,
@@ -12,35 +13,36 @@ from functions.baseF import(
 def base():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> BASE")
-        print(YELLOW + "1) Base Decimal para Base n")
-        print("2) Base n Para Base Decimal")
-        print("3) Base n Para Base m")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> BASE",
+                "choices": ["10 -> n", "n -> 10", "n -> m", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
         # Transformar Base Decimal em Base n
-        if escolha == "1":
+        if escolha == "10 -> n":
             clean()
             DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"), True)
             voltar()
         
         # Transformar Base n para Base Decimal
-        elif escolha == "2":
+        elif escolha == "n -> 10":
             clean()
             BaseParaDecimal(input("Número:"), input("Base:"), True)
             voltar()
         
         # Transformar Base n para Base m
-        elif escolha == "3":
+        elif escolha == "n -> m":
             clean()
             BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
             voltar()
         
-        # Sair
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:

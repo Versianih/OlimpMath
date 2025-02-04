@@ -1,3 +1,4 @@
+from InquirerPy import prompt
 from functions.functions import(
     voltar, acaoInvalida, get_keypress, clean,
     RESET, RED, YELLOW, GREEN,
@@ -19,33 +20,34 @@ from functions.trigF import(
 )
 import functions.functions
 
+
 def trig():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> TRIGONOMETRIA PLANA")
-        print("(resultados são aproximações)")
-        print(YELLOW + "1) Calcular Hipotenusa +")
-        print("2) Calcular Cateto Oposto +")
-        print("3) Calcular Cateto Adjacente +")
-        print("4) Calcular Ângulo +")
-        print(RED +"0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?:")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> TRIGONOMETRIA",
+                "choices": ["Calcular Hipotenusa", "Calcular Cateto Oposto", "Calcular Cateto Adjacente", "Calcular Ângulo", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
-        if escolha == "1":
+        if escolha == "Calcular Hipotenusa":
             hipotenusa()
 
-        elif escolha == "2":
+        elif escolha == "Calcular Cateto Oposto":
             oposto()
         
-        elif escolha == "3":
+        elif escolha == "Calcular Cateto Adjacente":
             adjacente()
 
-        elif escolha == "4":
+        elif escolha == "Calcular Ângulo":
             angulo()
 
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:
@@ -55,25 +57,27 @@ def trig():
 def hipotenusa():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> TRIGONOMETRIA PLANA -> HIPOTENUSA")
-        print(YELLOW + "1)Calcular Hipotenusa com Cateto Oposto")
-        print("2)Calcular Hipotensa com Cateto Adjacente" + RESET)
-        print(RED + "0) Sair" + RESET)
-        print("")
-        print("Qual ação deseja fazer?:")
-        escolhaHipotensa = get_keypress()
+        campos_hipotenusa = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> TRIGONOMETRIA -> HIPOTENUSA",
+                "choices": ["Cateto Oposto", "Cateto Adjacente", "Voltar"],
+            }
+        ]
+        escolha_hipotenusa = prompt(campos_hipotenusa)
+        escolha_hipotenusa = escolha_hipotenusa.get(0)
 
-        if escolhaHipotensa == "1":
+        if escolha_hipotenusa == "Cateto Oposto":
             clean()
             HipotenusaComOposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
-        elif escolhaHipotensa == "2":
+        elif escolha_hipotenusa == "Cateto Adjacente":
             clean()
             HipotenusaComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
             
-        elif escolhaHipotensa == "0":
+        elif escolha_hipotenusa == "Voltar":
             clean()
             break
         else:
@@ -83,25 +87,28 @@ def hipotenusa():
 def oposto():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> TRIGONOMETRIA PLANA -> CATETO OPOSTO")
-        print(YELLOW + "1)Calcular Cateto Oposto com Hipotenusa")
-        print("2)Calcular Cateto Oposto com Cateto Adjacente" + RESET)
-        print(RED + "0) Sair" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolhaOposto = get_keypress()
+        campos_oposto = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> TRIGONOMETRIA -> CATETO OPOSTO",
+                "choices": ["Hipotenusa", "Cateto Adjacente", "Voltar"],
+            }
+        ]
+        escolha_oposto = prompt(campos_oposto)
+        escolha_oposto = escolha_oposto.get(0)
+
         
-        if escolhaOposto == "1":
+        if escolha_oposto == "Hipotenusa":
             clean()
             OpostoComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
-        elif escolhaOposto == "2":
+        elif escolha_oposto == "Cateto Adjacente":
             clean()
             OpostoComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
         
-        elif escolhaOposto == "0":
+        elif escolha_oposto == "Voltar":
             clean()
             break
         else:
@@ -111,25 +118,29 @@ def oposto():
 def adjacente():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> TRIGONOMETRIA PLANA -> CATETO ADJACENTE")
-        print(YELLOW + "1)Calcular Cateto Adjacente com Hipotenusa")
-        print("2)Calcular Cateto Adjacente com Cateto Oposto" + RESET)
-        print(RED + "0) Sair" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolhaAdjacente = get_keypress()
+        campos_adjacente = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> TRIGONOMETRIA -> ADJACENTE",
+                "choices": ["Hipotenusa", "Cateto Oposto", "Voltar"],
+            }
+        ]
+        escolha_adjacente = prompt(campos_adjacente)
+        escolha_adjacente = escolha_adjacente.get(0)
+
         
-        if escolhaAdjacente == "1":
+        if escolha_adjacente == "Hipotenusa":
             clean()
             AdjacenteComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
-        elif escolhaAdjacente == "2":
+        elif escolha_adjacente == "Cateto Oposto":
             clean()
             AdjacenteComOposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
-        elif escolhaAdjacente == "0":
+        # Voltar
+        elif escolha_adjacente == "Voltar":
             clean()
             break
         else:
@@ -139,31 +150,33 @@ def adjacente():
 def angulo():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> TRIGONOMETRIA PLANA -> ÂNGULO")
-        print(YELLOW + "1)Calcular Ângulo com os Catetos")
-        print("2)Calcular Ângulo com Cateto Oposto e Hipotenusa")
-        print("3)Calcular Ângulo com Cateto Adjacente e Hipotenusa" + RESET)
-        print(RED + "0) Sair" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolhaAngulo = get_keypress()
+        campos_angulo = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> TRIGONOMETRIA -> ÂNGULO",
+                "choices": ["CO/CA", "CO/H", "CA/H", "Voltar"],
+            }
+        ]
+        escolha_angulo = prompt(campos_angulo)
+        escolha_angulo = escolha_angulo.get(0)
 
-        if escolhaAngulo == "1":
+        if escolha_angulo == "CO/CA":
             clean()
             AnguloComCOCA(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
             voltar()
 
-        elif escolhaAngulo == "2":
+        elif escolha_angulo == "CO/H":
             clean()
             AnguloComCOH(input("Cateto Oposto:"), input("Hipotenusa:"), True)
             voltar()
 
-        elif escolhaAngulo == "3":
+        elif escolha_angulo == "CA/H":
             clean()
             AnguloComCAH(input("Cateto Adjacente:"), input("Hipotenusa"), True)
             voltar()
         
-        elif escolhaAngulo == "0":
+        # Voltar
+        elif escolha_angulo == "Voltar":
             clean()
             break
         else:

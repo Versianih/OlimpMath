@@ -1,3 +1,4 @@
+from InquirerPy import prompt
 from functions.functions import(
     clean, get_keypress, voltar, acaoInvalida,
     RESET, RED, YELLOW, GREEN,
@@ -34,32 +35,33 @@ from functions.algebraF import(
 def algebra():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> ÁLGEBRA")
-        print(YELLOW + "1) Básico +")
-        print("2) Polinômios +")
-        print("3) Progressões +")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> ÁLGEBRA",
+                "choices": ["Básico", "Polinômios", "Progressôes", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
         
         # Básico
-        if escolha == "1":
+        if escolha == "Básico":
             clean()
             algebraBásico()
 
         # Polinômios
-        elif escolha == "2":
+        elif escolha == "Polinômios":
             clean()
             algebraPolinomios()
 
         # Progressões
-        elif escolha == "3":
+        elif escolha == "Progressões":
             clean()
             algebraProgressões()
 
         # Sair
-        elif escolha == "0":
+        elif escolha == "Voltar":
             clean()
             break
         else:
@@ -69,49 +71,48 @@ def algebra():
 def algebraBásico():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> ÁLGEBRA -> BÁSICO")
-        print(YELLOW + "1) Radiciação")
-        print("2) Exponenciação")
-        print("3) MDC de Dois Números")
-        print("4) MMC de Dois Números")
-        print("5) Resto de uma Divisão de dois Números")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> ÁLGEBRA -> BÁSICO",
+                "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
         # Radiciação
-        if escolha == "1":
+        if escolha == "Radiciação":
             clean()
             Radiciação(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
             voltar()
 
         # Exponenciação
-        elif escolha == "2":
+        elif escolha == "Exponenciação":
             clean()
             Exponenciação(input("Base:"), input("Expoente:"), True)
             voltar()
 
         # MDC
-        elif escolha == "3":
+        elif escolha == "MDC":
             clean()
             MDC(input("N₁:"), input("N₂:"), True)
             voltar()
 
         # MMC
-        elif escolha == "4":
+        elif escolha == "MMC":
             clean()
             MMC(input("N₁:"), input("N₂:"), True)
             voltar()
 
         # Resto
-        elif escolha == "5":
+        elif escolha == "Resto":
             clean()
             Resto(input("Dividendo:"), input("Divisor:"), True)
             voltar()
 
-        # Sair
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:
@@ -121,27 +122,29 @@ def algebraBásico():
 def algebraPolinomios():
     while True: 
         clean()
-        print(GREEN + "TELA INICIAL -> ÁLGEBRA -> POLINÔMIOS")
-        print(YELLOW + "1) Sistemas de Equação")
-        print("2) Equações de 2º Grau")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> ÁLGEBRA -> POLINÔMIOS",
+                "choices": ["Sistemas", "Segundo Grau", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
         # Sistemas de Equação
-        if escolha == "1":
+        if escolha == "Sistemas":
             clean()
             algebraPolinomiosSistemaEq()
         
         # Equação de Segundo Grau
-        elif escolha == "2":
+        elif escolha == "Segundo Grau":
             clean()
             equação2Grau(input("a:"), input("b:"), input("c:"), True)
             voltar()
 
-        # Sair
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:
@@ -182,40 +185,40 @@ def algebraPolinomiosSistemaEq():
 def algebraProgressões():
     while True:
         clean()
-        print(GREEN + "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES")
-        print(YELLOW + "1) Somatório")
-        print("2) Produtório")
-        print("3) PA +")
-        print("4) PG +")
-        print(RED + "0) Voltar" + RESET)
-        print("")
-        print("Qual ação deseja fazer?")
-        escolha = get_keypress()
+        campos = [
+            {
+                "type": "list",
+                "message": "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES",
+                "choices": ["Somatório", "Produtório", "PA", "PG", "Voltar"],
+            }
+        ]
+        escolha = prompt(campos)
+        escolha = escolha.get(0)
 
         # Somatório
-        if escolha == "1":
+        if escolha == "Somatório":
             clean()
             Somatório(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
         # Produtório
-        elif escolha == "2":
+        elif escolha == "Produtório":
             clean()
             Produtório(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
         # PA
-        elif escolha == "3":
+        elif escolha == "PA":
             clean()
             algebraProgressõesPA()
 
         # PG
-        elif escolha == "4":
+        elif escolha == "PG":
             clean()
             algebraProgressõesPG()
 
-        # Sair
-        elif escolha == "0":
+        # Voltar
+        elif escolha == "Voltar":
             clean()
             break
         else:
