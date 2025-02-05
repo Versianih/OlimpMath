@@ -8,7 +8,7 @@ from views.settingsView import settings
 # Funções
 from functions.functions import (
     YELLOW, RED, RESET, GREEN, WHITE, RED_BACKGROUND,
-    clean, get_keypress, max_digits, acaoInvalida,
+    clean, max_digits, acaoInvalida,
 )
 from InquirerPy import prompt
 

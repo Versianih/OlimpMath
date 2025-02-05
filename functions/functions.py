@@ -1,3 +1,4 @@
+from InquirerPy import prompt
 import msvcrt, os, time, math
 # from sympy import pi
 
@@ -83,11 +84,14 @@ def calcExpression(expressao, type=None):
 
 
 def voltar():
-    print(RED + "Voltar(Enter)" + RESET)
-    while True:
-        volta = get_keypress()
-        if volta == "\r":
-            break
+    voltar = [
+        {
+            "type": "list",
+            "message": "",
+            "choices": ["Voltar"],
+        }
+    ]
+    prompt(voltar)
 
 
 def acaoInvalida():
@@ -95,7 +99,7 @@ def acaoInvalida():
     time.sleep(1)
 
 
-def resultado(texto, resultado=None, aproximar=None, casas_decimais=2):
+def resultado(texto, resultado=None, aproximar=None, casas_decimais=casas_decimais):
     saida = []
     if resultado is not None:
         if isinstance(resultado, list) and aproximar is not None:

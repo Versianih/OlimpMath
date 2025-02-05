@@ -1,2 +1,2 @@
-sympy==1.13.3
-inquirerpy==0.3.4  
+fsympy==1.13.3
+inquirerpy==0.3.4

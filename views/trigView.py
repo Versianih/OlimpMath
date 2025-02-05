@@ -1,6 +1,6 @@
 from InquirerPy import prompt
 from functions.functions import(
-    voltar, acaoInvalida, get_keypress, clean,
+    voltar, acaoInvalida, clean,
     RESET, RED, YELLOW, GREEN,
 )
 from functions.trigF import(

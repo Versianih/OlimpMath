@@ -1,5 +1,5 @@
 from functions.functions import (
-    clean, get_keypress, acaoInvalida,
+    clean, acaoInvalida,
     RESET, RED, YELLOW, GREEN,    
 )
 from views.geoView.geoPlanaView import geometriaPlana
