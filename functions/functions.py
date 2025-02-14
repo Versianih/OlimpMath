@@ -1,5 +1,5 @@
 from InquirerPy import prompt
-import msvcrt, os, time, math
+import os, time, math
 # from sympy import pi
 
 # Settings
