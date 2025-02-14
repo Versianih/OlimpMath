@@ -29,17 +29,6 @@ def clean():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-def get_keypress():
-    try:
-        # Captura a tecla pressionada e tenta decodificar como UTF-8
-        key = msvcrt.getch()
-        decoded_key = key.decode('utf-8') if key else ''
-    except UnicodeDecodeError:
-        # Caso não consiga decodificar como UTF-8, usa ISO-8859-1 como alternativa
-        decoded_key = key.decode('ISO-8859-1') if key else ''
-    return decoded_key
-
-
 def max_digits(lengh):
     # Função que determina a quantidade máxima de dígitos na saída
     return os.sys.set_int_max_str_digits(lengh)
