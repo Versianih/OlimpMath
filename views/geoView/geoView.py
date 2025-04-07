@@ -1,10 +1,9 @@
 from functions.functions import (
-    clean, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,    
+    clean, acao_invalida, 
 )
-from views.geoView.geoPlanaView import geometriaPlana
-from views.geoView.geoEspacialView import geometriaEspacial
-from views.geoView.geoAnaliticaView import geometriaAnalítica
+from views.geoView.geoPlanaView import geometria_plana
+from views.geoView.geoEspacialView import geometria_espacial
+from views.geoView.geoAnaliticaView import geometria_analitica
 from InquirerPy import prompt
 
 
@@ -24,19 +23,19 @@ def geometria():
 
         # Geometria Plana
         if escolha == "Geometria Plana":
-            geometriaPlana()
+            geometria_plana()
 
         # Geometria Espacial
         elif escolha == "Geometria Espacial":
-            geometriaEspacial()
+            geometria_espacial()
 
         # Geometria Analítica
         elif escolha == "Geometria Analítica":
-            geometriaAnalítica()
+            geometria_analitica()
 
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

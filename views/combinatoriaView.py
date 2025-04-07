@@ -1,15 +1,15 @@
 from InquirerPy import prompt
 from functions.functions import(
-    clean, voltar, acaoInvalida,
+    clean, voltar, acao_invalida,
     RESET, RED, YELLOW, GREEN,
 )
 from functions.combinatoriaF import(
-    Combinação,
-    CombinaçãoCompleta,
-    PermutaçãoDeNemK,
-    PermutaçãoCircular,
-    PermutaçãoCaótica,
-    Fatorial,
+    combinacao,
+    combinacao_completa,
+    permutacao_n_em_k,
+    permutacao_circular,
+    permutacao_caotica,
+    fatorial,
 )
 
 
@@ -29,37 +29,37 @@ def combinatoria():
         # Combinação
         if escolha == "Combinação (N P)":
             clean()
-            Combinação(input("Insira N:"), input("Insira P:"), imprimir=True)
+            combinacao(input("Insira N:"), input("Insira P:"), imprimir=True)
             voltar()
         
         # Combinação Completa
         elif escolha == "Combinação Completa (N P)":
             clean()
-            CombinaçãoCompleta(input("Insira N:"), input("Insira P:"), imprimir=True)
+            combinacao_completa(input("Insira N:"), input("Insira P:"), imprimir=True)
             voltar()
 
         # Permutação
         elif escolha == "Permutação N em K":
             clean()
-            PermutaçãoDeNemK(input("Insira N:"), input("Insira K:"), imprimir=True)
+            permutacao_n_em_k(input("Insira N:"), input("Insira K:"), imprimir=True)
             voltar()
         
         # Permutação Circular
         elif escolha == "Permutação Circular":
             clean()
-            PermutaçãoCircular(input("Número de Elementos: "), imprimir=True)
+            permutacao_circular(input("Número de Elementos: "), imprimir=True)
             voltar()
         
         # Permutação Caótica
         elif escolha == "Permutação Caótica":
             clean()
-            PermutaçãoCaótica(input("Quantidade de Elementos:"), imprimir=True)
+            permutacao_caotica(input("Quantidade de Elementos:"), imprimir=True)
             voltar()
             
         # Fatorial
         elif escolha == "Fatorial":
             clean()
-            Fatorial(input("Número:"), imprimir=True)
+            fatorial(input("Número:"), imprimir=True)
             voltar()
 
         # Voltar
@@ -67,4 +67,4 @@ def combinatoria():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

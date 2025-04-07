@@ -1,20 +1,19 @@
 from InquirerPy import prompt
 from functions.functions import (
-    clean, voltar, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,    
+    clean, voltar, acao_invalida, 
 )
 from functions.geoFunctions.geoEspacial import (
-    volumePrisma,
-    volumeCubo,
-    volumeParalelepipedo,
-    volumeEsfera,
-    volumeCilindro,
-    volumeCone,
-    volumeTroncoCone,
+    volume_prisma,
+    volume_cubo,
+    volume_paralelepipedo,
+    volume_esfera,
+    volume_cilindro,
+    volume_cone,
+    volume_tronco_cone,
 )
 
 
-def geometriaEspacial():
+def geometria_espacial():
     while True:
         clean()
         campos = [
@@ -29,17 +28,17 @@ def geometriaEspacial():
 
         # Volumes
         if escolha == "Volumes":
-            geometriaEspacialVolumes()
+            geometria_espacial_volumes()
         
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def geometriaEspacialVolumes():
+def geometria_espacial_volumes():
     while True:
             clean()
             campos = [
@@ -55,43 +54,43 @@ def geometriaEspacialVolumes():
             # Prisma
             if escolha == "Prisma Base n":
                 clean()
-                volumePrisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
+                volume_prisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
                 voltar()
 
             # Cubo 
             elif escolha == "Cubo":
                 clean()
-                volumeCubo(input("Medida da Aresta do Cubo:"), True)
+                volume_cubo(input("Medida da Aresta do Cubo:"), True)
                 voltar()
 
             # Paralelepípedo 
             elif escolha == "Paralelepípedo":
                 clean()
-                volumeParalelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
+                volume_paralelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
                 voltar()
 
             # Esfera
             elif escolha == "Esfera":
                 clean()
-                volumeEsfera(input("Raio:"), True)
+                volume_esfera(input("Raio:"), True)
                 voltar()
 
             # Cilindro
             elif escolha == "Cilindro":
                 clean()
-                volumeCilindro(input("Raio da Base:"), input("Altura:"), True)
+                volume_cilindro(input("Raio da Base:"), input("Altura:"), True)
                 voltar()
 
             # Cone
             elif escolha == "Cone":
                 clean()
-                volumeCone(input("Raio da Base:"), input("Altura:"), True)
+                volume_cone(input("Raio da Base:"), input("Altura:"), True)
                 voltar()
 
             # Tronco do Cone
             elif escolha == "Tronco de Cone":
                 clean()
-                volumeTroncoCone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
+                volume_tronco_cone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
                 voltar()
             
             # Voltar
@@ -99,4 +98,4 @@ def geometriaEspacialVolumes():
                 clean()
                 break
             else:
-                acaoInvalida()
+                acao_invalida()

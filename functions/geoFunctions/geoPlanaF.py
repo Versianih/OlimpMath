@@ -1,149 +1,132 @@
-from functions.functions import math, pi, tratErro, resultado, ERROR, calcExpression
+from functions.functions import math, pi, trat_erro, resultado, ERROR, calc_expression
 
 
-def areaPoliRegular(qntLados, lado, print=None):
-    if tratErro(int, [qntLados]) and tratErro(float, [lado]) == True:    
-        qntLados = calcExpression(qntLados, int)
-        lado = calcExpression(lado, float)
+def area_poligono_regular(qntLados, lado, imprimir=False):
+    if trat_erro(int, [qntLados]) and trat_erro(float, [lado]):    
+        qntLados = calc_expression(qntLados, int)
+        lado = calc_expression(lado, float)
         if qntLados < 3:
-            if print:
-                ERROR("Verifique se a quantidade de lados permite um Polígono")
-            return None
+            ERROR("Verifique se a quantidade de lados permite um Polígono") if imprimir else None
+            return
         elif qntLados == 3:
             Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
             if Tricalculo >= 0:
-                if print:
-                    resultado("Área:", Tricalculo, True)
+                resultado("Área:", Tricalculo, aproximar=True) if imprimir else None
                 return Tricalculo
             else:
-                if print:
-                    ERROR("Área não pode ser negativa")
-                return None
+                ERROR("Área não pode ser negativa") if imprimir else None
+                return
         elif qntLados == 4:
             Quacalculo = lado**2
             if Quacalculo >= 0:
-                if print:
-                    resultado("Área:", Quacalculo, True)
+                if imprimir:
+                    resultado("Área:", Quacalculo, aproximar=True)
                 return Quacalculo
             else:
-                if print:
-                    ERROR("Área não pode ser negativa")
-                return None
+                ERROR("Área não pode ser negativa") if imprimir else None
+                return
         else:
             calculo = ((qntLados * ((lado**2)*math.sqrt(3))) / 4)
-            if calculo >= 0:    
-                if print:
-                    resultado("Área:", calculo, True)        
+            if calculo >= 0:
+                resultado("Área:", calculo, aproximar=True) if imprimir else None
                 return calculo
             else:
-                if print:
-                    ERROR("Área não pode ser negativa")
-                return None
+                ERROR("Área não pode ser negativa") if imprimir else None
+                return
 
 
-def areaCírculo(raio, print=None):
-    if tratErro(float, [raio]) == True:
-        raio = calcExpression(raio, float)
+def area_circulo(raio, imprimir=False):
+    if trat_erro(float, [raio]):
+        raio = calc_expression(raio, float)
         calculo = (raio*raio)* pi
         if calculo >= 0:
-            if print:
-                resultado("Área:", calculo, True)
+            resultado("Área:", calculo, aproximar=True) if imprimir else None
             return calculo
         else:
-            if print:
-                ERROR("Área não pode ser negativa")
-            return None
+            ERROR("Área não pode ser negativa") if imprimir else None
+            return
 
 
-def areaQuadrado(lado, print=None):
-    if tratErro(float, [lado]) == True:
-        lado = calcExpression(lado, float)
+def area_quadrado(lado, imprimir=False):
+    if trat_erro(float, [lado]):
+        lado = calc_expression(lado, float)
         calculo = (lado*lado)
         if calculo >= 0:
-            if print:
-                resultado("Área:", calculo, True)
+            resultado("Área:", calculo, aproximar=True) if imprimir else None
             return calculo
         else:
-            if print:
-                ERROR("Área não pode ser negativa")
-            return None
+            ERROR("Área não pode ser negativa") if imprimir else None
+            return
 
 
-def areaTriangulo(base, altura, print=None):
-    if tratErro(float, [base, altura]) == True:    
-        base = calcExpression(base, float)
-        altura = calcExpression(altura, float)
+def area_triangulo(base, altura, imprimir=False):
+    if trat_erro(float, [base, altura]):
+        base = calc_expression(base, float)
+        altura = calc_expression(altura, float)
         calculo = (base*altura)/2   
-        if calculo >= 0:    
-            if print:
-                resultado("Área:", calculo, True)
+        if calculo >= 0:
+            resultado("Área:", calculo, aproximar=True) if imprimir else None
             return calculo
         else:    
-            if print:
-                ERROR("Área não pode ser negativa")
-            return None
+            ERROR("Área não pode ser negativa") if imprimir else None
+            return
 
 
-def areaTrianguloHeron(a, b, c, print=None):
-    if tratErro(float, [a, b, c]) == True:    
-        a = calcExpression(a, float)
-        b = calcExpression(b, float)
-        c = calcExpression(c, float)
+def area_triangulo_heron(a, b, c, imprimir=False):
+    if trat_erro(float, [a, b, c]):    
+        a = calc_expression(a, float)
+        b = calc_expression(b, float)
+        c = calc_expression(c, float)
         p = (a + b + c)/2
         calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
         if calculo >= 0:
-            if print:
-                resultado("Área:", calculo, True) 
+            resultado("Área:", calculo, aproximar=True) if imprimir else None
             return calculo
         else:
-            if print:
-                ERROR("Área não pode ser negativa")
-            return None 
+            ERROR("Área não pode ser negativa") if imprimir else None
+            return
 
 
-def areaTrapezio(BASE, base, altura, print=None):
-    if tratErro(float, [BASE, base, altura]) == True:    
-        BASE = calcExpression(BASE, float)
-        base = calcExpression(base, float)
-        altura = calcExpression(altura, float)
+def area_trapezio(BASE, base, altura, imprimir=False):
+    if trat_erro(float, [BASE, base, altura]):    
+        BASE = calc_expression(BASE, float)
+        base = calc_expression(base, float)
+        altura = calc_expression(altura, float)
         calculo = ((BASE+base)*altura)/2
         if calculo >= 0:
-            if print:
-                resultado("Área:", calculo, True)
+            resultado("Área:", calculo, aproximar=True) if imprimir else None
             return calculo
         else:
-            if print:
-                ERROR("Área não pode ser negativa")
-            return None
+            ERROR("Área não pode ser negativa") if imprimir else None
+            return
 
 
-def pitagorasHipotenusa(a,b, print=None):
-    if tratErro(float, [a,b]) == True:
-        a = calcExpression(a, float)
-        b = calcExpression(b, float)
+def pitagoras_hipotenusa(a,b, imprimir=False):
+    if trat_erro(float, [a,b]):
+        a = calc_expression(a, float)
+        b = calc_expression(b, float)
         calculo = ((a**2) + (b**2))**(1/2)
-        if print:
-            resultado("A medida da Hipotenusa é:", calculo, True)
+        
+        resultado("A medida da Hipotenusa é:", calculo, aproximar=True) if imprimir else None
         return calculo
 
 
-def pitagorasCateto(a,h, print=None):
-    if tratErro(float, [a,h]) == True:
-        a = calcExpression(a, float)
-        h = calcExpression(h, float)
+def pitagoras_cateto(a,h, imprimir=False):
+    if trat_erro(float, [a,h]):
+        a = calc_expression(a, float)
+        h = calc_expression(h, float)
         calculo = ((h**2) - (a**2))**(1/2)
-        if print:
-            resultado("A medida do Cateto é:", calculo, True)
+
+        resultado("A medida do Cateto é:", calculo, aproximar=True) if imprimir else None
         return calculo
     
 
-def formaçãoTriângulo(a, b, c, print=None):
-    if tratErro(float, [a, b, c]):
-        a = calcExpression(a, int)
-        b = calcExpression(b, int)
-        c = calcExpression(c, int)
+def formacao_triangulo(a, b, c, imprimir=False):
+    if trat_erro(float, [a, b, c]):
+        a = calc_expression(a, int)
+        b = calc_expression(b, int)
+        c = calc_expression(c, int)
         if a + b > c and a + c > b and b + c > a:
-            if print:
-                resultado(f"Os valores {a}, {b}, {c} formam um triângulo")
+            resultado(f"Os valores {a}, {b}, {c} formam um triângulo") if imprimir else None
         else:
-            resultado(f"Os valores {a}, {b}, {c} NÃO formam um triângulo")
+            resultado(f"Os valores {a}, {b}, {c} NÃO formam um triângulo") if imprimir else None

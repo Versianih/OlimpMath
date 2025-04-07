@@ -1,22 +1,22 @@
 from InquirerPy import prompt
 from functions.functions import(
-    voltar, acaoInvalida, clean,
+    voltar, acao_invalida, clean,
     RESET, RED, YELLOW, GREEN,
 )
 from functions.trigF import(
     # Hipotenusa
-    HipotenusaComOposto,
-    HipotenusaComAdjacente,
+    hipotenusa_com_oposto,
+    hipotenusa_com_adjacente,
     # Oposto
-    OpostoComHipotenusa,
-    OpostoComAdjacente,
+    oposto_com_hipotenusa,
+    oposto_com_adjacente,
     # Adjacente
-    AdjacenteComHipotenusa,
-    AdjacenteComOposto,
+    adjacente_com_hipotenusa,
+    adjacente_com_oposto,
     # Ângulo
-    AnguloComCOCA,
-    AnguloComCOH,
-    AnguloComCAH,
+    angulo_com_coca,
+    angulo_com_coh,
+    angulo_com_cah,
 )
 import functions.functions
 
@@ -51,7 +51,7 @@ def trig():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def hipotenusa():
@@ -69,19 +69,19 @@ def hipotenusa():
 
         if escolha_hipotenusa == "Cateto Oposto":
             clean()
-            HipotenusaComOposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            hipotenusa_com_oposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolha_hipotenusa == "Cateto Adjacente":
             clean()
-            HipotenusaComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            hipotenusa_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
             
         elif escolha_hipotenusa == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def oposto():
@@ -100,19 +100,19 @@ def oposto():
         
         if escolha_oposto == "Hipotenusa":
             clean()
-            OpostoComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            oposto_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolha_oposto == "Cateto Adjacente":
             clean()
-            OpostoComAdjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            oposto_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
         
         elif escolha_oposto == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def adjacente():
@@ -131,12 +131,12 @@ def adjacente():
         
         if escolha_adjacente == "Hipotenusa":
             clean()
-            AdjacenteComHipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            adjacente_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         elif escolha_adjacente == "Cateto Oposto":
             clean()
-            AdjacenteComOposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
+            adjacente_com_oposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
             voltar()
 
         # Voltar
@@ -144,7 +144,7 @@ def adjacente():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def angulo():
@@ -162,17 +162,17 @@ def angulo():
 
         if escolha_angulo == "CO/CA":
             clean()
-            AnguloComCOCA(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
+            angulo_com_coca(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
             voltar()
 
         elif escolha_angulo == "CO/H":
             clean()
-            AnguloComCOH(input("Cateto Oposto:"), input("Hipotenusa:"), True)
+            angulo_com_coh(input("Cateto Oposto:"), input("Hipotenusa:"), True)
             voltar()
 
         elif escolha_angulo == "CA/H":
             clean()
-            AnguloComCAH(input("Cateto Adjacente:"), input("Hipotenusa"), True)
+            angulo_com_cah(input("Cateto Adjacente:"), input("Hipotenusa"), True)
             voltar()
         
         # Voltar
@@ -180,4 +180,4 @@ def angulo():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

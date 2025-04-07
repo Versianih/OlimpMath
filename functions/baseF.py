@@ -1,10 +1,10 @@
-from functions.functions import tratErro, resultado, ERROR, calcExpression
+from functions.functions import trat_erro, resultado, calc_expression
 
 
-def BaseParaDecimal(num_original, base_original, imprimir=None):
-    if tratErro(int, [num_original, base_original]):
-        num_original = calcExpression(num_original, str)
-        base_original = calcExpression(base_original, int)
+def base_para_decimal(num_original, base_original, imprimir=False):
+    if trat_erro(int, [num_original, base_original]):
+        num_original = calc_expression(num_original, str)
+        base_original = calc_expression(base_original, int)
         
         dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         decimal = 0
@@ -12,15 +12,15 @@ def BaseParaDecimal(num_original, base_original, imprimir=None):
         decimal_temp.reverse()
         for x,i in enumerate(decimal_temp):
             decimal += dic.index(i) * base_original**(x)
-        if imprimir == True:
-            resultado("Número na Base Decimal:", decimal)
+
+        resultado("Número na Base Decimal:", decimal) if imprimir else None
         return decimal
 
  
-def DecimalParaBase(decimal, base_final, imprimir=None):
-    if tratErro(int, [base_final, decimal]) == True:
-        base_final = calcExpression(base_final, int)
-        decimal = calcExpression(decimal, int)
+def decimal_para_base(decimal, base_final, imprimir=False):
+    if trat_erro(int, [base_final, decimal]):
+        base_final = calc_expression(base_final, int)
+        decimal = calc_expression(decimal, int)
         
         dic = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         numero_final_temp = []
@@ -33,20 +33,20 @@ def DecimalParaBase(decimal, base_final, imprimir=None):
             decimal = int(decimal/base_final)
         numero_final_temp.reverse()
         for i in numero_final_temp:
-            numero_final += dic[i]     
-        if imprimir == True:
-            resultado("Número na Base Final:", numero_final)
+            numero_final += dic[i]
+
+        resultado("Número na Base Final:", numero_final) if imprimir else None
         return numero_final
 
 
-def BaseParaBase(num_original,base_original,base_final, imprimir=None):
-    if tratErro(int, [num_original, base_original, base_final]) == True:
-        num_original = calcExpression(num_original, int)
-        base_final = calcExpression(base_final, int)
-        base_original = calcExpression(base_original, int)
+def base_para_base(num_original,base_original,base_final, imprimir=False):
+    if trat_erro(int, [num_original, base_original, base_final]):
+        num_original = calc_expression(num_original, int)
+        base_final = calc_expression(base_final, int)
+        base_original = calc_expression(base_original, int)
 
-        num_decimal = BaseParaDecimal(num_original,base_original)
-        num_final = DecimalParaBase(num_decimal,base_final)
-        if imprimir == True:
-            resultado("Número na Base Final:", num_final)
+        num_decimal = base_para_decimal(num_original,base_original)
+        num_final = decimal_para_base(num_decimal,base_final)
+
+        resultado("Número na Base Final:", num_final) if imprimir else None
         return num_final

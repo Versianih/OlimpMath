@@ -1,6 +1,6 @@
 from InquirerPy import prompt
 from functions.functions import(
-    acaoInvalida, voltar,  clean, tratErro,
+    acao_invalida, voltar,  clean, trat_erro,
     GREEN, RED, CYAN, GRENN_BACKGROUND, RESET, WHITE
 )
 
@@ -27,7 +27,7 @@ def settings():
         if escolha == f"Saída de Casas Decimais: {str(functions.functions.casas_decimais)} casas decimais":
             clean()
             preTratDecimais = input(CYAN + "Casas decimais atual: " + GREEN +  str(functions.functions.casas_decimais) + CYAN +  " Saída Nova:" + RESET)
-            if tratErro(int, [preTratDecimais]) == True:
+            if trat_erro(int, [preTratDecimais]) == True:
                 functions.functions.casas_decimais = int(preTratDecimais)
             else:
                 voltar()
@@ -42,7 +42,7 @@ def settings():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def saidaÂngulo():
@@ -70,7 +70,7 @@ def saidaÂngulo():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
 def entradaAngulo():
@@ -98,4 +98,4 @@ def entradaAngulo():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

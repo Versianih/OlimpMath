@@ -1,12 +1,11 @@
 from InquirerPy import prompt
 from functions.functions import(
-    clean, voltar, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,
+    clean, voltar, acao_invalida,
 )
 from functions.baseF import(
-    DecimalParaBase,
-    BaseParaDecimal,
-    BaseParaBase,
+    decimal_para_base,
+    base_para_decimal,
+    base_para_base,
 )
 
 
@@ -26,19 +25,19 @@ def base():
         # Transformar Base Decimal em Base n
         if escolha == "10 -> n":
             clean()
-            DecimalParaBase(input("Número na Base Decimal:"), input("Base Final:"), True)
+            decimal_para_base(input("Número na Base Decimal:"), input("Base Final:"), True)
             voltar()
         
         # Transformar Base n para Base Decimal
         elif escolha == "n -> 10":
             clean()
-            BaseParaDecimal(input("Número:"), input("Base:"), True)
+            base_para_decimal(input("Número:"), input("Base:"), True)
             voltar()
         
         # Transformar Base n para Base m
         elif escolha == "n -> m":
             clean()
-            BaseParaBase(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
+            base_para_base(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
             voltar()
         
         # Voltar
@@ -46,4 +45,4 @@ def base():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

@@ -34,10 +34,10 @@ def max_digits(lengh):
     return os.sys.set_int_max_str_digits(lengh)
 
 
-def tratErro(tipo, parametros):
+def trat_erro(tipo, parametros):
     for str_parametro in parametros:
         try:
-            parametro = calcExpression(str_parametro)
+            parametro = calc_expression(str_parametro)
             if tipo == float:
                 float(parametro)
             elif tipo == int:
@@ -53,7 +53,7 @@ def tratErro(tipo, parametros):
     return True
 
 
-def calcExpression(expressao, type=None):
+def calc_expression(expressao, type=None):
     try:
         calculo = eval(expressao)
         if type == float:
@@ -83,7 +83,7 @@ def voltar():
     prompt(voltar)
 
 
-def acaoInvalida():
+def acao_invalida():
     print(RED + "Favor selecionar uma ação válida." + RESET)
     time.sleep(1)
 

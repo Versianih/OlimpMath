@@ -1,34 +1,35 @@
 from InquirerPy import prompt
 from functions.functions import(
-    clean, voltar, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,
+    clean, voltar, acao_invalida,
+    RESET, YELLOW, GREEN,
 )
 
 # Básico
 from functions.algebraF import(
-    Radiciação,
-    Exponenciação,
-    MDC,
-    MMC,
-    Resto,
+    radiciacao,
+    exponenciacao,
+    mdc,
+    mmc,
+    resto,
+    fatoracao,
 )
 
 # Polinômios
 from functions.algebraF import(
-    sistemaEq,
-    equação2Grau,
+    sistema_de_equacoes,
+    equacao_segundo_grau,
 )
 
 # Progressões
 from functions.algebraF import(
-    Somatório,
-    Produtório,
+    somatorio,
+    produtorio,
 
-    termoGeralPA,
-    somaPA,
+    termo_geral_pa,
+    soma_pa,
 
-    termoGeralPG, 
-    somaPG,
+    termo_geral_pg, 
+    soma_pg,
 )
 
 
@@ -48,78 +49,83 @@ def algebra():
         # Básico
         if escolha == "Básico":
             clean()
-            algebraBásico()
+            algebra_basico()
 
         # Polinômios
         elif escolha == "Polinômios":
             clean()
-            algebraPolinomios()
+            algebra_polinomios()
 
         # Progressões
         elif escolha == "Progressôes":
             clean()
-            algebraProgressões()
+            algebra_progressoes()
 
         # Sair
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraBásico():
+def algebra_basico():
     while True:
         clean()
         campos = [
             {
                 "type": "list",
                 "message": "TELA INICIAL -> ÁLGEBRA -> BÁSICO",
-                "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "Voltar"],
+                "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "Fatoração", "Voltar"],
             }
         ]
         escolha = prompt(campos)
         escolha = escolha.get(0)
 
-        # Radiciação
+        # radiciacao
         if escolha == "Radiciação":
             clean()
-            Radiciação(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
+            radiciacao(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
             voltar()
 
-        # Exponenciação
+        # exponenciacao
         elif escolha == "Exponenciação":
             clean()
-            Exponenciação(input("Base:"), input("Expoente:"), True)
+            exponenciacao(input("Base:"), input("Expoente:"), True)
             voltar()
 
-        # MDC
+        # mdc
         elif escolha == "MDC":
             clean()
-            MDC(input("N₁:"), input("N₂:"), True)
+            mdc(input("N₁:"), input("N₂:"), True)
             voltar()
 
-        # MMC
+        # mmc
         elif escolha == "MMC":
             clean()
-            MMC(input("N₁:"), input("N₂:"), True)
+            mmc(input("N₁:"), input("N₂:"), True)
             voltar()
 
-        # Resto
+        # resto
         elif escolha == "Resto":
             clean()
-            Resto(input("Dividendo:"), input("Divisor:"), True)
+            resto(input("Dividendo:"), input("Divisor:"), True)
             voltar()
 
+        elif escolha == "Fatoração":
+            clean()
+            fatoracao(input("Número a ser fatorado:"), True)
+            voltar()
+            
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraPolinomios():
+def algebra_polinomios():
     while True: 
         clean()
         campos = [
@@ -135,12 +141,12 @@ def algebraPolinomios():
         # Sistemas de Equação
         if escolha == "Sistemas de Equações":
             clean()
-            algebraPolinomiosSistemaEq()
+            algebra_polinomios_sistema_de_equacoes()
         
         # Equação de Segundo Grau
         elif escolha == "Equação do Segundo Grau":
             clean()
-            equação2Grau(input("a:"), input("b:"), input("c:"), True)
+            equacao_segundo_grau(input("a:"), input("b:"), input("c:"), True)
             voltar()
 
         # Voltar
@@ -148,10 +154,10 @@ def algebraPolinomios():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraPolinomiosSistemaEq():
+def algebra_polinomios_sistema_de_equacoes():
     equacoes = []
     while True:
         clean()
@@ -181,7 +187,7 @@ def algebraPolinomiosSistemaEq():
             print("")
             print(GREEN + "Soluções do sistema de Equações:" + RESET)
             print("")
-            sistemaEq(equacoes, True)
+            sistema_de_equacoes(equacoes, True)
             voltar()
             break
 
@@ -189,10 +195,10 @@ def algebraPolinomiosSistemaEq():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraProgressões():
+def algebra_progressoes():
     while True:
         clean()
         campos = [
@@ -205,37 +211,37 @@ def algebraProgressões():
         escolha = prompt(campos)
         escolha = escolha.get(0)
 
-        # Somatório
+        # somatorio
         if escolha == "Somatório":
             clean()
-            Somatório(input("n:"), input("k:"), input("Expressão:"), True)
+            somatorio(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
-        # Produtório
+        # produtorio
         elif escolha == "Produtório":
             clean()
-            Produtório(input("n:"), input("k:"), input("Expressão:"), True)
+            produtorio(input("n:"), input("k:"), input("Expressão:"), True)
             voltar()
 
         # PA
         elif escolha == "PA":
             clean()
-            algebraProgressõesPA()
+            algebra_progressoes_pa()
 
         # PG
         elif escolha == "PG":
             clean()
-            algebraProgressõesPG()
+            algebra_progressoes_pg()
 
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraProgressõesPA():
+def algebra_progressoes_pa():
     while True:
         clean()
         campos = [
@@ -250,13 +256,13 @@ def algebraProgressõesPA():
 
         if escolha == "Termo Geral da PA":
             clean()
-            termoGeralPA(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
+            termo_geral_pa(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
             voltar()
         
 
         elif escolha == "Soma de n elementos da PA":
             clean()
-            somaPA(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
+            soma_pa(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
             voltar()
 
         # Sair
@@ -264,10 +270,10 @@ def algebraProgressõesPA():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def algebraProgressõesPG():
+def algebra_progressoes_pg():
     while True:
         clean()
         campos = [
@@ -283,13 +289,13 @@ def algebraProgressõesPG():
 
         if escolha == "Termo Geral da PG":
             clean()
-            termoGeralPG(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
+            termo_geral_pg(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
             voltar()
         
 
         elif escolha == "Soma de n elementos da PG":
             clean()
-            somaPG(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
+            soma_pg(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
             voltar()
 
         # Sair
@@ -297,4 +303,4 @@ def algebraProgressõesPG():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

@@ -1,21 +1,21 @@
 from InquirerPy import prompt
 from functions.functions import (
-    clean, voltar, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,    
+    clean, voltar, acao_invalida,
 )
 from functions.geoFunctions.geoAnalitica import (
-    distPontos,
+    distancia_entre_pontos,
+    retangulos_em_uma_malha,
 )
 
 
-def geometriaAnalítica():
+def geometria_analitica():
     while True:
         clean()
         campos = [
             {
                 "type": "list",
                 "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ANALÍTICA",
-                "choices": ["Distância Entre Dois Pontos", "Voltar"],
+                "choices": ["Distância Entre Dois Pontos", "Retângulos em uma malha", "Voltar"],
             }
         ]
         escolha = prompt(campos)
@@ -24,7 +24,12 @@ def geometriaAnalítica():
         # Dist. entre pontos
         if escolha == "Distância Entre Dois Pontos":
             clean()
-            distPontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"), True)
+            distancia_entre_pontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"), True)
+            voltar()
+
+        elif escolha == "Retângulos em uma malha":
+            clean()
+            retangulos_em_uma_malha(input("Base da malha:"), input("Altura da malha:"), True)
             voltar()
 
         # Voltar
@@ -32,4 +37,4 @@ def geometriaAnalítica():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()

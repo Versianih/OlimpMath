@@ -7,8 +7,7 @@ from views.trigView import trig
 from views.settingsView import settings
 # Funções
 from functions.functions import (
-    YELLOW, RED, RESET, GREEN, WHITE, RED_BACKGROUND,
-    clean, max_digits, acaoInvalida,
+    clean, max_digits, acao_invalida,
 )
 from InquirerPy import prompt
 
@@ -64,7 +63,7 @@ def main():
                 clean()
                 break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 if __name__ == '__main__':
     main()

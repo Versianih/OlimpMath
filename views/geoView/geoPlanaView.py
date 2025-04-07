@@ -1,24 +1,25 @@
 from InquirerPy import prompt
 from functions.functions import (
-    clean, voltar, acaoInvalida,
-    RESET, RED, YELLOW, GREEN,    
+    clean, voltar, acao_invalida,
 )
 from functions.geoFunctions.geoPlanaF import (
-    areaPoliRegular,
-    areaCírculo,
-    areaQuadrado,
-    areaTrapezio,
-    areaTriangulo,
-    areaTrianguloHeron,
+    area_poligono_regular,
+    area_circulo,
+    area_quadrado,
+    area_trapezio,
+    area_triangulo,
+    area_triangulo_heron,
+    
     # Pitágoras
-    pitagorasHipotenusa,
-    pitagorasCateto,
+    pitagoras_hipotenusa,
+    pitagoras_cateto,
+    
     # Formação de Triângulos
-    formaçãoTriângulo,
+    formacao_triangulo,
 )
 
 
-def geometriaPlana():
+def geometria_plana():
     while True:
         clean()
         campos = [
@@ -33,21 +34,21 @@ def geometriaPlana():
 
         # Áreas
         if escolha == "Áreas":
-            geoPlanaAreas()
+            geometria_plana_areas()
         
         # Pitágoras
         elif escolha == "Polígonos":
-            geoPlanaPoligonos()
+            geometria_plana_poligonos()
         
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def geoPlanaAreas():
+def geometria_plana_areas():
     while True:
         clean()
         campos = [
@@ -64,19 +65,19 @@ def geoPlanaAreas():
         # Polígono Regular Qualquer
         if escolha == "Polígono Regular":
             clean()
-            areaPoliRegular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
+            area_poligono_regular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
             voltar()
 
         # Círculo
         elif escolha == "Círculo":
             clean()
-            areaCírculo(input("Raio do Círculo:"), True)
+            area_circulo(input("Raio do Círculo:"), True)
             voltar()
 
         # Quadrado
         elif escolha == "Quadrado":
             clean()
-            areaQuadrado(input("Lado do Quadrado:"), True)
+            area_quadrado(input("Lado do Quadrado:"), True)
             voltar()
 
         # Triângulo
@@ -94,24 +95,26 @@ def geoPlanaAreas():
 
             if escolha_triangulo == "Base e Altura":  # Base e Altura
                 clean()
-                areaTriangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
+                area_triangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
                 voltar()
 
             elif escolha_triangulo == "Fórmula de Heron":  # Fórmula de Heron
                 clean()
-                areaTrianguloHeron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+                area_triangulo_heron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+                
                 voltar()
 
             elif escolha_triangulo == "Voltar":
+                
                 clean()
                 pass
             else:
-                acaoInvalida()
+                acao_invalida()
 
         # Trapézio
         elif escolha == "Trapézio":
             clean()
-            areaTrapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
+            area_trapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
             voltar()
         
         # Voltar
@@ -119,9 +122,9 @@ def geoPlanaAreas():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
-def geoPlanaPoligonos():
+def geometria_plana_poligonos():
     while True:
         clean()
         campos = [
@@ -137,17 +140,17 @@ def geoPlanaPoligonos():
         # Triângulos
         if escolha == "Triângulo +":
             clean()
-            geoPlanaPoligonosTriangulo()
+            geometria_plana_poligonos_triangulo()
 
         # Voltar
         elif escolha == "Voltar":
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def geoPlanaPoligonosTriangulo():
+def geometria_plana_poligonos_triangulo():
     while True:
         clean()
         campos = [
@@ -164,12 +167,12 @@ def geoPlanaPoligonosTriangulo():
         # Teorema de Pitágoras
         if escolha == "Pitágoras +": 
             clean()
-            geoPlanaPoligonosTrianguloPitágoras()
+            geometria_plana_poligonos_triangulo_pitagoras()
 
         # Formação de Triângulos
         elif escolha == "Formação de Triângulo":
             clean()
-            formaçãoTriângulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+            formacao_triangulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
             voltar()
 
         # Voltar
@@ -177,10 +180,10 @@ def geoPlanaPoligonosTriangulo():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
 
 
-def geoPlanaPoligonosTrianguloPitágoras():
+def geometria_plana_poligonos_triangulo_pitagoras():
     while True:
         clean()
         campos = [
@@ -196,13 +199,13 @@ def geoPlanaPoligonosTrianguloPitágoras():
         # Teorema de Pitágoras para descobrir a Hipotenusa
         if escolha == "Calcular Hipotenusa":
             clean()
-            pitagorasHipotenusa(input("Cateto:"), input("Cateto:"), True)
+            pitagoras_hipotenusa(input("Cateto:"), input("Cateto:"), True)
             voltar()
 
         # Teorema de Pitágoras para descobrir o Cateto
         elif escolha == "Calcular Cateto":
             clean()
-            pitagorasCateto(input("Cateto:"), input("Hipotenusa:"), True)
+            pitagoras_cateto(input("Cateto:"), input("Hipotenusa:"), True)
             voltar()
 
         # Voltar
@@ -210,4 +213,4 @@ def geoPlanaPoligonosTrianguloPitágoras():
             clean()
             break
         else:
-            acaoInvalida()
+            acao_invalida()
