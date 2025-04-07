@@ -6,8 +6,8 @@ def PermutaçãoDeNemK(n,k, imprimir=None):
         n = calcExpression(n, int)
         k = calcExpression(k, int)
         calculo = math.perm(n, k)
-        if imprimir:
-            resultado("Resultado:", calculo)
+        
+        resultado("Resultado:", calculo) if imprimir else None
         return calculo
 
 
@@ -15,8 +15,8 @@ def PermutaçãoCircular(n, imprimir=None):
     if tratErro(int, [n]):
         n = calcExpression(n, int)
         calculo = math.factorial((n-1))
-        if imprimir:
-            resultado("Resultado:", calculo)
+        
+        resultado("Resultado:", calculo) if imprimir else None
         return calculo
 
 
@@ -26,13 +26,11 @@ def PermutaçãoCaótica(n, imprimir=None):
         if n >= 0:
             calculo = math.factorial(n)/euler
             calculoAproximado = int(round(calculo, 0))
-            if imprimir:
-                resultado("O resultado da permutação caótica é:", calculoAproximado, True)
+            
+            resultado("O resultado da permutação caótica é:", calculoAproximado, True) if imprimir else None
             return calculoAproximado
         else:
-            if imprimir:
-                ERROR("A quantidade de elementos não pode ser negativa")
-            return
+            ERROR("A quantidade de elementos não pode ser negativa") if imprimir else None
 
 
 def Combinação(n, p, imprimir=None):
@@ -41,13 +39,11 @@ def Combinação(n, p, imprimir=None):
         p = calcExpression(p, int)
         if n >= 0 and p >= 0:
             calculo = math.factorial(n)/(math.factorial(p) * math.factorial(n-p))
-            if imprimir:
-                resultado("Resultado:", calculo)
+
+            resultado("Resultado:", calculo) if imprimir else None
             return calculo
         else:
-            if imprimir:
-                ERROR("N e P não podem ser negativos")
-            return
+            ERROR("N e P não podem ser negativos") if imprimir else None
 
 
 def CombinaçãoCompleta(n, p, imprimir=None):
@@ -56,24 +52,20 @@ def CombinaçãoCompleta(n, p, imprimir=None):
         p = calcExpression(p, int)
         if n >= 0 and p >= 0:
             calculo = math.factorial(n + (p - 1)) / (math.factorial(p) * math.factorial(n - 1))
-            if imprimir:
-                resultado("Resultado:", calculo, True)
+            
+            resultado("Resultado:", calculo, True) if imprimir else None
             return calculo
         else:
-            if imprimir:
-                ERROR("N ou P não pode ser negativo")
-            return
+            ERROR("N ou P não pode ser negativo") if imprimir else None
 
 
-def Fatorial(n, imprimir=None):
-    if tratErro(int, [n]):
-        n = calcExpression(n, int)
-        if n >= 0:    
-            calculo = math.factorial(n)
-            if imprimir:
-                resultado("Fatorial desse Número é:", calculo)
+def Fatorial(value, imprimir=None):
+    if tratErro(int, [value]):
+        value = calcExpression(value, int)
+        if value >= 0:    
+            calculo = math.factorial(value)
+            
+            resultado("Fatorial desse Número é:", calculo) if imprimir else None
             return calculo
         else:
-            if imprimir:
-                ERROR("O número não pode ser negativo")
-            return
+            ERROR("O número não pode ser negativo") if imprimir else None
