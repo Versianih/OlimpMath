@@ -52,6 +52,31 @@ def mmc(a, b, imprimir=False):
         return calculo
 
 
+def eh_primo(n, imprimir=False):
+    if trat_erro(int, [n]):
+        n = calc_expression(n, int)
+
+        if n <= 1:
+            resultado(f"O número {n} não é primo") if imprimir else None
+            return False
+        if n <= 3:
+            resultado(f"O número {n} é primo") if imprimir else None
+            return True
+        if n % 2 == 0 or n % 3 == 0:
+            resultado(f"O número {n} não é primo") if imprimir else None
+            return False
+        
+        i = 5
+        while i * i <= n:
+            if n % i == 0 or n % (i + 2) == 0:
+                resultado(f"O número {n} não é primo") if imprimir else None
+                return False
+            i += 6
+
+        resultado(f"O número {n} é primo") if imprimir else None
+        return True
+
+
 def fatoracao(n, imprimir=False):
     if trat_erro(int, [n]):
         n = calc_expression(n, int)

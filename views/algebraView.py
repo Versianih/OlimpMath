@@ -11,6 +11,7 @@ from functions.algebraF import(
     mdc,
     mmc,
     resto,
+    eh_primo,
     fatoracao,
 )
 
@@ -76,7 +77,7 @@ def algebra_basico():
             {
                 "type": "list",
                 "message": "TELA INICIAL -> ÁLGEBRA -> BÁSICO",
-                "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "Fatoração", "Voltar"],
+                "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "É primo?", "Fatoração", "Voltar"],
             }
         ]
         escolha = prompt(campos)
@@ -112,6 +113,13 @@ def algebra_basico():
             resto(input("Dividendo:"), input("Divisor:"), True)
             voltar()
 
+        # É primo
+        elif escolha == "É primo?":
+            clean()
+            eh_primo(input("Número que deseja verificar se é primo:"), True)
+            voltar()
+
+        # Fatoração
         elif escolha == "Fatoração":
             clean()
             fatoracao(input("Número a ser fatorado:"), True)
