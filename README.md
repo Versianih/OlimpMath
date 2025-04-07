@@ -23,7 +23,12 @@ git clone https://github.com/Versianih/OlimpMath
 # Entre no diretório
 cd OlimpMath
 
-# Instale as dependências
+# Crie uma virtualenv e ative
+python -m venv venv
+
+venv\Scripts\activate
+
+# Com a venv ativa, instale as dependências
 pip install -r requirements.txt
 ```
 
