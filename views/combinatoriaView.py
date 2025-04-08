@@ -12,7 +12,7 @@ def combinatoria():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> COMBINATÓRIA",
+                "message": "COMBINATÓRIA",
                 "choices": ["Combinação (N P)", "Combinação Completa (N P)", "Permutação N em K", "Permutação Circular", "Permutação Caótica", "Fatorial", "Voltar"],
             }
         ]

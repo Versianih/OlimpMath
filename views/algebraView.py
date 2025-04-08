@@ -12,25 +12,25 @@ def algebra():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA",
-                "choices": ["Básico", "Polinômios", "Progressões", "Voltar"],
+                "message": "ÁLGEBRA",
+                "choices": ["Básico +", "Polinômios +", "Progressões +", "Voltar"],
             }
         ]
         escolha = prompt(campos)
         escolha = escolha.get(0)
         
         # Básico
-        if escolha == "Básico":
+        if escolha == "Básico +":
             Tools.clean()
             algebra_basico()
 
         # Polinômios
-        elif escolha == "Polinômios":
+        elif escolha == "Polinômios +":
             Tools.clean()
             algebra_polinomios()
 
         # Progressões
-        elif escolha == "Progressões":
+        elif escolha == "Progressões +":
             Tools.clean()
             algebra_progressoes()
 
@@ -46,7 +46,7 @@ def algebra_basico():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA -> BÁSICO",
+                "message": "ÁLGEBRA -> BÁSICO",
                 "choices": ["Radiciação", "Exponenciação", "MDC", "MMC", "Resto", "É primo?", "Fatoração", "Voltar"],
             }
         ]
@@ -107,7 +107,7 @@ def algebra_polinomios():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA -> POLINÔMIOS",
+                "message": "ÁLGEBRA -> POLINÔMIOS",
                 "choices": ["Sistemas de Equações", "Equação do Segundo Grau", "Voltar"],
             }
         ]
@@ -176,8 +176,8 @@ def algebra_progressoes():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES",
-                "choices": ["Somatório", "Produtório", "PA", "PG", "Voltar"],
+                "message": "ÁLGEBRA -> PROGRESSÕES",
+                "choices": ["Somatório", "Produtório", "PA +", "PG +", "Voltar"],
             }
         ]
         escolha = prompt(campos)
@@ -196,12 +196,12 @@ def algebra_progressoes():
             Tools.voltar()
 
         # PA
-        elif escolha == "PA":
+        elif escolha == "PA +":
             Tools.clean()
             algebra_progressoes_pa()
 
         # PG
-        elif escolha == "PG":
+        elif escolha == "PG +":
             Tools.clean()
             algebra_progressoes_pg()
 
@@ -217,7 +217,7 @@ def algebra_progressoes_pa():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES -> PA",
+                "message": "ÁLGEBRA -> PROGRESSÕES -> PA",
                 "choices": ["Termo Geral da PA", "Soma de n elementos da PA", "Voltar"],
             }
         ]
@@ -247,7 +247,7 @@ def algebra_progressoes_pg():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> ÁLGEBRA -> PROGRESSÕES -> PG",
+                "message": "ÁLGEBRA -> PROGRESSÕES -> PG",
                 "choices": ["Termo Geral da PG", "Soma de n elementos da PG", "Voltar"],
             }
         ]

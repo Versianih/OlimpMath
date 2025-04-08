@@ -11,8 +11,8 @@ def geometria():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA",
-                "choices": ["Geometria Plana", "Geometria Espacial", "Geometria Analítica", "Voltar"],
+                "message": "GEOMETRIA",
+                "choices": ["Geometria Plana +", "Geometria Espacial +", "Geometria Analítica +", "Voltar"],
             }
         ]
 
@@ -20,15 +20,15 @@ def geometria():
         escolha = escolha.get(0)
 
         # Geometria Plana
-        if escolha == "Geometria Plana":
+        if escolha == "Geometria Plana +":
             geometria_plana()
 
         # Geometria Espacial
-        elif escolha == "Geometria Espacial":
+        elif escolha == "Geometria Espacial +":
             geometria_espacial()
 
         # Geometria Analítica
-        elif escolha == "Geometria Analítica":
+        elif escolha == "Geometria Analítica +":
             geometria_analitica()
 
         # Voltar

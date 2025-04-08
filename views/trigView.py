@@ -12,23 +12,23 @@ def trig(ENTRADA_ANGULO, SAIDA_ANGULO):
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> TRIGONOMETRIA",
-                "choices": ["Calcular Hipotenusa", "Calcular Cateto Oposto", "Calcular Cateto Adjacente", "Calcular Ângulo", "Voltar"],
+                "message": "TRIGONOMETRIA",
+                "choices": ["Calcular Hipotenusa +", "Calcular Cateto Oposto +", "Calcular Cateto Adjacente +", "Calcular Ângulo +", "Voltar"],
             }
         ]
         escolha = prompt(campos)
         escolha = escolha.get(0)
 
-        if escolha == "Calcular Hipotenusa":
+        if escolha == "Calcular Hipotenusa +":
             hipotenusa(ENTRADA_ANGULO)
 
-        elif escolha == "Calcular Cateto Oposto":
+        elif escolha == "Calcular Cateto Oposto +":
             oposto(ENTRADA_ANGULO)
         
-        elif escolha == "Calcular Cateto Adjacente":
+        elif escolha == "Calcular Cateto Adjacente +":
             adjacente(ENTRADA_ANGULO)
 
-        elif escolha == "Calcular Ângulo":
+        elif escolha == "Calcular Ângulo +":
             angulo(SAIDA_ANGULO)
 
         # Voltar
@@ -43,7 +43,7 @@ def hipotenusa(ENTRADA_ANGULO):
         campos_hipotenusa = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> TRIGONOMETRIA -> HIPOTENUSA",
+                "message": "TRIGONOMETRIA -> HIPOTENUSA",
                 "choices": ["Cateto Oposto", "Cateto Adjacente", "Voltar"],
             }
         ]
@@ -71,7 +71,7 @@ def oposto(ENTRADA_ANGULO):
         campos_oposto = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> TRIGONOMETRIA -> CATETO OPOSTO",
+                "message": "TRIGONOMETRIA -> CATETO OPOSTO",
                 "choices": ["Hipotenusa", "Cateto Adjacente", "Voltar"],
             }
         ]
@@ -100,7 +100,7 @@ def adjacente(ENTRADA_ANGULO):
         campos_adjacente = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> TRIGONOMETRIA -> ADJACENTE",
+                "message": "TRIGONOMETRIA -> ADJACENTE",
                 "choices": ["Hipotenusa", "Cateto Oposto", "Voltar"],
             }
         ]
@@ -130,7 +130,7 @@ def angulo(SAIDA_ANGULO):
         campos_angulo = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> TRIGONOMETRIA -> ÂNGULO",
+                "message": "TRIGONOMETRIA -> ÂNGULO",
                 "choices": ["CO/CA", "CO/H", "CA/H", "Voltar"],
             }
         ]

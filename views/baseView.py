@@ -9,7 +9,7 @@ def base():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> BASE",
+                "message": "BASE",
                 "choices": ["10 -> n", "n -> 10", "n -> m", "Voltar"],
             }
         ]

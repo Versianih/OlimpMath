@@ -9,15 +9,15 @@ def geometria_espacial():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL",
-                "choices": ["Volumes", "Voltar"],
+                "message": "GEOMETRIA -> GEOMETRIA ESPACIAL",
+                "choices": ["Volumes +", "Voltar"],
             }
         ]
         escolha = prompt(campos)
         escolha = escolha.get(0)
 
         # Volumes
-        if escolha == "Volumes":
+        if escolha == "Volumes +":
             geometria_espacial_volumes()
         
         # Voltar
@@ -32,7 +32,7 @@ def geometria_espacial_volumes():
             campos = [
                 {
                     "type": "list",
-                    "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ESPACIAL -> VOLUMES",
+                    "message": "GEOMETRIA -> GEOMETRIA ESPACIAL -> VOLUMES",
                     "choices": ["Prisma Base n", "Cubo", "Paralelepípedo", "Esfera", "Cilindro", "Cone", "Tronco de Cone", "Voltar"],
                 }
             ]

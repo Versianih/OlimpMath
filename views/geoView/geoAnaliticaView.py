@@ -10,7 +10,7 @@ def geometria_analitica():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA ANALÍTICA",
+                "message": "GEOMETRIA -> GEOMETRIA ANALÍTICA",
                 "choices": ["Distância Entre Dois Pontos", "Retângulos em uma malha", "Voltar"],
             }
         ]

@@ -9,19 +9,19 @@ def geometria_plana():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA",
-                "choices": ["Áreas", "Polígonos", "Voltar"],
+                "message": "GEOMETRIA -> GEOMETRIA PLANA",
+                "choices": ["Áreas +", "Polígonos +", "Voltar"],
             }
         ]
         escolha = prompt(campos)
         escolha = escolha.get(0)
 
         # Áreas
-        if escolha == "Áreas":
+        if escolha == "Áreas +":
             geometria_plana_areas()
         
         # Pitágoras
-        elif escolha == "Polígonos":
+        elif escolha == "Polígonos +":
             geometria_plana_poligonos()
         
         # Voltar
@@ -36,7 +36,7 @@ def geometria_plana_areas():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS",
+                "message": "GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS",
                 "choices": ["Polígono Regular", "Círculo", "Quadrado", "Triângulo +", "Trapézio", "Voltar"],
             }
         ]
@@ -68,7 +68,7 @@ def geometria_plana_areas():
             campos_triangulo = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS -> ÁREA TRIÂNGULO",
+                "message": "GEOMETRIA -> GEOMETRIA PLANA -> ÁREAS -> ÁREA TRIÂNGULO",
                 "choices": ["Base e Altura", "Fórmula de Heron", "Voltar"],
                 }
             ]
@@ -108,7 +108,7 @@ def geometria_plana_poligonos():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS",
+                "message": "GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS",
                 "choices": ["Triângulo +", "Voltar"],
             }
         ]
@@ -132,7 +132,7 @@ def geometria_plana_poligonos_triangulo():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO",
+                "message": "GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO",
                 "choices": ["Pitágoras +", "Formação de Triângulo", "Voltar"],
             }
         ]
@@ -163,7 +163,7 @@ def geometria_plana_poligonos_triangulo_pitagoras():
         campos = [
             {
                 "type": "list",
-                "message": "TELA INICIAL -> GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO -> TEOREMA DE PITÁGORAS",
+                "message": "GEOMETRIA -> GEOMETRIA PLANA -> POLÍGONOS -> TRIÂNGULO -> TEOREMA DE PITÁGORAS",
                 "choices": ["Calcular Hipotenusa", "Calcular Cateto", "Voltar"],
             }
         ]
