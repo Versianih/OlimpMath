@@ -1,8 +1,10 @@
 from functions.tools import Tools
 
-
-def base_para_decimal(num_original, base_original, imprimir=False):
-    if Tools.trat_erro(int, [num_original, base_original]):
+class Base:
+    def base_para_decimal(num_original, base_original, imprimir=False) -> int:
+        if not Tools.trat_erro(int, [num_original, base_original]):
+            return None
+        
         num_original = Tools.calc_expression(num_original, str)
         base_original = Tools.calc_expression(base_original, int)
         
@@ -16,9 +18,11 @@ def base_para_decimal(num_original, base_original, imprimir=False):
         Tools.resultado("Número na Base Decimal:", decimal) if imprimir else None
         return decimal
 
- 
-def decimal_para_base(decimal, base_final, imprimir=False):
-    if Tools.trat_erro(int, [base_final, decimal]):
+    
+    def decimal_para_base(decimal, base_final, imprimir=False) -> str:
+        if not Tools.trat_erro(int, [base_final, decimal]):
+            return None
+        
         base_final = Tools.calc_expression(base_final, int)
         decimal = Tools.calc_expression(decimal, int)
         
@@ -39,14 +43,16 @@ def decimal_para_base(decimal, base_final, imprimir=False):
         return numero_final
 
 
-def base_para_base(num_original,base_original,base_final, imprimir=False):
-    if Tools.trat_erro(int, [num_original, base_original, base_final]):
+    def base_para_base(num_original,base_original,base_final, imprimir=False) -> str:
+        if not Tools.trat_erro(int, [num_original, base_original, base_final]):
+            return None
+        
         num_original = Tools.calc_expression(num_original, int)
         base_final = Tools.calc_expression(base_final, int)
         base_original = Tools.calc_expression(base_original, int)
 
-        num_decimal = base_para_decimal(num_original,base_original)
-        num_final = decimal_para_base(num_decimal,base_final)
+        num_decimal = Base.base_para_decimal(num_original,base_original)
+        num_final = Base.decimal_para_base(num_decimal,base_final)
 
         Tools.resultado("Número na Base Final:", num_final) if imprimir else None
         return num_final

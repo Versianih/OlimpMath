@@ -3,25 +3,10 @@ from functions.tools import(
     Tools,
     RESET, RED, YELLOW, GREEN,
 )
-from functions.trigF import(
-    # Hipotenusa
-    hipotenusa_com_oposto,
-    hipotenusa_com_adjacente,
-    # Oposto
-    oposto_com_hipotenusa,
-    oposto_com_adjacente,
-    # Adjacente
-    adjacente_com_hipotenusa,
-    adjacente_com_oposto,
-    # Ângulo
-    angulo_com_coca,
-    angulo_com_coh,
-    angulo_com_cah,
-)
-import functions.tools
+from functions.trigF import Trigonometria
 
 
-def trig():
+def trig(ENTRADA_ANGULO, SAIDA_ANGULO):
     while True:
         Tools.clean()
         campos = [
@@ -35,16 +20,16 @@ def trig():
         escolha = escolha.get(0)
 
         if escolha == "Calcular Hipotenusa":
-            hipotenusa()
+            hipotenusa(ENTRADA_ANGULO)
 
         elif escolha == "Calcular Cateto Oposto":
-            oposto()
+            oposto(ENTRADA_ANGULO)
         
         elif escolha == "Calcular Cateto Adjacente":
-            adjacente()
+            adjacente(ENTRADA_ANGULO)
 
         elif escolha == "Calcular Ângulo":
-            angulo()
+            angulo(SAIDA_ANGULO)
 
         # Voltar
         elif escolha == "Voltar":
@@ -52,7 +37,7 @@ def trig():
             break
 
 
-def hipotenusa():
+def hipotenusa(ENTRADA_ANGULO):
     while True:
         Tools.clean()
         campos_hipotenusa = [
@@ -67,12 +52,12 @@ def hipotenusa():
 
         if escolha_hipotenusa == "Cateto Oposto":
             Tools.clean()
-            hipotenusa_com_oposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Hipotenusa.com_oposto(input("Cateto Oposto:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
 
         elif escolha_hipotenusa == "Cateto Adjacente":
             Tools.clean()
-            hipotenusa_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Hipotenusa.com_adjacente(input("Cateto Adjacente:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
             
         elif escolha_hipotenusa == "Voltar":
@@ -80,7 +65,7 @@ def hipotenusa():
             break
 
 
-def oposto():
+def oposto(ENTRADA_ANGULO):
     while True:
         Tools.clean()
         campos_oposto = [
@@ -96,12 +81,12 @@ def oposto():
         
         if escolha_oposto == "Hipotenusa":
             Tools.clean()
-            oposto_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Oposto.com_hipotenusa(input("Hipotenusa:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
 
         elif escolha_oposto == "Cateto Adjacente":
             Tools.clean()
-            oposto_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Oposto.com_adjacente(input("Cateto Adjacente:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
         
         elif escolha_oposto == "Voltar":
@@ -109,7 +94,7 @@ def oposto():
             break
 
 
-def adjacente():
+def adjacente(ENTRADA_ANGULO):
     while True:
         Tools.clean()
         campos_adjacente = [
@@ -125,12 +110,12 @@ def adjacente():
         
         if escolha_adjacente == "Hipotenusa":
             Tools.clean()
-            adjacente_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Adjacente.com_hipotenusa(input("Hipotenusa:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
 
         elif escolha_adjacente == "Cateto Oposto":
             Tools.clean()
-            adjacente_com_oposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Trigonometria.Adjacente.com_oposto(input("Cateto Adjacente:"), input(f"Ângulo em {ENTRADA_ANGULO}:"), ENTRADA_ANGULO, True)
             Tools.voltar()
 
         # Voltar
@@ -139,7 +124,7 @@ def adjacente():
             break
 
 
-def angulo():
+def angulo(SAIDA_ANGULO):
     while True:
         Tools.clean()
         campos_angulo = [
@@ -154,17 +139,17 @@ def angulo():
 
         if escolha_angulo == "CO/CA":
             Tools.clean()
-            angulo_com_coca(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
+            Trigonometria.Angulo.com_coca(input("Cateto Oposto:"), input("Cateto Adjacente:"), SAIDA_ANGULO, True)
             Tools.voltar()
 
         elif escolha_angulo == "CO/H":
             Tools.clean()
-            angulo_com_coh(input("Cateto Oposto:"), input("Hipotenusa:"), True)
+            Trigonometria.Angulo.com_coh(input("Cateto Oposto:"), input("Hipotenusa:"), SAIDA_ANGULO, True)
             Tools.voltar()
 
         elif escolha_angulo == "CA/H":
             Tools.clean()
-            angulo_com_cah(input("Cateto Adjacente:"), input("Hipotenusa"), True)
+            Trigonometria.Angulo.com_cah(input("Cateto Adjacente:"), input("Hipotenusa"), SAIDA_ANGULO, True)
             Tools.voltar()
         
         # Voltar

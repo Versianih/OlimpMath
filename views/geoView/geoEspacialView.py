@@ -1,14 +1,6 @@
 from InquirerPy import prompt
 from functions.tools import Tools
-from functions.geoFunctions.geoEspacial import (
-    volume_prisma,
-    volume_cubo,
-    volume_paralelepipedo,
-    volume_esfera,
-    volume_cilindro,
-    volume_cone,
-    volume_tronco_cone,
-)
+from functions.geoFunctions.geoEspacial import Geometria_Espacial
 
 
 def geometria_espacial():
@@ -50,43 +42,43 @@ def geometria_espacial_volumes():
             # Prisma
             if escolha == "Prisma Base n":
                 Tools.clean()
-                volume_prisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
+                Geometria_Espacial.Volume.volume_prisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
                 Tools.voltar()
 
             # Cubo 
             elif escolha == "Cubo":
                 Tools.clean()
-                volume_cubo(input("Medida da Aresta do Cubo:"), True)
+                Geometria_Espacial.Volume.volume_cubo(input("Medida da Aresta do Cubo:"), True)
                 Tools.voltar()
 
             # Paralelepípedo 
             elif escolha == "Paralelepípedo":
                 Tools.clean()
-                volume_paralelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
+                Geometria_Espacial.Volume.volume_paralelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
                 Tools.voltar()
 
             # Esfera
             elif escolha == "Esfera":
                 Tools.clean()
-                volume_esfera(input("Raio:"), True)
+                Geometria_Espacial.Volume.volume_esfera(input("Raio:"), True)
                 Tools.voltar()
 
             # Cilindro
             elif escolha == "Cilindro":
                 Tools.clean()
-                volume_cilindro(input("Raio da Base:"), input("Altura:"), True)
+                Geometria_Espacial.Volume.volume_cilindro(input("Raio da Base:"), input("Altura:"), True)
                 Tools.voltar()
 
             # Cone
             elif escolha == "Cone":
                 Tools.clean()
-                volume_cone(input("Raio da Base:"), input("Altura:"), True)
+                Geometria_Espacial.Volume.volume_cone(input("Raio da Base:"), input("Altura:"), True)
                 Tools.voltar()
 
             # Tronco do Cone
             elif escolha == "Tronco de Cone":
                 Tools.clean()
-                volume_tronco_cone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
+                Geometria_Espacial.Volume.volume_tronco_cone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
                 Tools.voltar()
             
             # Voltar

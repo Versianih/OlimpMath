@@ -1,20 +1,6 @@
 from InquirerPy import prompt
 from functions.tools import Tools
-from functions.geoFunctions.geoPlanaF import (
-    area_poligono_regular,
-    area_circulo,
-    area_quadrado,
-    area_trapezio,
-    area_triangulo,
-    area_triangulo_heron,
-    
-    # Pitágoras
-    pitagoras_hipotenusa,
-    pitagoras_cateto,
-    
-    # Formação de Triângulos
-    formacao_triangulo,
-)
+from functions.geoFunctions.geoPlanaF import Geometria_Plana
 
 
 def geometria_plana():
@@ -61,19 +47,19 @@ def geometria_plana_areas():
         # Polígono Regular Qualquer
         if escolha == "Polígono Regular":
             Tools.clean()
-            area_poligono_regular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
+            Geometria_Plana.Area.area_poligono_regular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
             Tools.voltar()
 
         # Círculo
         elif escolha == "Círculo":
             Tools.clean()
-            area_circulo(input("Raio do Círculo:"), True)
+            Geometria_Plana.Area.area_circulo(input("Raio do Círculo:"), True)
             Tools.voltar()
 
         # Quadrado
         elif escolha == "Quadrado":
             Tools.clean()
-            area_quadrado(input("Lado do Quadrado:"), True)
+            Geometria_Plana.Area.area_quadrado(input("Lado do Quadrado:"), True)
             Tools.voltar()
 
         # Triângulo
@@ -91,12 +77,12 @@ def geometria_plana_areas():
 
             if escolha_triangulo == "Base e Altura":  # Base e Altura
                 Tools.clean()
-                area_triangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
+                Geometria_Plana.Area.area_triangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
                 Tools.voltar()
 
             elif escolha_triangulo == "Fórmula de Heron":  # Fórmula de Heron
                 Tools.clean()
-                area_triangulo_heron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+                Geometria_Plana.Area.area_triangulo_heron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
                 
                 Tools.voltar()
 
@@ -107,7 +93,7 @@ def geometria_plana_areas():
         # Trapézio
         elif escolha == "Trapézio":
             Tools.clean()
-            area_trapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
+            Geometria_Plana.Area.area_trapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
             Tools.voltar()
         
         # Voltar
@@ -162,7 +148,7 @@ def geometria_plana_poligonos_triangulo():
         # Formação de Triângulos
         elif escolha == "Formação de Triângulo":
             Tools.clean()
-            formacao_triangulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
+            Geometria_Plana.Poligonos.formacao_triangulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
             Tools.voltar()
 
         # Voltar
@@ -187,13 +173,13 @@ def geometria_plana_poligonos_triangulo_pitagoras():
         # Teorema de Pitágoras para descobrir a Hipotenusa
         if escolha == "Calcular Hipotenusa":
             Tools.clean()
-            pitagoras_hipotenusa(input("Cateto:"), input("Cateto:"), True)
+            Geometria_Plana.Pitagoras.pitagoras_hipotenusa(input("Cateto:"), input("Cateto:"), True)
             Tools.voltar()
 
         # Teorema de Pitágoras para descobrir o Cateto
         elif escolha == "Calcular Cateto":
             Tools.clean()
-            pitagoras_cateto(input("Cateto:"), input("Hipotenusa:"), True)
+            Geometria_Plana.Pitagoras.pitagoras_cateto(input("Cateto:"), input("Hipotenusa:"), True)
             Tools.voltar()
 
         # Voltar

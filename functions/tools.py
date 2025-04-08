@@ -16,28 +16,21 @@ RED_BACKGROUND = '\033[41m'
 
 class Tools:
     def clean():
-        # Função para limpar a tela (compatível com Windows e Unix)
         os.system("cls" if os.name == "nt" else "clear")
 
 
     def max_digits(lengh):
-        # Função que determina a quantidade máxima de dígitos na saída
         return os.sys.set_int_max_str_digits(lengh)
 
-
     def trat_erro(tipo, parametros):
+        if tipo not in (float, int, str):
+            Tools.ERROR(f"Erro: Tipo '{tipo}' não suportado.")
+            return False
+            
         for str_parametro in parametros:
             try:
                 parametro = Tools.calc_expression(str_parametro)
-                if tipo == float:
-                    float(parametro)
-                elif tipo == int:
-                    int(parametro)
-                elif tipo == str:
-                    str(parametro)
-                else:
-                    Tools.ERROR(f"Erro: Tipo '{tipo}' não suportado para o valor '{parametro}'.")
-                    return False
+                tipo(parametro)
             except (ValueError, TypeError) as e:
                 Tools.ERROR(f"Erro: Verifique se o valor inserido está na forma correta: '{str_parametro}' ({e})")
                 return False
@@ -46,19 +39,16 @@ class Tools:
 
     def calc_expression(expressao, type=None):
         try:
-            calculo = eval(expressao)
-            if type == float:
-                return float(calculo)
-            elif type == int:
-                return int(calculo)
-            elif type == str:
-                return str(calculo)
+            resposta = eval(expressao, {"__builtins__": {}})
+            
+            if type in (float, int, str):
+                return type(resposta)
             elif type is None:
-                return calculo
+                return resposta
             else:
                 print(f"Erro: Tipo '{type}' não suportado.")
                 return None
-        except (ValueError, TypeError, NameError) as e:
+        except Exception as e:
             Tools.ERROR(f"Erro ao resolver a expressão '{expressao}': {e}")
             return None
 
@@ -74,25 +64,23 @@ class Tools:
         prompt(voltar)
 
 
-    def resultado(texto, resultado=None, aproximar=None):
+    def resultado(texto, resultado=None, aproximar=False):
         load_dotenv()
         CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS'))
-        saida = []
-        if resultado is not None:
-            if isinstance(resultado, list) and aproximar is not None:
-                for res in resultado:
-                        res = round(res, CASAS_DECIMAIS)
-                        saida.append(res)
-                print(GREEN + texto, str(saida) + RESET)
-            elif isinstance(resultado, list) and aproximar is None:
-                print(GREEN + texto, str(resultado) + RESET)
-            else:
-                if aproximar:
-                    resultado = round(resultado, CASAS_DECIMAIS)
-                print(GREEN + texto, str(resultado) + RESET)
+        
+        if resultado is None:
+            print(f"{GREEN}{texto}{RESET}\n")
+            return
+            
+        if isinstance(resultado, list) and aproximar is not False:
+            saida = [round(res, CASAS_DECIMAIS) for res in resultado]
+            print(f"{GREEN}{texto} {saida}{RESET}\n")
+        elif isinstance(resultado, list):
+            print(f"{GREEN}{texto} {resultado}{RESET}\n")
         else:
-            print(GREEN + texto + RESET)
-        print("")
+            if aproximar:
+                resultado = round(resultado, CASAS_DECIMAIS)
+            print(f"{GREEN}{texto} {resultado}{RESET}\n")
 
 
     def ERROR(mensagem):

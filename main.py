@@ -45,7 +45,7 @@ def main():
             combinatoria()
 
         elif escolha == "Trigonometria":
-            trig()
+            trig(ENTRADA_ANGULO, SAIDA_ANGULO)
 
         elif escolha == "Configurações":
             settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO)

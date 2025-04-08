@@ -4,35 +4,7 @@ from functions.tools import(
     RESET, YELLOW, GREEN,
 )
 
-# Básico
-from functions.algebraF import(
-    radiciacao,
-    exponenciacao,
-    mdc,
-    mmc,
-    resto,
-    eh_primo,
-    fatoracao,
-)
-
-# Polinômios
-from functions.algebraF import(
-    sistema_de_equacoes,
-    equacao_segundo_grau,
-)
-
-# Progressões
-from functions.algebraF import(
-    somatorio,
-    produtorio,
-
-    termo_geral_pa,
-    soma_pa,
-
-    termo_geral_pg, 
-    soma_pg,
-)
-
+from functions.algebraF import Algebra
 
 def algebra():
     while True:
@@ -84,43 +56,43 @@ def algebra_basico():
         # radiciacao
         if escolha == "Radiciação":
             Tools.clean()
-            radiciacao(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
+            Algebra.Basico.radiciacao(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
             Tools.voltar()
 
         # exponenciacao
         elif escolha == "Exponenciação":
             Tools.clean()
-            exponenciacao(input("Base:"), input("Expoente:"), True)
+            Algebra.Basico.exponenciacao(input("Base:"), input("Expoente:"), True)
             Tools.voltar()
 
         # mdc
         elif escolha == "MDC":
             Tools.clean()
-            mdc(input("N₁:"), input("N₂:"), True)
+            Algebra.Basico.mdc(input("N₁:"), input("N₂:"), True)
             Tools.voltar()
 
         # mmc
         elif escolha == "MMC":
             Tools.clean()
-            mmc(input("N₁:"), input("N₂:"), True)
+            Algebra.Basico.mmc(input("N₁:"), input("N₂:"), True)
             Tools.voltar()
 
         # resto
         elif escolha == "Resto":
             Tools.clean()
-            resto(input("Dividendo:"), input("Divisor:"), True)
+            Algebra.Basico.resto(input("Dividendo:"), input("Divisor:"), True)
             Tools.voltar()
 
         # É primo
         elif escolha == "É primo?":
             Tools.clean()
-            eh_primo(input("Número que deseja verificar se é primo:"), True)
+            Algebra.Basico.eh_primo(input("Número que deseja verificar se é primo:"), True)
             Tools.voltar()
 
         # Fatoração
         elif escolha == "Fatoração":
             Tools.clean()
-            fatoracao(input("Número a ser fatorado:"), True)
+            Algebra.Basico.fatoracao(input("Número a ser fatorado:"), True)
             Tools.voltar()
             
         # Voltar
@@ -150,7 +122,7 @@ def algebra_polinomios():
         # Equação de Segundo Grau
         elif escolha == "Equação do Segundo Grau":
             Tools.clean()
-            equacao_segundo_grau(input("a:"), input("b:"), input("c:"), True)
+            Algebra.Polinomios.equacao_segundo_grau(input("a:"), input("b:"), input("c:"), True)
             Tools.voltar()
 
         # Voltar
@@ -189,7 +161,7 @@ def algebra_polinomios_sistema_de_equacoes():
             print("")
             print(GREEN + "Soluções do sistema de Equações:" + RESET)
             print("")
-            sistema_de_equacoes(equacoes, True)
+            Algebra.Polinomios.sistema_de_equacoes(equacoes, True)
             Tools.voltar()
             break
 
@@ -214,13 +186,13 @@ def algebra_progressoes():
         # somatorio
         if escolha == "Somatório":
             Tools.clean()
-            somatorio(input("n:"), input("k:"), input("Expressão:"), True)
+            Algebra.Progressoes.somatorio(input("n:"), input("k:"), input("Expressão:"), True)
             Tools.voltar()
 
         # produtorio
         elif escolha == "Produtório":
             Tools.clean()
-            produtorio(input("n:"), input("k:"), input("Expressão:"), True)
+            Algebra.Progressoes.produtorio(input("n:"), input("k:"), input("Expressão:"), True)
             Tools.voltar()
 
         # PA
@@ -254,13 +226,13 @@ def algebra_progressoes_pa():
 
         if escolha == "Termo Geral da PA":
             Tools.clean()
-            termo_geral_pa(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
+            Algebra.Progressoes.termo_geral_pa(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
             Tools.voltar()
         
 
         elif escolha == "Soma de n elementos da PA":
             Tools.clean()
-            soma_pa(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
+            Algebra.Progressoes.soma_pa(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
             Tools.voltar()
 
         # Voltar
@@ -285,13 +257,13 @@ def algebra_progressoes_pg():
 
         if escolha == "Termo Geral da PG":
             Tools.clean()
-            termo_geral_pg(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
+            Algebra.Progressoes.termo_geral_pg(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
             Tools.voltar()
         
 
         elif escolha == "Soma de n elementos da PG":
             Tools.clean()
-            soma_pg(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
+            Algebra.Progressoes.soma_pg(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
             Tools.voltar()
 
         # Voltar

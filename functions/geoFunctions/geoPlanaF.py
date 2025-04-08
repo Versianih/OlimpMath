@@ -1,132 +1,157 @@
 from functions.tools import Tools, math, pi
 
 
-def area_poligono_regular(qntLados, lado, imprimir=False):
-    if Tools.trat_erro(int, [qntLados]) and Tools.trat_erro(float, [lado]):    
-        qntLados = Tools.calc_expression(qntLados, int)
-        lado = Tools.calc_expression(lado, float)
-        if qntLados < 3:
-            Tools.ERROR("Verifique se a quantidade de lados permite um Polígono") if imprimir else None
-            return
-        elif qntLados == 3:
-            Tricalculo = ((1 *((lado**2)*math.sqrt(3))) / 4)
-            if Tricalculo >= 0:
-                Tools.resultado("Área:", Tricalculo, aproximar=True) if imprimir else None
-                return Tricalculo
+class Geometria_Plana:
+
+    class Area:            
+        def area_poligono_regular(qntLados, lado, imprimir=False) -> float:
+            if not (Tools.trat_erro(int, [qntLados]) and Tools.trat_erro(float, [lado])):
+                return None
+                
+            qntLados = Tools.calc_expression(qntLados, int)
+            lado = Tools.calc_expression(lado, float)
+            
+            if qntLados < 3:
+                Tools.ERROR("Verifique se a quantidade de lados permite um Polígono") if imprimir else None
+                return None
+                
+            if qntLados == 3:
+                area = ((lado**2) * math.sqrt(3)) / 4
+            elif qntLados == 4:
+                area = lado**2
             else:
+                area = (qntLados * (lado**2) * math.sqrt(3)) / 4
+                
+            if area < 0:
                 Tools.ERROR("Área não pode ser negativa") if imprimir else None
-                return
-        elif qntLados == 4:
-            Quacalculo = lado**2
-            if Quacalculo >= 0:
-                if imprimir:
-                    Tools.resultado("Área:", Quacalculo, aproximar=True)
-                return Quacalculo
-            else:
+                return None
+                
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
+
+        def area_circulo(raio, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [raio]): 
+                return None
+                
+            raio = Tools.calc_expression(raio, float)
+            area = raio**2 * pi
+            
+            if area < 0:
                 Tools.ERROR("Área não pode ser negativa") if imprimir else None
-                return
-        else:
-            calculo = ((qntLados * ((lado**2)*math.sqrt(3))) / 4)
-            if calculo >= 0:
-                Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-                return calculo
-            else:
+                return None
+                
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
+
+        def area_quadrado(lado, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [lado]):
+                return None
+                
+            lado = Tools.calc_expression(lado, float)
+            area = lado**2
+            
+            if area < 0:
                 Tools.ERROR("Área não pode ser negativa") if imprimir else None
-                return
+                return None
+                
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
+
+        def area_triangulo(base, altura, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [base, altura]):
+                return None
+                
+            base = Tools.calc_expression(base, float)
+            altura = Tools.calc_expression(altura, float)
+            area = (base * altura) / 2
+            
+            if area < 0:
+                Tools.ERROR("Área não pode ser negativa") if imprimir else None
+                return None
+                
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
+
+        def area_triangulo_heron(a, b, c, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [a, b, c]):
+                return None
+                
+            a = Tools.calc_expression(a, float)
+            b = Tools.calc_expression(b, float)
+            c = Tools.calc_expression(c, float)
+            
+            p = (a + b + c) / 2
+            area = math.sqrt(p * (p-a) * (p-b) * (p-c))
+            
+            if area < 0:
+                Tools.ERROR("Área não pode ser negativa") if imprimir else None
+                return None
+
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
+
+        def area_trapezio(BASE, base, altura, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [BASE, base, altura]):
+                return None
+                
+            BASE = Tools.calc_expression(BASE, float)
+            base = Tools.calc_expression(base, float)
+            altura = Tools.calc_expression(altura, float)
+            
+            area = ((BASE + base) * altura) / 2
+            
+            if area < 0:
+                Tools.ERROR("Área não pode ser negativa") if imprimir else None
+                return None
+
+            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            return area
 
 
-def area_circulo(raio, imprimir=False):
-    if Tools.trat_erro(float, [raio]):
-        raio = Tools.calc_expression(raio, float)
-        calculo = (raio*raio)* pi
-        if calculo >= 0:
-            Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-            return calculo
-        else:
-            Tools.ERROR("Área não pode ser negativa") if imprimir else None
-            return
+    class Pitagoras:
+        def pitagoras_hipotenusa(a, b, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [a, b]):
+                return None
+                
+            a = Tools.calc_expression(a, float)
+            b = Tools.calc_expression(b, float)
+            
+            hipotenusa = math.sqrt(a**2 + b**2)
+            
+            Tools.resultado("A medida da Hipotenusa é:", hipotenusa, aproximar=True) if imprimir else None
+            return hipotenusa
+
+        def pitagoras_cateto(a, h, imprimir=False) -> float:
+            if not Tools.trat_erro(float, [a, h]):
+                return None
+                
+            a = Tools.calc_expression(a, float)
+            h = Tools.calc_expression(h, float)
+            
+            # Verificar se a hipotenusa é maior que o cateto conhecido
+            if h <= a:
+                Tools.ERROR("A hipotenusa deve ser maior que o cateto") if imprimir else None
+                return None
+                
+            cateto = math.sqrt(h**2 - a**2)
+            
+            Tools.resultado("A medida do Cateto é:", cateto, aproximar=True) if imprimir else None
+            return cateto
 
 
-def area_quadrado(lado, imprimir=False):
-    if Tools.trat_erro(float, [lado]):
-        lado = Tools.calc_expression(lado, float)
-        calculo = (lado*lado)
-        if calculo >= 0:
-            Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-            return calculo
-        else:
-            Tools.ERROR("Área não pode ser negativa") if imprimir else None
-            return
-
-
-def area_triangulo(base, altura, imprimir=False):
-    if Tools.trat_erro(float, [base, altura]):
-        base = Tools.calc_expression(base, float)
-        altura = Tools.calc_expression(altura, float)
-        calculo = (base*altura)/2   
-        if calculo >= 0:
-            Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-            return calculo
-        else:    
-            Tools.ERROR("Área não pode ser negativa") if imprimir else None
-            return
-
-
-def area_triangulo_heron(a, b, c, imprimir=False):
-    if Tools.trat_erro(float, [a, b, c]):    
-        a = Tools.calc_expression(a, float)
-        b = Tools.calc_expression(b, float)
-        c = Tools.calc_expression(c, float)
-        p = (a + b + c)/2
-        calculo = math.sqrt(p*(p-a)*(p-b)*(p-c))
-        if calculo >= 0:
-            Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-            return calculo
-        else:
-            Tools.ERROR("Área não pode ser negativa") if imprimir else None
-            return
-
-
-def area_trapezio(BASE, base, altura, imprimir=False):
-    if Tools.trat_erro(float, [BASE, base, altura]):    
-        BASE = Tools.calc_expression(BASE, float)
-        base = Tools.calc_expression(base, float)
-        altura = Tools.calc_expression(altura, float)
-        calculo = ((BASE+base)*altura)/2
-        if calculo >= 0:
-            Tools.resultado("Área:", calculo, aproximar=True) if imprimir else None
-            return calculo
-        else:
-            Tools.ERROR("Área não pode ser negativa") if imprimir else None
-            return
-
-
-def pitagoras_hipotenusa(a,b, imprimir=False):
-    if Tools.trat_erro(float, [a,b]):
-        a = Tools.calc_expression(a, float)
-        b = Tools.calc_expression(b, float)
-        calculo = ((a**2) + (b**2))**(1/2)
-        
-        Tools.resultado("A medida da Hipotenusa é:", calculo, aproximar=True) if imprimir else None
-        return calculo
-
-
-def pitagoras_cateto(a,h, imprimir=False):
-    if Tools.trat_erro(float, [a,h]):
-        a = Tools.calc_expression(a, float)
-        h = Tools.calc_expression(h, float)
-        calculo = ((h**2) - (a**2))**(1/2)
-
-        Tools.resultado("A medida do Cateto é:", calculo, aproximar=True) if imprimir else None
-        return calculo
-    
-
-def formacao_triangulo(a, b, c, imprimir=False):
-    if Tools.trat_erro(float, [a, b, c]):
-        a = Tools.calc_expression(a, int)
-        b = Tools.calc_expression(b, int)
-        c = Tools.calc_expression(c, int)
-        if a + b > c and a + c > b and b + c > a:
-            Tools.resultado(f"Os valores {a}, {b}, {c} formam um triângulo") if imprimir else None
-        else:
-            Tools.resultado(f"Os valores {a}, {b}, {c} NÃO formam um triângulo") if imprimir else None
+    class Poligonos:
+        def formacao_triangulo(a, b, c, imprimir=False) -> bool:
+            if not Tools.trat_erro(float, [a, b, c]):
+                return None
+                
+            a = Tools.calc_expression(a, float)
+            b = Tools.calc_expression(b, float)
+            c = Tools.calc_expression(c, float)
+            
+            forma_triangulo = (a + b > c) and (a + c > b) and (b + c > a)
+            
+            if imprimir:
+                msg = f"Os valores {a}, {b}, {c} {'formam' if forma_triangulo else 'NÃO formam'} um triângulo"
+                Tools.resultado(msg)
+                
+            return forma_triangulo
