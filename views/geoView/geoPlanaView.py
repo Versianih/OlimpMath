@@ -1,7 +1,5 @@
 from InquirerPy import prompt
-from functions.functions import (
-    clean, voltar, acao_invalida,
-)
+from functions.tools import Tools
 from functions.geoFunctions.geoPlanaF import (
     area_poligono_regular,
     area_circulo,
@@ -21,7 +19,7 @@ from functions.geoFunctions.geoPlanaF import (
 
 def geometria_plana():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -42,15 +40,13 @@ def geometria_plana():
         
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def geometria_plana_areas():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -64,25 +60,25 @@ def geometria_plana_areas():
         
         # Polígono Regular Qualquer
         if escolha == "Polígono Regular":
-            clean()
+            Tools.clean()
             area_poligono_regular(input("Quantidade de Lados do Polígono:"), input("Medida do Lado do Polígono:"), True)
-            voltar()
+            Tools.voltar()
 
         # Círculo
         elif escolha == "Círculo":
-            clean()
+            Tools.clean()
             area_circulo(input("Raio do Círculo:"), True)
-            voltar()
+            Tools.voltar()
 
         # Quadrado
         elif escolha == "Quadrado":
-            clean()
+            Tools.clean()
             area_quadrado(input("Lado do Quadrado:"), True)
-            voltar()
+            Tools.voltar()
 
         # Triângulo
         elif escolha == "Triângulo +":
-            clean()
+            Tools.clean()
             campos_triangulo = [
             {
                 "type": "list",
@@ -94,39 +90,35 @@ def geometria_plana_areas():
             escolha_triangulo = escolha_triangulo.get(0)
 
             if escolha_triangulo == "Base e Altura":  # Base e Altura
-                clean()
+                Tools.clean()
                 area_triangulo(input("Base do triagulo:"), input("Altura do triagulo:"), True)
-                voltar()
+                Tools.voltar()
 
             elif escolha_triangulo == "Fórmula de Heron":  # Fórmula de Heron
-                clean()
+                Tools.clean()
                 area_triangulo_heron(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
                 
-                voltar()
+                Tools.voltar()
 
-            elif escolha_triangulo == "Voltar":
-                
-                clean()
+            elif escolha_triangulo == "Tools.Voltar":
+                Tools.clean()
                 pass
-            else:
-                acao_invalida()
 
         # Trapézio
         elif escolha == "Trapézio":
-            clean()
+            Tools.clean()
             area_trapezio(input("Base1 do Trapézio:"), input("Base2 do Trapézio:"), input("Altura do Trapézio:"), True)
-            voltar()
+            Tools.voltar()
         
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
+
 
 def geometria_plana_poligonos():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -139,20 +131,18 @@ def geometria_plana_poligonos():
 
         # Triângulos
         if escolha == "Triângulo +":
-            clean()
+            Tools.clean()
             geometria_plana_poligonos_triangulo()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def geometria_plana_poligonos_triangulo():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -166,26 +156,24 @@ def geometria_plana_poligonos_triangulo():
 
         # Teorema de Pitágoras
         if escolha == "Pitágoras +": 
-            clean()
+            Tools.clean()
             geometria_plana_poligonos_triangulo_pitagoras()
 
         # Formação de Triângulos
         elif escolha == "Formação de Triângulo":
-            clean()
+            Tools.clean()
             formacao_triangulo(input("Lado 1 do Triângulo:"), input("Lado 2 do Triângulo:"), input("Lado 3 do Triângulo:"), True)
-            voltar()
+            Tools.voltar()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def geometria_plana_poligonos_triangulo_pitagoras():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -198,19 +186,17 @@ def geometria_plana_poligonos_triangulo_pitagoras():
 
         # Teorema de Pitágoras para descobrir a Hipotenusa
         if escolha == "Calcular Hipotenusa":
-            clean()
+            Tools.clean()
             pitagoras_hipotenusa(input("Cateto:"), input("Cateto:"), True)
-            voltar()
+            Tools.voltar()
 
         # Teorema de Pitágoras para descobrir o Cateto
         elif escolha == "Calcular Cateto":
-            clean()
+            Tools.clean()
             pitagoras_cateto(input("Cateto:"), input("Hipotenusa:"), True)
-            voltar()
+            Tools.voltar()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

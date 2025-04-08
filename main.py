@@ -6,16 +6,14 @@ from views.combinatoriaView import combinatoria
 from views.trigView import trig
 from views.settingsView import settings
 # Funções
-from functions.functions import (
-    clean, max_digits, acao_invalida,
-)
+from functions.tools import Tools
 from InquirerPy import prompt
 
 
 def main():
-    max_digits(999999999)
+    Tools.max_digits(999999999)
     while True:
-        clean()
+        Tools.clean()
 
         campos = [
             {
@@ -47,7 +45,7 @@ def main():
             settings()
 
         elif escolha == "Sair": 
-            clean()
+            Tools.clean()
             campos_sair = [
                 {
                     "type": "list",
@@ -60,10 +58,8 @@ def main():
             saida = saida.get(0)
 
             if saida == "Sim":
-                clean()
+                Tools.clean()
                 break
-        else:
-            acao_invalida()
 
 if __name__ == '__main__':
     main()

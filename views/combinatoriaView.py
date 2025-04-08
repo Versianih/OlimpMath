@@ -1,6 +1,6 @@
 from InquirerPy import prompt
-from functions.functions import(
-    clean, voltar, acao_invalida,
+from functions.tools import(
+    Tools,
     RESET, RED, YELLOW, GREEN,
 )
 from functions.combinatoriaF import(
@@ -15,7 +15,7 @@ from functions.combinatoriaF import(
 
 def combinatoria():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -28,43 +28,41 @@ def combinatoria():
 
         # Combinação
         if escolha == "Combinação (N P)":
-            clean()
+            Tools.clean()
             combinacao(input("Insira N:"), input("Insira P:"), imprimir=True)
-            voltar()
+            Tools.voltar()
         
         # Combinação Completa
         elif escolha == "Combinação Completa (N P)":
-            clean()
+            Tools.clean()
             combinacao_completa(input("Insira N:"), input("Insira P:"), imprimir=True)
-            voltar()
+            Tools.voltar()
 
         # Permutação
         elif escolha == "Permutação N em K":
-            clean()
+            Tools.clean()
             permutacao_n_em_k(input("Insira N:"), input("Insira K:"), imprimir=True)
-            voltar()
+            Tools.voltar()
         
         # Permutação Circular
         elif escolha == "Permutação Circular":
-            clean()
+            Tools.clean()
             permutacao_circular(input("Número de Elementos: "), imprimir=True)
-            voltar()
+            Tools.voltar()
         
         # Permutação Caótica
         elif escolha == "Permutação Caótica":
-            clean()
+            Tools.clean()
             permutacao_caotica(input("Quantidade de Elementos:"), imprimir=True)
-            voltar()
+            Tools.voltar()
             
         # Fatorial
         elif escolha == "Fatorial":
-            clean()
+            Tools.clean()
             fatorial(input("Número:"), imprimir=True)
-            voltar()
+            Tools.voltar()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

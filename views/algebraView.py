@@ -1,6 +1,6 @@
 from InquirerPy import prompt
-from functions.functions import(
-    clean, voltar, acao_invalida,
+from functions.tools import(
+    Tools,
     RESET, YELLOW, GREEN,
 )
 
@@ -36,12 +36,12 @@ from functions.algebraF import(
 
 def algebra():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
                 "message": "TELA INICIAL -> ÁLGEBRA",
-                "choices": ["Básico", "Polinômios", "Progressôes", "Voltar"],
+                "choices": ["Básico", "Polinômios", "Progressões", "Voltar"],
             }
         ]
         escolha = prompt(campos)
@@ -49,30 +49,28 @@ def algebra():
         
         # Básico
         if escolha == "Básico":
-            clean()
+            Tools.clean()
             algebra_basico()
 
         # Polinômios
         elif escolha == "Polinômios":
-            clean()
+            Tools.clean()
             algebra_polinomios()
 
         # Progressões
-        elif escolha == "Progressôes":
-            clean()
+        elif escolha == "Progressões":
+            Tools.clean()
             algebra_progressoes()
 
         # Sair
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_basico():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -85,57 +83,55 @@ def algebra_basico():
 
         # radiciacao
         if escolha == "Radiciação":
-            clean()
+            Tools.clean()
             radiciacao(input("Número/Expressão dentro da Raiz:"), input("Índice da Raiz:"), True)
-            voltar()
+            Tools.voltar()
 
         # exponenciacao
         elif escolha == "Exponenciação":
-            clean()
+            Tools.clean()
             exponenciacao(input("Base:"), input("Expoente:"), True)
-            voltar()
+            Tools.voltar()
 
         # mdc
         elif escolha == "MDC":
-            clean()
+            Tools.clean()
             mdc(input("N₁:"), input("N₂:"), True)
-            voltar()
+            Tools.voltar()
 
         # mmc
         elif escolha == "MMC":
-            clean()
+            Tools.clean()
             mmc(input("N₁:"), input("N₂:"), True)
-            voltar()
+            Tools.voltar()
 
         # resto
         elif escolha == "Resto":
-            clean()
+            Tools.clean()
             resto(input("Dividendo:"), input("Divisor:"), True)
-            voltar()
+            Tools.voltar()
 
         # É primo
         elif escolha == "É primo?":
-            clean()
+            Tools.clean()
             eh_primo(input("Número que deseja verificar se é primo:"), True)
-            voltar()
+            Tools.voltar()
 
         # Fatoração
         elif escolha == "Fatoração":
-            clean()
+            Tools.clean()
             fatoracao(input("Número a ser fatorado:"), True)
-            voltar()
+            Tools.voltar()
             
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_polinomios():
     while True: 
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -148,27 +144,25 @@ def algebra_polinomios():
 
         # Sistemas de Equação
         if escolha == "Sistemas de Equações":
-            clean()
+            Tools.clean()
             algebra_polinomios_sistema_de_equacoes()
         
         # Equação de Segundo Grau
         elif escolha == "Equação do Segundo Grau":
-            clean()
+            Tools.clean()
             equacao_segundo_grau(input("a:"), input("b:"), input("c:"), True)
-            voltar()
+            Tools.voltar()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_polinomios_sistema_de_equacoes():
     equacoes = []
     while True:
-        clean()
+        Tools.clean()
         print(YELLOW + "Equações:" + RESET)
         for i, equacao in enumerate(equacoes):
             print(GREEN + f"Equação {i+1}: {equacao}" + RESET)
@@ -184,11 +178,11 @@ def algebra_polinomios_sistema_de_equacoes():
         escolha = escolha.get(0)
         
         if escolha == "Adicionar Equação":
-            clean()
+            Tools.clean()
             equacoes.append(input("Equação:"))
         
         elif escolha == "Salvar e Resolver o Sistema":
-            clean()
+            Tools.clean()
             print(GREEN + "Equações:" + RESET)
             for i, equacao in enumerate(equacoes):
                 print(GREEN + f"Equação {i+1}: {equacao}" + RESET)
@@ -196,19 +190,17 @@ def algebra_polinomios_sistema_de_equacoes():
             print(GREEN + "Soluções do sistema de Equações:" + RESET)
             print("")
             sistema_de_equacoes(equacoes, True)
-            voltar()
+            Tools.voltar()
             break
 
         elif escolha == "Sair":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_progressoes():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -221,37 +213,35 @@ def algebra_progressoes():
 
         # somatorio
         if escolha == "Somatório":
-            clean()
+            Tools.clean()
             somatorio(input("n:"), input("k:"), input("Expressão:"), True)
-            voltar()
+            Tools.voltar()
 
         # produtorio
         elif escolha == "Produtório":
-            clean()
+            Tools.clean()
             produtorio(input("n:"), input("k:"), input("Expressão:"), True)
-            voltar()
+            Tools.voltar()
 
         # PA
         elif escolha == "PA":
-            clean()
+            Tools.clean()
             algebra_progressoes_pa()
 
         # PG
         elif escolha == "PG":
-            clean()
+            Tools.clean()
             algebra_progressoes_pg()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_progressoes_pa():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -263,27 +253,25 @@ def algebra_progressoes_pa():
         escolha = escolha.get(0)
 
         if escolha == "Termo Geral da PA":
-            clean()
+            Tools.clean()
             termo_geral_pa(input("Primeiro termo da PA:"), input("Posição do termo que se quer descobrir:"), input("Razão da PA:"), True)
-            voltar()
+            Tools.voltar()
         
 
         elif escolha == "Soma de n elementos da PA":
-            clean()
+            Tools.clean()
             soma_pa(input("Primeiro termo da PA:"), input("Termo n da PA:"), input("Quantidade de elementos na PA:"), True)
-            voltar()
+            Tools.voltar()
 
-        # Sair
+        # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def algebra_progressoes_pg():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -296,19 +284,17 @@ def algebra_progressoes_pg():
 
 
         if escolha == "Termo Geral da PG":
-            clean()
+            Tools.clean()
             termo_geral_pg(input("Primeiro termo da PG:"), input("Posição do termo que se quer descobrir:"), input("Razão da PG:"), True)
-            voltar()
+            Tools.voltar()
         
 
         elif escolha == "Soma de n elementos da PG":
-            clean()
+            Tools.clean()
             soma_pg(input("Primeiro termo da PG:"), input("Razão da PG:"), input("Quantidade de elementos da PG:"), True)
-            voltar()
+            Tools.voltar()
 
-        # Sair
+        # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

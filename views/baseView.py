@@ -1,7 +1,5 @@
 from InquirerPy import prompt
-from functions.functions import(
-    clean, voltar, acao_invalida,
-)
+from functions.tools import Tools
 from functions.baseF import(
     decimal_para_base,
     base_para_decimal,
@@ -11,7 +9,7 @@ from functions.baseF import(
 
 def base():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -24,25 +22,23 @@ def base():
 
         # Transformar Base Decimal em Base n
         if escolha == "10 -> n":
-            clean()
+            Tools.clean()
             decimal_para_base(input("Número na Base Decimal:"), input("Base Final:"), True)
-            voltar()
+            Tools.voltar()
         
         # Transformar Base n para Base Decimal
         elif escolha == "n -> 10":
-            clean()
+            Tools.clean()
             base_para_decimal(input("Número:"), input("Base:"), True)
-            voltar()
+            Tools.voltar()
         
         # Transformar Base n para Base m
         elif escolha == "n -> m":
-            clean()
+            Tools.clean()
             base_para_base(input("Número Inicial:"), input("Base Inicial:"), input("Base Final:"), True)
-            voltar()
+            Tools.voltar()
         
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

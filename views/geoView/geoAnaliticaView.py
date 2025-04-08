@@ -1,7 +1,6 @@
 from InquirerPy import prompt
-from functions.functions import (
-    clean, voltar, acao_invalida,
-)
+from functions.tools import Tools
+
 from functions.geoFunctions.geoAnalitica import (
     distancia_entre_pontos,
     retangulos_em_uma_malha,
@@ -10,7 +9,7 @@ from functions.geoFunctions.geoAnalitica import (
 
 def geometria_analitica():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -23,18 +22,16 @@ def geometria_analitica():
 
         # Dist. entre pontos
         if escolha == "Distância Entre Dois Pontos":
-            clean()
+            Tools.clean()
             distancia_entre_pontos(input("Xa:"), input("Ya:"), input("Xb:"), input("Yb:"), True)
-            voltar()
+            Tools.voltar()
 
         elif escolha == "Retângulos em uma malha":
-            clean()
+            Tools.clean()
             retangulos_em_uma_malha(input("Base da malha:"), input("Altura da malha:"), True)
-            voltar()
+            Tools.voltar()
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

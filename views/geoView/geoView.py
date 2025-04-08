@@ -1,6 +1,4 @@
-from functions.functions import (
-    clean, acao_invalida, 
-)
+from functions.tools import Tools
 from views.geoView.geoPlanaView import geometria_plana
 from views.geoView.geoEspacialView import geometria_espacial
 from views.geoView.geoAnaliticaView import geometria_analitica
@@ -9,7 +7,7 @@ from InquirerPy import prompt
 
 def geometria():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -35,7 +33,5 @@ def geometria():
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()

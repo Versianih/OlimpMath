@@ -1,7 +1,5 @@
 from InquirerPy import prompt
-from functions.functions import (
-    clean, voltar, acao_invalida, 
-)
+from functions.tools import Tools
 from functions.geoFunctions.geoEspacial import (
     volume_prisma,
     volume_cubo,
@@ -15,7 +13,7 @@ from functions.geoFunctions.geoEspacial import (
 
 def geometria_espacial():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -32,15 +30,13 @@ def geometria_espacial():
         
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def geometria_espacial_volumes():
     while True:
-            clean()
+            Tools.clean()
             campos = [
                 {
                     "type": "list",
@@ -53,49 +49,47 @@ def geometria_espacial_volumes():
 
             # Prisma
             if escolha == "Prisma Base n":
-                clean()
+                Tools.clean()
                 volume_prisma(input("Quantidade de Lados da Base:"), input("Medida do Lado da Base:"), input("Altura do Prisma:"), True)
-                voltar()
+                Tools.voltar()
 
             # Cubo 
             elif escolha == "Cubo":
-                clean()
+                Tools.clean()
                 volume_cubo(input("Medida da Aresta do Cubo:"), True)
-                voltar()
+                Tools.voltar()
 
             # Paralelepípedo 
             elif escolha == "Paralelepípedo":
-                clean()
+                Tools.clean()
                 volume_paralelepipedo(input("Comprimento:"), input("Largura:"), input("Altura:"), True)
-                voltar()
+                Tools.voltar()
 
             # Esfera
             elif escolha == "Esfera":
-                clean()
+                Tools.clean()
                 volume_esfera(input("Raio:"), True)
-                voltar()
+                Tools.voltar()
 
             # Cilindro
             elif escolha == "Cilindro":
-                clean()
+                Tools.clean()
                 volume_cilindro(input("Raio da Base:"), input("Altura:"), True)
-                voltar()
+                Tools.voltar()
 
             # Cone
             elif escolha == "Cone":
-                clean()
+                Tools.clean()
                 volume_cone(input("Raio da Base:"), input("Altura:"), True)
-                voltar()
+                Tools.voltar()
 
             # Tronco do Cone
             elif escolha == "Tronco de Cone":
-                clean()
+                Tools.clean()
                 volume_tronco_cone(input("Raio Maior:"), input("Raio Menor:"), input("Altura:"), True)
-                voltar()
+                Tools.voltar()
             
             # Voltar
             elif escolha == "Voltar":
-                clean()
+                Tools.clean()
                 break
-            else:
-                acao_invalida()

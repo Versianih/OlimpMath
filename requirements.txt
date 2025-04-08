@@ -1,2 +1,3 @@
 sympy==1.13.3
 inquirerpy==0.3.4
+python-dotenv==1.0.1

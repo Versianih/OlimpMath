@@ -1,6 +1,6 @@
 from InquirerPy import prompt
-from functions.functions import(
-    voltar, acao_invalida, clean,
+from functions.tools import(
+    Tools,
     RESET, RED, YELLOW, GREEN,
 )
 from functions.trigF import(
@@ -18,12 +18,12 @@ from functions.trigF import(
     angulo_com_coh,
     angulo_com_cah,
 )
-import functions.functions
+import functions.tools
 
 
 def trig():
     while True:
-        clean()
+        Tools.clean()
         campos = [
             {
                 "type": "list",
@@ -48,15 +48,13 @@ def trig():
 
         # Voltar
         elif escolha == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def hipotenusa():
     while True:
-        clean()
+        Tools.clean()
         campos_hipotenusa = [
             {
                 "type": "list",
@@ -68,25 +66,23 @@ def hipotenusa():
         escolha_hipotenusa = escolha_hipotenusa.get(0)
 
         if escolha_hipotenusa == "Cateto Oposto":
-            clean()
-            hipotenusa_com_oposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            hipotenusa_com_oposto(input("Cateto Oposto:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
 
         elif escolha_hipotenusa == "Cateto Adjacente":
-            clean()
-            hipotenusa_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            hipotenusa_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
             
         elif escolha_hipotenusa == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def oposto():
     while True:
-        clean()
+        Tools.clean()
         campos_oposto = [
             {
                 "type": "list",
@@ -99,25 +95,23 @@ def oposto():
 
         
         if escolha_oposto == "Hipotenusa":
-            clean()
-            oposto_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            oposto_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
 
         elif escolha_oposto == "Cateto Adjacente":
-            clean()
-            oposto_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            oposto_com_adjacente(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
         
         elif escolha_oposto == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def adjacente():
     while True:
-        clean()
+        Tools.clean()
         campos_adjacente = [
             {
                 "type": "list",
@@ -130,26 +124,24 @@ def adjacente():
 
         
         if escolha_adjacente == "Hipotenusa":
-            clean()
-            adjacente_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            adjacente_com_hipotenusa(input("Hipotenusa:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
 
         elif escolha_adjacente == "Cateto Oposto":
-            clean()
-            adjacente_com_oposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.functions.entrada_angulo) + ":"), True)
-            voltar()
+            Tools.clean()
+            adjacente_com_oposto(input("Cateto Adjacente:"), input("Ângulo em " + str(functions.tools.entrada_angulo) + ":"), True)
+            Tools.voltar()
 
         # Voltar
         elif escolha_adjacente == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
 
 
 def angulo():
     while True:
-        clean()
+        Tools.clean()
         campos_angulo = [
             {
                 "type": "list",
@@ -161,23 +153,21 @@ def angulo():
         escolha_angulo = escolha_angulo.get(0)
 
         if escolha_angulo == "CO/CA":
-            clean()
+            Tools.clean()
             angulo_com_coca(input("Cateto Oposto:"), input("Cateto Adjacente:"), True)
-            voltar()
+            Tools.voltar()
 
         elif escolha_angulo == "CO/H":
-            clean()
+            Tools.clean()
             angulo_com_coh(input("Cateto Oposto:"), input("Hipotenusa:"), True)
-            voltar()
+            Tools.voltar()
 
         elif escolha_angulo == "CA/H":
-            clean()
+            Tools.clean()
             angulo_com_cah(input("Cateto Adjacente:"), input("Hipotenusa"), True)
-            voltar()
+            Tools.voltar()
         
         # Voltar
         elif escolha_angulo == "Voltar":
-            clean()
+            Tools.clean()
             break
-        else:
-            acao_invalida()
