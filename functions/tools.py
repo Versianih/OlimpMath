@@ -2,13 +2,6 @@ from InquirerPy import prompt
 import os, math
 from dotenv import load_dotenv
 
-# Settings
-
-casas_decimais = 2 
-saida_angulo = "graus"
-entrada_angulo = "graus"
-saida_pi = False
-
 pi = math.pi
 euler = math.e
 
@@ -70,7 +63,7 @@ class Tools:
             return None
 
 
-    def voltar(self):
+    def voltar():
         voltar = [
             {
                 "type": "list",
@@ -83,7 +76,7 @@ class Tools:
 
     def resultado(texto, resultado=None, aproximar=None):
         load_dotenv()
-        CASAS_DECIMAIS = os.getenv('casas_decimais')
+        CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS'))
         saida = []
         if resultado is not None:
             if isinstance(resultado, list) and aproximar is not None:

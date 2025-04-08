@@ -1,3 +1,5 @@
+import os
+from dotenv import load_dotenv
 # Telas
 from views.geoView.geoView import geometria
 from views.baseView import base
@@ -11,6 +13,10 @@ from InquirerPy import prompt
 
 
 def main():
+    load_dotenv('.env')
+    CASAS_DECIMAIS = os.getenv('CASAS_DECIMAIS', 2)
+    SAIDA_ANGULO = os.getenv('SAIDA_ANGULO', 'graus')
+    ENTRADA_ANGULO = os.getenv('ENTRADA_ANGULO', 'graus')
     Tools.max_digits(999999999)
     while True:
         Tools.clean()
@@ -42,7 +48,7 @@ def main():
             trig()
 
         elif escolha == "Configurações":
-            settings()
+            settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO)
 
         elif escolha == "Sair": 
             Tools.clean()
