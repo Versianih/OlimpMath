@@ -24,7 +24,7 @@ def main():
         campos = [
             {
                 "type": "list",
-                "message": "OLIMP - TELA INICIAL",
+                "message": "OlimpMath - TELA INICIAL",
                 "choices": ["Geometria", "Bases", "Álgebra", "Combinatória", "Trigonometria", "Configurações", "Sair"],
             }
         ]
