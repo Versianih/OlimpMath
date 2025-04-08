@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 ## 🚀 Uso
 
-Execute o script principal para iniciar a interface interativa:
+Com a venv ainda ativa, execute o script principal para iniciar a interface interativa:
 
 ```bash
 python main.py
