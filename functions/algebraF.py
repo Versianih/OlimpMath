@@ -33,7 +33,7 @@ class Algebra:
             a = Tools.calc_expression(a, float)
             b = Tools.calc_expression(b, float)
             
-            calculo = math.remainder(a,b)
+            calculo = a % b
             Tools.resultado("Resto:", calculo) if imprimir else None
             return calculo
 

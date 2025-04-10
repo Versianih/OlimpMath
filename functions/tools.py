@@ -66,7 +66,7 @@ class Tools:
 
     def resultado(texto, resultado=None, aproximar=False):
         load_dotenv()
-        CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS'))
+        CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS', 2))
         
         if resultado is None:
             print(f"{GREEN}{texto}{RESET}\n")
@@ -74,13 +74,13 @@ class Tools:
             
         if isinstance(resultado, list) and aproximar is not False:
             saida = [round(res, CASAS_DECIMAIS) for res in resultado]
-            print(f"{GREEN}{texto} {saida}{RESET}\n")
+            print(f"{GREEN}{texto} {saida}{RESET}")
         elif isinstance(resultado, list):
-            print(f"{GREEN}{texto} {resultado}{RESET}\n")
+            print(f"{GREEN}{texto} {resultado}{RESET}")
         else:
             if aproximar:
                 resultado = round(resultado, CASAS_DECIMAIS)
-            print(f"{GREEN}{texto} {resultado}{RESET}\n")
+            print(f"{GREEN}{texto} {resultado}{RESET}")
 
 
     def ERROR(mensagem):
