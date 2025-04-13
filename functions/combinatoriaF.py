@@ -4,6 +4,8 @@ from functions.tools import Tools, math, euler
 class Combinatoria:
 
     class Permutacao:
+
+        @staticmethod
         def permutacao_n_em_k(n,k, imprimir=False) -> int:
             if not Tools.trat_erro(int, [n, k]):
                 return None
@@ -15,7 +17,7 @@ class Combinatoria:
             Tools.resultado("Resultado:", calculo) if imprimir else None
             return calculo
 
-
+        @staticmethod
         def permutacao_circular(n, imprimir=False) -> int:
             if not Tools.trat_erro(int, [n]):
                 return None
@@ -26,7 +28,7 @@ class Combinatoria:
             Tools.resultado("Resultado:", calculo) if imprimir else None
             return calculo
 
-
+        @staticmethod
         def permutacao_caotica(n, imprimir=False) -> int:
             if not Tools.trat_erro(int, [n]):
                 return None
@@ -44,6 +46,8 @@ class Combinatoria:
 
 
     class Combinacao:
+
+        @staticmethod
         def combinacao(n, p, imprimir=False) -> int:
             if not Tools.trat_erro(int, [n, p]):
                 return None
@@ -59,7 +63,7 @@ class Combinatoria:
             else:
                 Tools.ERROR("N e P não podem ser negativos") if imprimir else None
 
-
+        @staticmethod
         def combinacao_completa(n, p, imprimir=False) -> int:
             if not Tools.trat_erro(int, [n, p]):
                 return None
@@ -74,7 +78,7 @@ class Combinatoria:
             else:
                 Tools.ERROR("N ou P não pode ser negativo") if imprimir else None
 
-
+    @staticmethod
     def fatorial(value, imprimir=False) -> int:
         if not Tools.trat_erro(int, [value]):
             return None

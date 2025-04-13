@@ -3,6 +3,8 @@ from functions.tools import Tools, math, pi
 class Geometria_Espacial:
 
     class Volume:
+
+        @staticmethod
         def volume_prisma(qntlados, lado, altura, imprimir=False) -> float:
             if not Tools.trat_erro(int, qntlados) and Tools.trat_erro(float, [lado, altura]):
                 return None
@@ -29,6 +31,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_cubo(lado, imprimir=False) -> float:
             if not Tools.trat_erro(float, [lado]):
                 return None
@@ -43,6 +46,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_paralelepipedo(a, b, h, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b, h]):
                 return None
@@ -59,6 +63,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_cilindro(raio, h, imprimir=False) -> float:
             if not Tools.trat_erro(float, [raio, h]):
                 return None
@@ -74,6 +79,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_esfera(raio, imprimir=False) -> float:
             if not Tools.trat_erro(float, [raio]):
                 return None
@@ -88,6 +94,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_cone(raio, h, imprimir=False) -> float:
             if not Tools.trat_erro(float, [raio, h]):
                 return None
@@ -103,6 +110,7 @@ class Geometria_Espacial:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
 
+        @staticmethod
         def volume_tronco_cone(R, r, h, imprimir=False) -> float:
             if not Tools.trat_erro(float, [R, r, h]):
                 return None

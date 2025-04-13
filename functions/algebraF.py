@@ -4,6 +4,8 @@ from functions.tools import Tools, math
 class Algebra:
 
     class Basico:
+
+        @staticmethod
         def radiciacao(a, indice, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a]) and Tools.trat_erro(int, [indice]):
                 return None
@@ -15,6 +17,7 @@ class Algebra:
             Tools.resultado("Raiz:", calculo, aproximar=True) if imprimir else None
             return calculo
 
+        @staticmethod
         def exponenciacao(a, expoente, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a]) and Tools.trat_erro(int, [expoente]):
                 return None
@@ -26,6 +29,7 @@ class Algebra:
             Tools.resultado("Resultado:", calculo, aproximar=True) if imprimir else None
             return calculo
 
+        @staticmethod
         def resto(a, b, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):    
                 return None
@@ -37,6 +41,7 @@ class Algebra:
             Tools.resultado("Resto:", calculo) if imprimir else None
             return calculo
 
+        @staticmethod
         def mdc(a,b, imprimir=False) -> int:
             if not Tools.trat_erro(int, [a, b]):
                 return None    
@@ -48,6 +53,7 @@ class Algebra:
             Tools.resultado("MDC:", calculo) if imprimir else None
             return calculo
 
+        @staticmethod
         def mmc(a, b, imprimir=False) -> int:
             if not Tools.trat_erro(int, [a, b]):    
                 return None
@@ -58,7 +64,7 @@ class Algebra:
             Tools.resultado("MMC:", calculo) if imprimir else None
             return calculo
 
-
+        @staticmethod
         def eh_primo(n, imprimir=False) -> bool:
             if not Tools.trat_erro(int, [n]):
                 return None
@@ -85,6 +91,7 @@ class Algebra:
             Tools.resultado(f"O número {n} é primo") if imprimir else None
             return True
 
+        @staticmethod
         def fatoracao(n, imprimir=False) -> list:
             if not Tools.trat_erro(int, [n]):
                 return None
@@ -106,6 +113,8 @@ class Algebra:
 
 
     class Polinomios:
+
+        @staticmethod
         def sistema_de_equacoes(equacoesStr, imprimir=False) -> list:
             if not equacoesStr:
                 Tools.ERROR("Erro: A lista de equações está vazia!")
@@ -131,6 +140,7 @@ class Algebra:
                     Tools.resultado(f"{variavel} = {valor}")
             return solucoes
 
+        @staticmethod
         def equacao_segundo_grau(a, b, c, imprimir=False) -> list:
             if not Tools.trat_erro(float, [a, b, c]):
                 return None
@@ -152,14 +162,16 @@ class Algebra:
                     cx1 = (-b + (delta**(1/2)))/(2*a)
                     cx2 = (-b - (delta**(1/2)))/(2*a)
 
-                    Tools.resultado("X1:", cx1, aproximar=True) if imprimir else None
-                    Tools.resultado("X2:", cx2, aproximar=True) if imprimir else None
+                    Tools.resultado("X1:", cx1, aproximar=False) if imprimir else None
+                    Tools.resultado("X2:", cx2, aproximar=False) if imprimir else None
                     return [cx1, cx2]
             else:
                 Tools.ERROR("'a' tem que ser diferente de 0") if imprimir else None
 
 
     class Progressoes:
+
+        @staticmethod
         def somatorio(n, k, expressao, imprimir=False) -> float:
             if not Tools.trat_erro(int, [n, k]):
                 return None
@@ -173,6 +185,7 @@ class Algebra:
             Tools.resultado("Resultado do Somatório:", somatorio, aproximar=True) if imprimir else None
             return somatorio
 
+        @staticmethod
         def produtorio(n, k, expressao, imprimir=False) -> float:
             if not Tools.trat_erro(int, [n, k]):
                 return None
@@ -186,6 +199,7 @@ class Algebra:
             Tools.resultado("Resultado do Produtório:", produtorio, aproximar=True) if imprimir else None
             return produtorio
 
+        @staticmethod
         def termo_geral_pa(a1, n, r, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a1, r]) and Tools.trat_erro(int, [n]):
                 return None
@@ -198,6 +212,7 @@ class Algebra:
             Tools.resultado(f"O termo na posição {n} da PA é:", calculo) if imprimir else None
             return calculo
 
+        @staticmethod
         def soma_pa(a1, an, n, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a1, an]) and Tools.trat_erro(int, [n]):
                 return None
@@ -209,7 +224,8 @@ class Algebra:
             calculo = ((a1 + an) * n)/2
             Tools.resultado(f"A soma dos primeiros {n} termos da PA é:", calculo) if imprimir else None
             return calculo
-            
+
+        @staticmethod
         def termo_geral_pg(a1, n, q, imprimir=False) -> float:
             if Tools.trat_erro(float, [a1, q]) and Tools.trat_erro(int, [n]):
                 return None
@@ -222,6 +238,7 @@ class Algebra:
             Tools.resultado(f"O termo na posição {n} da PG é:", calculo) if imprimir else None
             return calculo
 
+        @staticmethod
         def soma_pg(a1, q, n, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a1, q]) and Tools.trat_erro(int, [n]):
                 return None

@@ -2,6 +2,7 @@ from functions.tools import Tools
 
 class Geometria_Analitica:
 
+    @staticmethod
     def distancia_entre_pontos(xa, ya, xb, yb, imprimir=False) -> float:
         if not Tools.trat_erro(float, [xa, ya, xb, yb]):
             return None
@@ -18,6 +19,7 @@ class Geometria_Analitica:
         else:
             Tools.ERROR("Distância não pode ser negativa") if imprimir == True else None
 
+    @staticmethod
     def retangulos_em_uma_malha(n, m, imprimir=False) -> int: 
         if not Tools.trat_erro(int, [n, m]):
             return None

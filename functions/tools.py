@@ -15,13 +15,16 @@ GRENN_BACKGROUND = '\033[42m'
 RED_BACKGROUND = '\033[41m'
 
 class Tools:
+
+    @staticmethod
     def clean():
         os.system("cls" if os.name == "nt" else "clear")
 
-
+    @staticmethod
     def max_digits(lengh):
         return os.sys.set_int_max_str_digits(lengh)
 
+    @staticmethod
     def trat_erro(tipo, parametros):
         if tipo not in (float, int, str):
             Tools.ERROR(f"Erro: Tipo '{tipo}' não suportado.")
@@ -36,7 +39,7 @@ class Tools:
                 return False
         return True
 
-
+    @staticmethod
     def calc_expression(expressao, type=None):
         try:
             resposta = eval(expressao, {"__builtins__": {}})
@@ -52,7 +55,7 @@ class Tools:
             Tools.ERROR(f"Erro ao resolver a expressão '{expressao}': {e}")
             return None
 
-
+    @staticmethod
     def voltar():
         voltar = [
             {
@@ -63,7 +66,7 @@ class Tools:
         ]
         prompt(voltar)
 
-
+    @staticmethod
     def resultado(texto, resultado=None, aproximar=False):
         load_dotenv()
         CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS', 2))
@@ -82,7 +85,7 @@ class Tools:
                 resultado = round(resultado, CASAS_DECIMAIS)
             print(f"{GREEN}{texto} {resultado}{RESET}")
 
-
+    @staticmethod
     def ERROR(mensagem):
         print(RED + str("(ERROR) " + str(mensagem)) + RESET)
         print("")

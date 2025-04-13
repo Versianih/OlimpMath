@@ -4,6 +4,8 @@ import functions.tools
 class Trigonometria:
 
     class Hipotenusa:
+
+        @staticmethod
         def com_oposto(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -18,7 +20,7 @@ class Trigonometria:
             Tools.resultado("Hipotenusa:", hipotenusa, aproximar=True) if imprimir else None
             return hipotenusa
 
-
+        @staticmethod
         def com_adjacente(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -35,6 +37,8 @@ class Trigonometria:
 
 
     class Oposto:
+
+        @staticmethod
         def com_hipotenusa(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -49,7 +53,7 @@ class Trigonometria:
             Tools.resultado("Cateto Oposto:", oposto, aproximar=True) if imprimir else None
             return oposto
 
-
+        @staticmethod
         def com_adjacente(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -66,6 +70,8 @@ class Trigonometria:
 
 
     class Adjacente:
+
+        @staticmethod
         def com_hipotenusa(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -80,7 +86,7 @@ class Trigonometria:
             Tools.resultado("Cateto Adjacente:", adjacente, aproximar=True) if imprimir else None
             return adjacente
 
-
+        @staticmethod
         def com_oposto(a, b, ENTRADA_ANGULO, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -97,6 +103,8 @@ class Trigonometria:
 
 
     class Angulo:
+
+        @staticmethod
         def com_coca(a, b, SAIDA_ANGULO, imprimir=False) -> float: #a=CO b=CA
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -111,7 +119,7 @@ class Trigonometria:
             Tools.resultado("Ângulo em " + str(SAIDA_ANGULO) + ":", angulo, aproximar=True) if imprimir else None
             return angulo
 
-
+        @staticmethod
         def com_coh(a, b, SAIDA_ANGULO, imprimir=False) -> float: #a=CO b=H
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -126,7 +134,7 @@ class Trigonometria:
             Tools.resultado("Ângulo em " + str(SAIDA_ANGULO) + ":", angulo, aproximar=True) if imprimir else None
             return angulo
 
-
+        @staticmethod
         def com_cah(a, b, SAIDA_ANGULO, imprimir=False) -> float: #a=CA b=H
             if not Tools.trat_erro(float, [a, b]):
                 return None

@@ -3,7 +3,9 @@ from functions.tools import Tools, math, pi
 
 class Geometria_Plana:
 
-    class Area:            
+    class Area:
+
+        @staticmethod       
         def area_poligono_regular(qntLados, lado, imprimir=False) -> float:
             if not (Tools.trat_erro(int, [qntLados]) and Tools.trat_erro(float, [lado])):
                 return None
@@ -29,6 +31,7 @@ class Geometria_Plana:
             Tools.resultado("Área:", area, aproximar=True) if imprimir else None
             return area
 
+        @staticmethod
         def area_circulo(raio, imprimir=False) -> float:
             if not Tools.trat_erro(float, [raio]): 
                 return None
@@ -43,6 +46,7 @@ class Geometria_Plana:
             Tools.resultado("Área:", area, aproximar=True) if imprimir else None
             return area
 
+        @staticmethod
         def area_quadrado(lado, imprimir=False) -> float:
             if not Tools.trat_erro(float, [lado]):
                 return None
@@ -57,6 +61,7 @@ class Geometria_Plana:
             Tools.resultado("Área:", area, aproximar=True) if imprimir else None
             return area
 
+        @staticmethod
         def area_triangulo(base, altura, imprimir=False) -> float:
             if not Tools.trat_erro(float, [base, altura]):
                 return None
@@ -72,6 +77,7 @@ class Geometria_Plana:
             Tools.resultado("Área:", area, aproximar=True) if imprimir else None
             return area
 
+        @staticmethod
         def area_triangulo_heron(a, b, c, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b, c]):
                 return None
@@ -90,6 +96,7 @@ class Geometria_Plana:
             Tools.resultado("Área:", area, aproximar=True) if imprimir else None
             return area
 
+        @staticmethod
         def area_trapezio(BASE, base, altura, imprimir=False) -> float:
             if not Tools.trat_erro(float, [BASE, base, altura]):
                 return None
@@ -109,6 +116,8 @@ class Geometria_Plana:
 
 
     class Pitagoras:
+
+        @staticmethod
         def pitagoras_hipotenusa(a, b, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, b]):
                 return None
@@ -121,6 +130,7 @@ class Geometria_Plana:
             Tools.resultado("A medida da Hipotenusa é:", hipotenusa, aproximar=True) if imprimir else None
             return hipotenusa
 
+        @staticmethod
         def pitagoras_cateto(a, h, imprimir=False) -> float:
             if not Tools.trat_erro(float, [a, h]):
                 return None
@@ -140,6 +150,8 @@ class Geometria_Plana:
 
 
     class Poligonos:
+
+        @staticmethod
         def formacao_triangulo(a, b, c, imprimir=False) -> bool:
             if not Tools.trat_erro(float, [a, b, c]):
                 return None
