@@ -4,7 +4,7 @@ from functions.tools import(
     RESET, YELLOW, GREEN,
 )
 
-from functions.algebraF import Algebra
+from functions.algebra import Algebra
 
 def algebra():
     while True:

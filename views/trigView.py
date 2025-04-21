@@ -3,7 +3,7 @@ from functions.tools import(
     Tools,
     RESET, RED, YELLOW, GREEN,
 )
-from functions.trigF import Trigonometria
+from functions.trig import Trigonometria
 
 
 def trig(ENTRADA_ANGULO, SAIDA_ANGULO):

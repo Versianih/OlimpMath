@@ -25,7 +25,7 @@ class Tools:
         return os.sys.set_int_max_str_digits(lengh)
 
     @staticmethod
-    def trat_erro(tipo, parametros):
+    def trat_erro(tipo:type, parametros:list) -> bool:
         if tipo not in (float, int, str):
             Tools.ERROR(f"Erro: Tipo '{tipo}' não suportado.")
             return False
@@ -53,7 +53,7 @@ class Tools:
                 return None
         except Exception as e:
             Tools.ERROR(f"Erro ao resolver a expressão '{expressao}': {e}")
-            return None
+            return False
 
     @staticmethod
     def voltar():
@@ -67,12 +67,12 @@ class Tools:
         prompt(voltar)
 
     @staticmethod
-    def resultado(texto, resultado=None, aproximar=False):
+    def resultado(texto:str, resultado:int|float=None, aproximar:bool=False) -> None:
         load_dotenv()
         CASAS_DECIMAIS = int(os.getenv('CASAS_DECIMAIS', 2))
         
         if resultado is None:
-            print(f"{GREEN}{texto}{RESET}\n")
+            print(f"{GREEN}{texto}{RESET}")
             return
             
         if isinstance(resultado, list) and aproximar is not False:
@@ -86,6 +86,5 @@ class Tools:
             print(f"{GREEN}{texto} {resultado}{RESET}")
 
     @staticmethod
-    def ERROR(mensagem):
-        print(RED + str("(ERROR) " + str(mensagem)) + RESET)
-        print("")
+    def ERROR(mensagem:str = ""):
+        print(f"{RED}(ERROR) {mensagem}{RESET}")

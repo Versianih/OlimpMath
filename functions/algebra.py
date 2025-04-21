@@ -1,4 +1,4 @@
-from sympy import symbols, Eq, solve, sympify
+from sympy import symbols, Eq, solve, sympify, SympifyError
 from functions.tools import Tools, math
 
 class Algebra:
@@ -115,30 +115,60 @@ class Algebra:
     class Polinomios:
 
         @staticmethod
-        def sistema_de_equacoes(equacoesStr, imprimir=False) -> list:
-            if not equacoesStr:
-                Tools.ERROR("Erro: A lista de equações está vazia!")
-                return
+        def sistema_de_equacoes(equacoesStr:list, imprimir:bool = False) -> list:
+            if not isinstance(equacoesStr, list) or not equacoesStr:
+                Tools.ERROR("Erro: A lista de equações está vazia ou inválida!") if imprimir else None
+                return None
+                
             equacoes = []
+
             for eq in equacoesStr:
+                if not isinstance(eq, str) or '=' not in eq:
+                    Tools.ERROR(f"Erro: Formato inválido para equação: '{eq}'") if imprimir else None
+                    return None
+                    
                 try:
-                    eq_simbolica = Eq(sympify(eq.split('=')[0]), sympify(eq.split('=')[1]))
+                    partes = eq.split('=', 1)
+                    eq_simbolica = Eq(sympify(partes[0].strip()), sympify(partes[1].strip()))
                     equacoes.append(eq_simbolica)
                 except Exception as e:
-                    Tools.ERROR(f"Erro ao processar a equação: {eq}. Erro: {str(e)}")
-                    return
-            variaveis = sorted({str(simbolo) for eq in equacoes for simbolo in eq.free_symbols})    
-            variaveis = symbols(variaveis)
+                    Tools.ERROR(f"Erro ao processar a equação '{eq}': {str(e)}") if imprimir else None
+                    return None
+
             try:
-                solucoes = solve(equacoes, variaveis)
-            except Exception as e:
-                Tools.ERROR(f"Erro ao resolver o sistema: {str(e)}")
-                return
+                variaveis = sorted(list({simbolo for eq in equacoes for simbolo in eq.free_symbols}), 
+                                key=lambda x: str(x))
                 
-            if imprimir:
-                for variavel, valor in solucoes.items():
-                    Tools.resultado(f"{variavel} = {valor}")
-            return solucoes
+                if not variaveis:
+                    Tools.ERROR("Não foram encontradas variáveis nas equações!") if imprimir else None
+                    return None
+
+                solucoes = solve(equacoes, variaveis, dict=True)
+                
+                if not solucoes:
+                    Tools.ERROR("Não foram encontradas soluções para o sistema.") if imprimir else None
+                    return None
+
+                if not isinstance(solucoes, list):
+                    solucoes = [solucoes]
+
+                if imprimir:
+                    for i, sol in enumerate(solucoes):
+                        if i == 0:
+                            Tools.resultado(f"Solução:")
+                        else:
+                            Tools.resultado(f"Solução alternativa {i}:")
+                        for variavel, valor in sol.items():
+                            try:
+                                Tools.resultado(f"{variavel} =", valor, aproximar=True)
+                            except:
+                                Tools.resultado(f"{variavel} = {valor}")
+                        
+                return solucoes
+                
+            except Exception as e:
+                Tools.ERROR(f"Erro ao resolver o sistema: {str(e)}") if imprimir else None
+                return None
 
         @staticmethod
         def equacao_segundo_grau(a, b, c, imprimir=False) -> list:
