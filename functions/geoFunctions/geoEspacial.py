@@ -1,4 +1,6 @@
-from functions.tools import Tools, math, pi
+import os
+from functions.tools import Tools, math
+from sympy import simplify, nsimplify, pi
 
 class Geometria_Espacial:
 
@@ -71,13 +73,21 @@ class Geometria_Espacial:
             raio = Tools.calc_expression(raio, float)
             h = Tools.calc_expression(h, float)
             
-            calculo = (pi * (raio**2)) * h
-            if calculo >= 0:
-                Tools.resultado("Volume:", calculo, True) if imprimir else None
-                return calculo
-            else:
+            if raio < 0 or h < 0:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
+
+            if os.getenv("SAIDA_PI") == 'True':
+                raio = nsimplify(raio)
+                h = nsimplify(h)
+                calculo = pi * (raio**2) * h
+                calculo = simplify(calculo)
+                calculo = str(calculo).replace('*pi', 'π').replace('pi', 'π')
+            else:
+                calculo = math.pi * (raio**2) * h
+
+            Tools.resultado("Volume:", calculo, aproximar=True if os.getenv("SAIDA_PI") == 'False' else False) if imprimir else None
+            return calculo
 
         @staticmethod
         def volume_esfera(raio, imprimir=False) -> float:
@@ -86,13 +96,20 @@ class Geometria_Espacial:
             
             raio = Tools.calc_expression(raio, float)
             
-            calculo = (4/3) * pi * raio**3
-            if calculo >= 0:    
-                Tools.resultado("Volume:", calculo, aproximar=True) if imprimir else None
-                return calculo
-            else:
+            if raio < 0:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
+            
+            if os.getenv("SAIDA_PI") == 'True':
+                raio = nsimplify(raio)
+                calculo = (4 * pi * raio**3) / 3
+                calculo = simplify(calculo)
+                calculo = str(calculo).replace('*pi', 'π').replace('pi', 'π')
+            else:
+                calculo = (4/3) * math.pi * raio**3
+
+            Tools.resultado("Volume:", calculo, aproximar=True if os.getenv("SAIDA_PI") == 'False' else False) if imprimir else None
+            return calculo
 
         @staticmethod
         def volume_cone(raio, h, imprimir=False) -> float:
@@ -102,13 +119,21 @@ class Geometria_Espacial:
             raio = Tools.calc_expression(raio, float)
             h = Tools.calc_expression(h, float)
             
-            calculo = (pi * (raio**2) * h) / 3
-            if calculo >= 0:
-                Tools.resultado("Volume:", calculo, aproximar=True) if imprimir else None
-                return calculo
-            else:
+            if raio < 0 or h < 0:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
+
+            if os.getenv("SAIDA_PI") == 'True':
+                raio = nsimplify(raio)
+                h = nsimplify(h)
+                calculo = (pi * (raio**2) * h) / 3
+                calculo = simplify(calculo)
+                calculo = str(calculo).replace('*pi', 'π').replace('pi', 'π')
+            else:
+                calculo = (math.pi * (raio**2) * h) / 3
+
+            Tools.resultado("Volume:", calculo, aproximar=True if os.getenv("SAIDA_PI") == 'False' else False) if imprimir else None
+            return calculo
 
         @staticmethod
         def volume_tronco_cone(R, r, h, imprimir=False) -> float:
@@ -119,10 +144,19 @@ class Geometria_Espacial:
             r = Tools.calc_expression(r, float)
             h = Tools.calc_expression(h, float)
             
-            calculo = (pi * h * ((R**2) + (r**2) + (R*r))) / 3
-            if calculo >= 0:    
-                Tools.resultado("Volume:", calculo, aproximar=True) if imprimir else None
-                return calculo
-            else:
+            if R < 0 or r < 0 or h < 0:
                 Tools.ERROR("Volume não pode ser negativo") if imprimir else None
                 return None
+
+            if os.getenv("SAIDA_PI") == 'True':
+                R = nsimplify(R)
+                r = nsimplify(r)
+                h = nsimplify(h)
+                calculo = (pi * h * ((R**2) + (r**2) + (R*r))) / 3
+                calculo = simplify(calculo)
+                calculo = str(calculo).replace('*pi', 'π').replace('pi', 'π')
+            else:
+                calculo = (math.pi * h * ((R**2) + (r**2) + (R*r))) / 3
+
+            Tools.resultado("Volume:", calculo, aproximar=True if os.getenv("SAIDA_PI") == 'False' else False) if imprimir else None
+            return calculo

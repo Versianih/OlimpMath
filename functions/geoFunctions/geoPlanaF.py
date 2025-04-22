@@ -1,5 +1,6 @@
-from functions.tools import Tools, math, pi
-
+import os
+from functions.tools import Tools, math
+from sympy import nsimplify, simplify, pi
 
 class Geometria_Plana:
 
@@ -35,15 +36,21 @@ class Geometria_Plana:
         def area_circulo(raio, imprimir=False) -> float:
             if not Tools.trat_erro(float, [raio]): 
                 return None
-                
+
             raio = Tools.calc_expression(raio, float)
-            area = raio**2 * pi
-            
-            if area < 0:
-                Tools.ERROR("Área não pode ser negativa") if imprimir else None
+            if raio < 0:
+                Tools.ERROR("O raio não pode ser negativo") if imprimir else None
                 return None
+            
+            if os.getenv("SAIDA_PI") == 'True':
+                raio = nsimplify(raio)
+                area = pi * raio**2
+                area = simplify(area)
+                area = str(area).replace('*pi', 'π').replace('pi', 'π')
+            else:
+                area = raio**2 * math.pi
                 
-            Tools.resultado("Área:", area, aproximar=True) if imprimir else None
+            Tools.resultado("Área:", area, aproximar=True if os.getenv("SAIDA_PI") == 'False' else False) if imprimir else None
             return area
 
         @staticmethod

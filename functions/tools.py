@@ -1,8 +1,8 @@
 from InquirerPy import prompt
 import os, math
 from dotenv import load_dotenv
+from sympy import symbols
 
-pi = math.pi
 euler = math.e
 
 RESET = '\033[0m'
@@ -40,7 +40,7 @@ class Tools:
         return True
 
     @staticmethod
-    def calc_expression(expressao, type=None):
+    def calc_expression(expressao, type:type=None):
         try:
             resposta = eval(expressao, {"__builtins__": {}})
             

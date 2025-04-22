@@ -17,6 +17,7 @@ def main():
     CASAS_DECIMAIS = os.getenv('CASAS_DECIMAIS', 2)
     SAIDA_ANGULO = os.getenv('SAIDA_ANGULO', 'graus')
     ENTRADA_ANGULO = os.getenv('ENTRADA_ANGULO', 'graus')
+    SAIDA_PI = os.getenv('SAIDA_PI', 'True')
     Tools.max_digits(999999999)
     while True:
         Tools.clean()
@@ -48,7 +49,7 @@ def main():
             trig(ENTRADA_ANGULO, SAIDA_ANGULO)
 
         elif escolha == "Configurações":
-            settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO)
+            settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO, SAIDA_PI)
 
         elif escolha == "Sair": 
             Tools.clean()

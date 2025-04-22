@@ -6,7 +6,7 @@ from functions.tools import(
 )
 from dotenv import load_dotenv, set_key
 
-def settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO):
+def settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO, SAIDA_PI):
     while True:
         Tools.clean()
         campos = [
@@ -17,6 +17,7 @@ def settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO):
                             f"Saída de Casas Decimais: {str(CASAS_DECIMAIS)} casas decimais", 
                             f"Saída - Unidade de Medida de Ângulos: {str(SAIDA_ANGULO)}", 
                             f"Entrada - Unidade de Medida de Ângulos: {str(ENTRADA_ANGULO)}",
+                            f"Saída simbólica de π: {str(SAIDA_PI)}",
                             "",
                             "Salvar Configurações(Essa ação salva as configurações e sai do programa)"
                             ],
@@ -77,6 +78,11 @@ def settings(CASAS_DECIMAIS, SAIDA_ANGULO, ENTRADA_ANGULO):
             else:
                 Tools.clean()
                 pass
+
+        elif escolha == f"Saída simbólica de π: {str(SAIDA_PI)}":
+            set_key('.env', 'SAIDA_PI', "True" if SAIDA_PI == "False" else "False")
+            SAIDA_PI = "True" if SAIDA_PI == "False" else "False"
+            pass
 
 
         elif escolha == "Salvar Configurações(Essa ação salva as configurações e sai do programa)":
